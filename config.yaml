@@ -21,7 +21,7 @@ carpentry_description: 'Lesson Description'
 title: 'Developing Research Software with AI Tools'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: 2026-13-01
+created: 2026-01-13
 
 # Comma-separated list of keywords for the lesson
 keywords: 'ai, visual studio code, vscode, copilot, llm, software'
@@ -66,7 +66,10 @@ contact: 'sc16@soton.ac.uk'
 
 # Order of episodes in your lesson
 episodes: 
-- introduction.md
+- 01-intro-ai-ide-tools.md
+- 02-intro-vscode copy.md
+- 03-use-copilot-improve-code.md
+- 04-use-different-models.md
 
 # Information for Learners
 learners: 
