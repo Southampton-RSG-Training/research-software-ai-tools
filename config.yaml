@@ -18,17 +18,17 @@ carpentry: 'incubator'
 carpentry_description: 'Lesson Description'
 
 # Overall title for pages.
-title: 'Lesson Title' # FIXME
+title: 'Developing Research Software with AI Tools'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: ~ # FIXME
+created: 2026-01-13
 
 # Comma-separated list of keywords for the lesson
-keywords: 'software, data, lesson, The Carpentries' # FIXME
+keywords: 'ai, visual studio code, vscode, copilot, llm, software'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
-life_cycle: 'pre-alpha' # FIXME
+life_cycle: 'pre-alpha'
 
 # License of the lesson
 license: 'CC-BY 4.0'
@@ -40,7 +40,7 @@ source: 'https://github.com/carpentries/workbench-template-md' # FIXME
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'team@carpentries.org' # FIXME
+contact: 'sc16@soton.ac.uk'
 
 # Navigation ------------------------------------------------
 #
@@ -66,7 +66,11 @@ contact: 'team@carpentries.org' # FIXME
 
 # Order of episodes in your lesson
 episodes: 
-- introduction.md
+- 01-intro-ai-ide-tools.md
+- 02-intro-vscode.md
+- 03-getting-started.md
+- 04-use-copilot-improve-code.md
+- 05-use-different-models.md
 
 # Information for Learners
 learners: 
