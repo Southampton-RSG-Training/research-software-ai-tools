@@ -67,9 +67,10 @@ contact: 'sc16@soton.ac.uk'
 # Order of episodes in your lesson
 episodes: 
 - 01-intro-ai-ide-tools.md
-- 02-intro-vscode copy.md
-- 03-use-copilot-improve-code.md
-- 04-use-different-models.md
+- 02-intro-vscode.md
+- 03-getting-started.md
+- 04-use-copilot-improve-code.md
+- 05-use-different-models.md
 
 # Information for Learners
 learners: 
