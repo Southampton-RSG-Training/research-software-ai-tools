@@ -2,6 +2,15 @@
 title: Setup
 ---
 
+## Skills Prerequisites
+
+The following are necessary to be able to participate in this course:
+
+- You have a basic knowledge of programming in Python (using variables, lists, conditional statements, functions and importing external libraries)
+- You have previously written Python scripts or iPython/Jupyter notebooks to accomplish tasks in your domain of work
+
+It is also helpful but not necessary to have some basic knowledge of Git version control (cloning repositories, making commits, pushing to a remote repository).
+
 ## Software Setup
 
 To participate in this course you will need the following installed on your machine:
