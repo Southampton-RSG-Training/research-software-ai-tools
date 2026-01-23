@@ -418,7 +418,7 @@ development</li>
 </div>
 </div></section><section id="aio-02-intro-vscode"><p>Content from <a href="02-intro-vscode.html">Introduction to Microsoft Visual Studio Code</a></p>
 <hr>
-<p>Last updated on 2026-01-13 |
+<p>Last updated on 2026-01-23 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-intro-vscode.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 45 minutes</p>
@@ -666,7 +666,7 @@ left to indicate it’s working.</p>
   Checkpoint: who’s successfully managed to install the Python extension?
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 
 </div>
@@ -702,7 +702,7 @@ configured.</p>
   Checkpoint: who’s configured the Python extension?
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 
 </div>
@@ -759,7 +759,7 @@ popup appears.</p>
   Checkpoint: who’s been able to download the code and open it within VSCode?
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
 <div class="accordion-body">
 
 </div>
@@ -781,6 +781,11 @@ files and directories. So within this workspace, you’ll see the
 following:</p>
 <p>FIXME: list of files in file explorer</p>
 </div>
+</section><section><h2 class="section-heading" id="tour-of-vscode-interface">Tour of VSCode Interface<a class="anchor" aria-label="anchor" href="#tour-of-vscode-interface"></a>
+</h2>
+<hr class="half-width">
+<p>FIXME: add screenshots and descriptions of VSCode interface,
+including the status bar</p>
 </section><section><h2 class="section-heading" id="using-vscode">Using VSCode<a class="anchor" aria-label="anchor" href="#using-vscode"></a>
 </h2>
 <hr class="half-width">
@@ -935,7 +940,7 @@ steve@laptop:~/code-style-example$ </code></pre>
   Checkpoint: who’s run their Python progran and seen some output in a pop-up window?
   </h3>
 </button>
-<div id="collapseInstructor4" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor4" aria-labelledby="headingInstructor4">
+<div id="collapseInstructor4" class="accordion-collapse collapse" aria-labelledby="headingInstructor4" data-bs-parent="#accordionInstructor4">
 <div class="accordion-body">
 
 </div>
@@ -976,7 +981,7 @@ simultaneously</li>
   Checkpoint: if you’re using Conda and encountered this error, did it fix it?
   </h3>
 </button>
-<div id="collapseInstructor5" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor5" aria-labelledby="headingInstructor5">
+<div id="collapseInstructor5" class="accordion-collapse collapse" aria-labelledby="headingInstructor5" data-bs-parent="#accordionInstructor5">
 <div class="accordion-body">
 
 </div>
@@ -1034,7 +1039,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-getting-started"><p>Content from <a href="03-getting-started.html">Getting Started with using Copilot within VSCode</a></p>
 <hr>
-<p>Last updated on 2026-01-13 |
+<p>Last updated on 2026-01-23 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-getting-started.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -1062,12 +1067,12 @@ project?</li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Install Visual Studio Code extension for Copilot</li>
-<li>Personalise Copilot suggestions to match project technologies and
-coding standards</li>
+<li>Install and configure Visual Studio Code extension for Copilot</li>
 <li>Obtain answers to questions about how existing code works using
 Copilot’s natural language chat</li>
 <li>Obtain suggestions on how to improve a codebase from Copilot</li>
+<li>Personalise Copilot suggestions to match project technologies and
+coding standards</li>
 <li>Determine Copilot usage within the free tier</li>
 </ul>
 </div>
@@ -1075,6 +1080,208 @@ Copilot’s natural language chat</li>
 </div>
 </div>
 </div>
+<p>In this episode we’ll look at installing and setting up Copilot
+within Visual Studio Code, so we can use it with our example project,
+and explore some basic features along the way.</p>
+<section><h2 class="section-heading" id="install-vscode-copilot-extension">Install VSCode Copilot Extension<a class="anchor" aria-label="anchor" href="#install-vscode-copilot-extension"></a>
+</h2>
+<hr class="half-width">
+<p>Extensions are a major strength of VSCode. Whilst VSCode appears
+quite lightweight, and presents a simple interface (particularly
+compared to many other IDEs!), this is quite deceptive. You can extend
+its functionality in many different ways. For example, installing
+support for other languages, greater support for version control,
+there’s even support for working with databases, and so on. There are
+literally tens of thousands of possible extensions now.</p>
+<p>You may remember when you opened VSCode for this project there was a
+“Build with Agent” panel on the right. This is the main chat interface
+to Copilot. But in order to use it (and other Copilot features) we need
+to install an extension first:</p>
+<ol style="list-style-type: decimal">
+<li>Firstly, select the extensions icon, then type in “Copilot” into the
+search box at the top, and it’ll give you a list of all Copilot-related
+extensions.</li>
+<li>Select the one which says <code>GitHub Copilot</code> from
+Microsoft, which is the Microsoft official Copilot extension. You may
+also see the <code>GitHub Copilot Chat</code> extension, which will be
+automatically installed along with this one.</li>
+<li>Select <code>Install</code>. It might take a minute - you can see a
+sliding blue line in the top left to indicate it’s working.</li>
+<li>You’ll be presented with a “Welcome” page for the extension which
+covers the main features. Select <code>Mark Done</code>.</li>
+</ol>
+<p>Now we have the extension installed, but we need to associate it with
+our GitHub account by signing in:</p>
+<ol style="list-style-type: decimal">
+<li>Select the <code>Signed out</code> button in the bottom right of the
+VSCode status bar, and <code>Sign in to use AI Features</code>.</li>
+<li>Select <code>Continue with GitHub</code>.</li>
+<li>You’ll be redirected to a GitHub login web page to authorise Visual
+Studio Code for GitHub. Select the GitHub account you wish to use and
+select <code>Continue</code>.</li>
+<li>Peruse and select <code>Authorize Visual-Studio-Code</code>.</li>
+<li>You may need to further authenticate with GitHub authorise this
+action.</li>
+<li>If a pop-up appears in your browser to open a link within VSCode,
+select <code>Open Link</code>.</li>
+</ol>
+<p>Once completed, you’ll now be able to use GitHub Copilot within
+VSCode.</p>
+</section><section><h2 class="section-heading" id="asking-questions-about-your-code">Asking Questions about Your Code<a class="anchor" aria-label="anchor" href="#asking-questions-about-your-code"></a>
+</h2>
+<hr class="half-width">
+<p>Attempting to understand a new codebase, whether it’s your first week
+on a project or one you have inherited from another source, can be
+difficult. This can be due to many reasons; documentation may be
+incomplete, architectural decisions may be undocumented, and the people
+who know the system may be unavailable or have left the
+organisation.</p>
+<p>We can use Copilot to build our understand and confidence about our
+codebase by asking natural-language questions about the code. It helps
+you:</p>
+<ul>
+<li>Build a high-level mental model of the system, which with complex
+codebases is often a huge task!</li>
+<li>Identify where key functionality is located in the code</li>
+<li>Understand naming conventions, patterns, and dependencies</li>
+<li>Reduce the cognitive load of first contact with unfamiliar code</li>
+</ul>
+<p>Which sounds great, but with one critical caveat: it’s important to
+understand that Copilot is not an absolute source of truth, but more of
+a guide to help build your own understanding of a codebase.</p>
+<p>Let’s use Copilot to help us investigate how our existing codebase
+works.</p>
+<div class="section level3">
+<h3 id="using-copilot-for-the-first-time">Using Copilot for the First Time<a class="anchor" aria-label="anchor" href="#using-copilot-for-the-first-time"></a>
+</h3>
+<p>Let’s move over to using the VSCode pane on the right, labeled
+<code>Build with Agent</code>. You’ll notice at the bottom there’s a
+“chat” box, with a number of selectable dropdown options below it. You
+can hover over each one to discover what it is.</p>
+<p>On the left, there’s <code>Set Agent</code>, which allows you to set
+the mode of operation with Copilot. Each of these modes provides an
+increasing degree of autonomy for Copilot to interact with your
+code:</p>
+<ul>
+<li>
+<code>Ask</code> - designed for learning and orienting yourself with
+existing code without changing it.</li>
+<li>
+<code>Edit</code> - proposes concrete code changes for your approval
+based on your instructions. It’s useful when you already understand a
+codebase that you want to change.</li>
+<li>
+<code>Agent</code> - the most powerful mode, which lets you specify
+a high-level prompt to allow Copilot at a high level of autonomy to plan
+changes in steps, select files, and run tools or terminal commands,
+iterating on code edits until it is complete.</li>
+</ul>
+<p>Since we want to ask questions regarding our codebase, let’s set the
+mode to <code>Ask</code>.</p>
+<p>The next dropdown is the AI language model being used. By default,
+this is set to <code>Auto</code> so that Copilot will decide the model.
+However, for consistency in this training, let’s select the entry for
+<code>Claude Haiki 4.5</code>.</p>
+<p>Let’s now ask the very high level question:
+<code>What does this code do?</code>, and press enter. You’ll likely be
+asked whether you want to enable Claude Haiku 4.5 for all clients -
+select <code>Enable</code> when prompted.</p>
+<p>You’ll find the response looks something like the following:</p>
+<pre><code>This code generates visualization plots for inflammation data:
+
+1. Loads data files: Uses glob to find all CSV files matching the pattern inflammation-*.csv in the ../data/ directory, sorts them, and limits processing to the first 3 files.
+
+2. Processes each file: For each CSV file, it:
+   - Loads the data as a NumPy array using comma delimiters
+   - Creates a figure with 3 subplots arranged horizontally
+
+3. Generates three plots showing statistical summaries across patients (rows):
+   - Left plot: Average inflammation values per day
+   - Middle plot: Maximum inflammation values per day
+   - Right plot: Minimum inflammation values per day
+
+4. Saves output: Each figure is saved as a PNG file with the same name as the input CSV file plus .png extension.</code></pre>
+<div id="why-arent-i-seeing-the-same-response" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="why-arent-i-seeing-the-same-response" class="callout-inner">
+<h3 class="callout-title">Why Aren’t I Seeing the Same Response?</h3>
+<div class="callout-content">
+<p>You’ll likely find it’s not exactly the same. Due to the ways in
+which LLMs process requests, based on an iterative probabilistic model,
+responses based on the same question will show differences. This effect
+is often visibly compounded over time, as the probabilistic outcome of a
+response generates an increasingly different result.</p>
+</div>
+</div>
+</div>
+<div id="what-do-i-need-to-know" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="what-do-i-need-to-know" class="callout-inner">
+<h3 class="callout-title">What do I Need to Know?</h3>
+<div class="callout-content">
+<p>Ask the following questions about the code:</p>
+<ol style="list-style-type: decimal">
+<li>What are the main packages used?</li>
+<li>How is Matplotlib used to generate the plots?</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<ol style="list-style-type: decimal">
+<li>Describe the main packages used? e.g.</li>
+</ol>
+<pre><code>1. glob: Built-in Python module for file pattern matching
+   - glob.glob() finds all files matching a wildcard pattern (inflammation-*.csv)
+   - Useful for batch processing multiple files with consistent naming
+
+2. numpy: Numerical computing library
+   - np.loadtxt() loads CSV data into a NumPy array
+   - data.mean(axis=0), data.max(axis=0), data.min(axis=0) compute statistics across patients (rows) for each day (columns)
+
+3. matplotlib.pyplot: Plotting library for creating visualizations
+   - plt.figure() creates a new figure window
+   - fig.add_subplot() adds subplots to the figure
+   - axes.set_ylabel() and axes.plot() configure and draw the plots
+   - fig.tight_layout() optimizes spacing
+   - fig.savefig() exports the figure as an image file
+
+These three packages work together: glob finds the files, numpy processes the data, and matplotlib visualizes the results.</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>How is Matplotlib used to generate the plots? e.g.</li>
+</ol>
+<pre><code>This script uses Matplotlib to create and save visualization plots:
+
+1. Create a figure: plt.figure(figsize=(10.0, 3.0)) creates a new figure with dimensions 10 inches wide by 3 inches tall.
+
+2. Add subplots: fig.add_subplot(1, 3, n) creates a grid of 1 row and 3 columns, with n specifying which subplot (1, 2, or 3):
+   - axes1, axes2, axes3 are the three subplot axes objects
+
+3. Label and plot data:
+   - axes.set_ylabel() adds a label to the y-axis
+   - axes.plot() draws a line plot of the data on that subplot
+   - Each subplot shows a different calculation: mean(), max(), and min()
+
+4. Layout adjustment: fig.tight_layout() automatically adjusts spacing between subplots to prevent overlap.
+
+5. Save output: fig.savefig() saves the entire figure as a PNG image file.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>FIXME: overlapping information, extract what’s useful</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1087,7 +1294,13 @@ Copilot’s natural language chat</li>
 </ul>
 </div>
 </div>
-</div></section><section id="aio-04-use-copilot-improve-code"><p>Content from <a href="04-use-copilot-improve-code.html">How to use Copilot to Improve an Existing Codebase</a></p>
+</div>
+<!--
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use.
+ -->
+</div>
+</section></section><section id="aio-04-use-copilot-improve-code"><p>Content from <a href="04-use-copilot-improve-code.html">How to use Copilot to Improve an Existing Codebase</a></p>
 <hr>
 <p>Last updated on 2026-01-13 |
 
@@ -1231,7 +1444,7 @@ providers</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.3" class="external-link">sandpaper (0.18.3)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.18.4" class="external-link">sandpaper (0.18.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.9" class="external-link">varnish (1.0.9)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -1254,8 +1467,8 @@ providers</li>
   "url": "https://carpentries.github.io/workbench-template-md/instructor/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/instructor/aio.html",
   "dateCreated": "2026-01-13",
-  "dateModified": "2026-01-20",
-  "datePublished": "2026-01-20"
+  "dateModified": "2026-01-23",
+  "datePublished": "2026-01-23"
 }
 
   </script><script>
