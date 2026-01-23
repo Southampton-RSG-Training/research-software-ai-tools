@@ -209,6 +209,9 @@ So within this workspace, you'll see the following:
 
 FIXME: list of files in file explorer
 
+## Tour of VSCode Interface
+
+FIXME: add screenshots and descriptions of VSCode interface, including the status bar
 
 ## Using VSCode
 
