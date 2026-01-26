@@ -109,7 +109,7 @@ Hovering your mouse over each one will show a tooltip that names that feature:
 - `Search ` - the next one down is a search capability, so you can search for things (and replace them with other text) over your code files.
 - `Source control` - this gives you access to source code control, which includes Git version control functionality. This feature means you can do things like clone Git repositories (for example, from GitHub), add and commit files to a repository, things like that.
 
-  ::::::::::::::::::::::::::::::::::::::::: callout
+  ::::::::::::::::::::::::::::::::: callout
     
   If you're not familiar with Git, that's totally fine - you don't have to use this feature, although it's worth looking into using version control for writing your code.
   Version control Systems like Git allow you to manage your code by storing it - and all the changes you make to it - within a repository hosted elsewhere, for example, on GitHub.
@@ -118,6 +118,8 @@ Hovering your mouse over each one will show a tooltip that names that feature:
 
 - `Run and Debug` - this allows you to run programs you write in a special way with a debugger, which allows you to check the state of your program as it is running, which is very useful and we'll look into later.
 - `Extensions` - which we'll look into right now, allows you to install extensions to VSCode to extend its functionality in some way.
+
+At the very bottom of the main VSCode window is the `Status bar`, which shows us 
 
 There are many other features and ways to access them, and we'll cover key ones throughout this lesson.
 
@@ -179,7 +181,7 @@ Now we need to load the code into VSCode to see it. You can do this in a couple 
 In either case, you should then be able to use the file browser to locate the directory with the files you just extracted, and then select `Open`.
 Note that we're looking for the *folder* that contains the files, not a specific file.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+::::::::::::::::::::::::::::::::: callout
 
 ## What about using Git Version Control?
 
@@ -209,16 +211,12 @@ So within this workspace, you'll see the following:
 
 FIXME: list of files in file explorer
 
-## Tour of VSCode Interface
-
-FIXME: add screenshots and descriptions of VSCode interface, including the status bar
-
 ## Using VSCode
 
 Now we've acquainted ourselves with running VSCode, let's take a look at our example code.
 Select the `FIXME` file in the explorer window, which will bring up the contents of the file in the code editor.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+::::::::::::::::::::::::::::::::: callout
 
 ## The File Explorer has Disappeared!
 
@@ -274,7 +272,7 @@ As another example, if we wanted to open another file, we might type `new_file =
 In this case, it provides information on the file `open` function and its arguments, along with a description of what it does.
 This is really handy to we don't have to take the time to look up all this information up on the web, for example.
 
-::::::::::::::::::::::::::::::::::::::::: callout
+::::::::::::::::::::::::::::::::: callout
 
 ### Using a Git Code Repository?
 
@@ -326,7 +324,7 @@ steve@laptop:~/code-style-example$
 
 ::::::::::::::::::::::::::::::::::::::::: 
 
-::::::::::::::::::::::::::::::::::::::::: callout
+::::::::::::::::::::::::::::::::: callout
 
 ## Error: `the term conda is not recognised`
 
@@ -334,8 +332,8 @@ If you're running an Anaconda distribution of Python on Windows,
 if you see this error it means that VSCode is not looking in the right place for Anaconda's installation.
 In this case, you may need to configure VSCode accordingly:
 
-1. Activate the Command Palette, either by selecting `View` and `Command Palette` in the menu, or by pressing `Ctrl` + `Shift` + `P` simultaneously
-1. then type `Terminal: Select Default Profile`
+1. Activate the Command Palette, either by selecting `View` and `Command Palette` in the menu, or by pressing `Ctrl` + `Shift` + `P` (Linux), `Mac/Windows Key` + `Shift` + `P` (Mac/Windows) simultaneously
+1. Type `Terminal: Select Default Profile`
 1. From the options, select the entry that's something like `Command Prompt C:\WINDOWS\...`
 
 Hopefully that should resolve the issue.

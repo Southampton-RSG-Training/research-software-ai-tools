@@ -36,7 +36,9 @@ There are literally tens of thousands of possible extensions now.
 
 You may remember when you opened VSCode for this project there was a "Build with Agent" panel on the right.
 This is the main chat interface to Copilot.
-But in order to use it (and other Copilot features) we need to install an extension first:
+But in order to use it (and other Copilot features) we need to install some extensions first.
+It's possible to have VSCode manage the installation of these extensions automatically,
+but we'll do this explicitly so you see the explicit changes necessary to get it working.
 
 1. Firstly, select the extensions icon, then type in "Copilot" into the search box at the top, and it'll give you a list of all Copilot-related extensions.
 1. Select the one which says `GitHub Copilot` from Microsoft, which is the Microsoft official Copilot extension. You may also see the `GitHub Copilot Chat` extension, which will be automatically installed along with this one.
@@ -93,6 +95,8 @@ The next dropdown is the AI language model being used.
 By default, this is set to `Auto` so that Copilot will decide the model.
 However, for consistency in this training, let's select the entry for `Claude Haiki 4.5`.
 
+Select the `inflammation-plot.py` file in the File Explorer.
+
 Let's now ask the very high level question: `What does this code do?`, and press enter.
 You'll likely be asked whether you want to enable Claude Haiku 4.5 for all clients - select `Enable` when prompted.
 
@@ -115,7 +119,7 @@ This code generates visualization plots for inflammation data:
 4. Saves output: Each figure is saved as a PNG file with the same name as the input CSV file plus .png extension.
 ```
 
-::::::::::::::::::::::::::::::::::::: callout
+::::::::::::::::::::::::::::::::: callout
 
 ## Why Aren't I Seeing the Same Response?
 
@@ -124,11 +128,32 @@ Due to the ways in which LLMs process requests, based on an iterative probabilis
 responses based on the same question will show differences.
 This effect is often visibly compounded over time, as the probabilistic outcome of a response generates an increasingly different result.
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::: callout
+
+## How to Write Good Chat Prompts?
+
+AI tools work best with context, so it's good to be specific where you can.
+
+To add context to a chat prompt you can type `#` followed by the context item you want to add,
+such as a file, folder, tools, code elements (such as variables, functions or classes), tools, amongst others.
+For example, we could type `#inflammation-plot.py` to ensure only responses relevant to that specific file will be generated.
+Alternatively, we could use `#codebase` if we aren't sure which files are relevant to our question.
+
+It's also a good idea to be provide simple questions,
+so if you end up with a question that is decomposable into separate steps,
+ask each step separately and you'll typically get a better outcome.
+This implies that it's good to use a logical, iterative process of using AI to assist,
+using responses to simple questions to inform the next question, and so on.
+
+:::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
 ## What do I Need to Know?
+
+5 mins.
 
 Ask the following questions about the code:
 
@@ -178,11 +203,108 @@ This script uses Matplotlib to create and save visualization plots:
 5. Save output: fig.savefig() saves the entire figure as a PNG image file.
 ```
 
+Due to the ambiguous nature of language and how we specify prompts,
+and the nature of how LLMs operate and generate responses,
+as we have seen, we'll fairly typically have overlaps in responses to multiple questions.
+Again, therefore, the key is to isolate what's useful,
+and drill down and be increasingly specific on questioning until we have what we need
+(as we would in an a typical conversation).
+
 :::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-FIXME: overlapping information, extract what's useful
+## Personalising Copilot to Match our Project
+
+### What is an Instructions File?
+
+GitHub Copilot can be personalised by adding a instructions file to a repository that tells Copilot how you want it to behave in that project.
+
+The file acts as standing, project-level guidance for Copilot, covering things like:
+
+- Preferred architecture and design patterns
+- Coding style and naming conventions
+- Approved or banned libraries
+- Testing expectations and quality standards
+- Security or safety rules
+- How detailed Copilot’s answers should be
+
+By giving Copilot this shared context we can specify the developer's (or developer team’s) coding conventions, reuse existing patterns, and avoid unwanted approaches, with the aim to make its suggestions more relevant for a particular project.
+
+It serves a similar purposes to a `CONTRIBUTING.md` file in a code repository;
+it provides guidance for how suggestions, code changes and contributions should be made,
+but aimed at Copilot's day-to-day decisions instead.
+It does this by adding context to queries from the `.github/.copilot-instructions.md` file.
+
+For example, if we were to ask Copilot "How should I make this code more readable?",
+without instructions Copilot may suggest to:
+
+- Rename or format variable or function names inconsistently
+- Change behaviour subtly in an undesired way
+- Use an indentation style that isn't typically used by team members
+- Without instructions, Copilot may introduce a new design pattern the repository doesn't use
+
+### Create an Instructions File
+
+Let's create an instructions file now, by selecting the gear icon at the top right of the `CHAT` panel,
+and selecting `Generate Chat Instructions`.
+At this point, VSCode will do a number of things in order to create this file:
+
+1. Analyse the structure and files in the workspace
+1. Analyse the data directory `data/` which contains our inflammation data files
+1. Create the `.github/.copilot-instructions.md` file itself
+1. Summarise the contents of the new instructions file
+1. Provide some questions for feedback to add more specific guidance in the instructions file
+
+Note that it may request access to run a Bash command in the `data` directory,
+from which it can then ascertain the structure of the data,
+which you'll have to approve.
+
+We'll look at the contents of the file in a moment.
+
+You may also see some feedback questions, such as:
+
+```
+1. Should I add more detail about the other datasets (climate data, coordinates), or keep focus only on the inflammation data workflow?
+2. Are there specific Python version requirements or package versions that should be documented?
+3. Would you like guidance on handling edge cases (e.g., what happens with empty CSV files, missing columns)?
+```
+
+### Working with our Instructions File
+
+You should now see a `.github/copilot-instructions.md` file appear in VSCode's file browser.
+If you open this file now, you'll see some things to note:
+
+- Content is highlighted with a `Keep / Undo` option.
+This is VSCode's way of highlighting the changes Copilot has made as suggestions,
+so that you explicitly review and approve them.
+- Directory names may appear strangely located (e.g. `../data/`), since these are file references relative to the location of the instructions file.
+- A summary of the main code entry point, the data source directory, and the overall workflow of the application
+- A section on the code patterns and conventions, essentially generalising how the code works and providing assumptions on how it operates, e.g. `axis=0 consistently means aggregate across rows (patients), preserving measurement dimensions`
+- Some suggestions on how to refactor (tidy) the codebase and otherwise enhancement it
+
+Approve this file addition by selecting `Keep`.
+
+From this starting point we are free to update this file manually as we continue to develop the code,
+and this context will be used whenever we interact with Copilot.
+
+## 
+
+
+
+
+## What's my Copilot Usage?
+
+It's important to keep track of just how much of our Copilot "plan" we're using,
+particularly since we're (by default) on the free tier of Copilot.
+We can see an overview of what we've consumed and how much is remaining by selecting the Copilot icon
+(on the left of the bell-shaped icon on the far bottom right of the status bar), e.g.
+
+![Example Copilot usage overview](fig/copilot-usage.png)
+
+So in this case, we can see that this user has consumed 0.3% of its quota for inline suggestions (which we'll look at later),
+and 36% of the chat messages quota.
+This allowance resets on a monthly basis, in this case February 23 2026.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
