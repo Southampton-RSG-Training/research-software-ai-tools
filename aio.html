@@ -415,7 +415,7 @@ development</li>
 </div>
 </div></section><section id="aio-02-intro-vscode"><p>Content from <a href="02-intro-vscode.html">Introduction to Microsoft Visual Studio Code</a></p>
 <hr>
-<p>Last updated on 2026-01-23 |
+<p>Last updated on 2026-01-26 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-intro-vscode.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -625,6 +625,8 @@ look into later.</p></li>
 you to install extensions to VSCode to extend its functionality in some
 way.</p></li>
 </ul>
+<p>At the very bottom of the main VSCode window is the
+<code>Status bar</code>, which shows us</p>
 <p>There are many other features and ways to access them, and we’ll
 cover key ones throughout this lesson.</p>
 </div>
@@ -735,11 +737,6 @@ files and directories. So within this workspace, you’ll see the
 following:</p>
 <p>FIXME: list of files in file explorer</p>
 </div>
-</section><section><h2 class="section-heading" id="tour-of-vscode-interface">Tour of VSCode Interface<a class="anchor" aria-label="anchor" href="#tour-of-vscode-interface"></a>
-</h2>
-<hr class="half-width">
-<p>FIXME: add screenshots and descriptions of VSCode interface,
-including the status bar</p>
 </section><section><h2 class="section-heading" id="using-vscode">Using VSCode<a class="anchor" aria-label="anchor" href="#using-vscode"></a>
 </h2>
 <hr class="half-width">
@@ -904,9 +901,10 @@ configure VSCode accordingly:</p>
 <ol style="list-style-type: decimal">
 <li>Activate the Command Palette, either by selecting <code>View</code>
 and <code>Command Palette</code> in the menu, or by pressing
-<code>Ctrl</code> + <code>Shift</code> + <code>P</code>
-simultaneously</li>
-<li>then type <code>Terminal: Select Default Profile</code>
+<code>Ctrl</code> + <code>Shift</code> + <code>P</code> (Linux),
+<code>Mac/Windows Key</code> + <code>Shift</code> + <code>P</code>
+(Mac/Windows) simultaneously</li>
+<li>Type <code>Terminal: Select Default Profile</code>
 </li>
 <li>From the options, select the entry that’s something like
 <code>Command Prompt C:\WINDOWS\...</code>
@@ -965,7 +963,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-getting-started"><p>Content from <a href="03-getting-started.html">Getting Started with using Copilot within VSCode</a></p>
 <hr>
-<p>Last updated on 2026-01-23 |
+<p>Last updated on 2026-01-26 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-getting-started.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1021,7 +1019,10 @@ literally tens of thousands of possible extensions now.</p>
 <p>You may remember when you opened VSCode for this project there was a
 “Build with Agent” panel on the right. This is the main chat interface
 to Copilot. But in order to use it (and other Copilot features) we need
-to install an extension first:</p>
+to install some extensions first. It’s possible to have VSCode manage
+the installation of these extensions automatically, but we’ll do this
+explicitly so you see the explicit changes necessary to get it
+working.</p>
 <ol style="list-style-type: decimal">
 <li>Firstly, select the extensions icon, then type in “Copilot” into the
 search box at the top, and it’ll give you a list of all Copilot-related
@@ -1107,6 +1108,8 @@ mode to <code>Ask</code>.</p>
 this is set to <code>Auto</code> so that Copilot will decide the model.
 However, for consistency in this training, let’s select the entry for
 <code>Claude Haiki 4.5</code>.</p>
+<p>Select the <code>inflammation-plot.py</code> file in the File
+Explorer.</p>
 <p>Let’s now ask the very high level question:
 <code>What does this code do?</code>, and press enter. You’ll likely be
 asked whether you want to enable Claude Haiku 4.5 for all clients -
@@ -1142,6 +1145,32 @@ response generates an increasingly different result.</p>
 </div>
 </div>
 </div>
+<div id="how-to-write-good-chat-prompts" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="how-to-write-good-chat-prompts" class="callout-inner">
+<h3 class="callout-title">How to Write Good Chat Prompts?</h3>
+<div class="callout-content">
+<p>AI tools work best with context, so it’s good to be specific where
+you can.</p>
+<p>To add context to a chat prompt you can type <code>#</code> followed
+by the context item you want to add, such as a file, folder, tools, code
+elements (such as variables, functions or classes), tools, amongst
+others. For example, we could type <code>#inflammation-plot.py</code> to
+ensure only responses relevant to that specific file will be generated.
+Alternatively, we could use <code>#codebase</code> if we aren’t sure
+which files are relevant to our question.</p>
+<p>It’s also a good idea to be provide simple questions, so if you end
+up with a question that is decomposable into separate steps, ask each
+step separately and you’ll typically get a better outcome. This implies
+that it’s good to use a logical, iterative process of using AI to
+assist, using responses to simple questions to inform the next question,
+and so on.</p>
+</div>
+</div>
+</div>
 <div id="what-do-i-need-to-know" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1150,6 +1179,7 @@ response generates an increasingly different result.</p>
 <div id="what-do-i-need-to-know" class="callout-inner">
 <h3 class="callout-title">What do I Need to Know?</h3>
 <div class="callout-content">
+<p>5 mins.</p>
 <p>Ask the following questions about the code:</p>
 <ol style="list-style-type: decimal">
 <li>What are the main packages used?</li>
@@ -1202,11 +1232,124 @@ These three packages work together: glob finds the files, numpy processes the da
 4. Layout adjustment: fig.tight_layout() automatically adjusts spacing between subplots to prevent overlap.
 
 5. Save output: fig.savefig() saves the entire figure as a PNG image file.</code></pre>
+<p>Due to the ambiguous nature of language and how we specify prompts,
+and the nature of how LLMs operate and generate responses, as we have
+seen, we’ll fairly typically have overlaps in responses to multiple
+questions. Again, therefore, the key is to isolate what’s useful, and
+drill down and be increasingly specific on questioning until we have
+what we need (as we would in an a typical conversation).</p>
 </div>
 </div>
 </div>
 </div>
-<p>FIXME: overlapping information, extract what’s useful</p>
+</div>
+</section><section><h2 class="section-heading" id="personalising-copilot-to-match-our-project">Personalising Copilot to Match our Project<a class="anchor" aria-label="anchor" href="#personalising-copilot-to-match-our-project"></a>
+</h2>
+<hr class="half-width">
+<div class="section level3">
+<h3 id="what-is-an-instructions-file">What is an Instructions File?<a class="anchor" aria-label="anchor" href="#what-is-an-instructions-file"></a>
+</h3>
+<p>GitHub Copilot can be personalised by adding a instructions file to a
+repository that tells Copilot how you want it to behave in that
+project.</p>
+<p>The file acts as standing, project-level guidance for Copilot,
+covering things like:</p>
+<ul>
+<li>Preferred architecture and design patterns</li>
+<li>Coding style and naming conventions</li>
+<li>Approved or banned libraries</li>
+<li>Testing expectations and quality standards</li>
+<li>Security or safety rules</li>
+<li>How detailed Copilot’s answers should be</li>
+</ul>
+<p>By giving Copilot this shared context we can specify the developer’s
+(or developer team’s) coding conventions, reuse existing patterns, and
+avoid unwanted approaches, with the aim to make its suggestions more
+relevant for a particular project.</p>
+<p>It serves a similar purposes to a <code>CONTRIBUTING.md</code> file
+in a code repository; it provides guidance for how suggestions, code
+changes and contributions should be made, but aimed at Copilot’s
+day-to-day decisions instead. It does this by adding context to queries
+from the <code>.github/.copilot-instructions.md</code> file.</p>
+<p>For example, if we were to ask Copilot “How should I make this code
+more readable?”, without instructions Copilot may suggest to:</p>
+<ul>
+<li>Rename or format variable or function names inconsistently</li>
+<li>Change behaviour subtly in an undesired way</li>
+<li>Use an indentation style that isn’t typically used by team
+members</li>
+<li>Without instructions, Copilot may introduce a new design pattern the
+repository doesn’t use</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="create-an-instructions-file">Create an Instructions File<a class="anchor" aria-label="anchor" href="#create-an-instructions-file"></a>
+</h3>
+<p>Let’s create an instructions file now, by selecting the gear icon at
+the top right of the <code>CHAT</code> panel, and selecting
+<code>Generate Chat Instructions</code>. At this point, VSCode will do a
+number of things in order to create this file:</p>
+<ol style="list-style-type: decimal">
+<li>Analyse the structure and files in the workspace</li>
+<li>Analyse the data directory <code>data/</code> which contains our
+inflammation data files</li>
+<li>Create the <code>.github/.copilot-instructions.md</code> file
+itself</li>
+<li>Summarise the contents of the new instructions file</li>
+<li>Provide some questions for feedback to add more specific guidance in
+the instructions file</li>
+</ol>
+<p>Note that it may request access to run a Bash command in the
+<code>data</code> directory, from which it can then ascertain the
+structure of the data, which you’ll have to approve.</p>
+<p>We’ll look at the contents of the file in a moment.</p>
+<p>You may also see some feedback questions, such as:</p>
+<pre><code>1. Should I add more detail about the other datasets (climate data, coordinates), or keep focus only on the inflammation data workflow?
+2. Are there specific Python version requirements or package versions that should be documented?
+3. Would you like guidance on handling edge cases (e.g., what happens with empty CSV files, missing columns)?</code></pre>
+</div>
+<div class="section level3">
+<h3 id="working-with-our-instructions-file">Working with our Instructions File<a class="anchor" aria-label="anchor" href="#working-with-our-instructions-file"></a>
+</h3>
+<p>You should now see a <code>.github/copilot-instructions.md</code>
+file appear in VSCode’s file browser. If you open this file now, you’ll
+see some things to note:</p>
+<ul>
+<li>Content is highlighted with a <code>Keep / Undo</code> option. This
+is VSCode’s way of highlighting the changes Copilot has made as
+suggestions, so that you explicitly review and approve them.</li>
+<li>Directory names may appear strangely located
+(e.g. <code>../data/</code>), since these are file references relative
+to the location of the instructions file.</li>
+<li>A summary of the main code entry point, the data source directory,
+and the overall workflow of the application</li>
+<li>A section on the code patterns and conventions, essentially
+generalising how the code works and providing assumptions on how it
+operates,
+e.g. <code>axis=0 consistently means aggregate across rows (patients), preserving measurement dimensions</code>
+</li>
+<li>Some suggestions on how to refactor (tidy) the codebase and
+otherwise enhancement it</li>
+</ul>
+<p>Approve this file addition by selecting <code>Keep</code>.</p>
+<p>From this starting point we are free to update this file manually as
+we continue to develop the code, and this context will be used whenever
+we interact with Copilot.</p>
+</div>
+</section><section><h2 class="section-heading" id="section"></h2>
+<hr class="half-width"></section><section><h2 class="section-heading" id="whats-my-copilot-usage">What’s my Copilot Usage?<a class="anchor" aria-label="anchor" href="#whats-my-copilot-usage"></a>
+</h2>
+<hr class="half-width">
+<p>It’s important to keep track of just how much of our Copilot “plan”
+we’re using, particularly since we’re (by default) on the free tier of
+Copilot. We can see an overview of what we’ve consumed and how much is
+remaining by selecting the Copilot icon (on the left of the bell-shaped
+icon on the far bottom right of the status bar), e.g.</p>
+<figure><img src="fig/copilot-usage.png" alt="Example Copilot usage overview" class="figure mx-auto d-block"><div class="figcaption">Example Copilot usage overview</div>
+</figure><p>So in this case, we can see that this user has consumed 0.3% of its
+quota for inline suggestions (which we’ll look at later), and 36% of the
+chat messages quota. This allowance resets on a monthly basis, in this
+case February 23 2026.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1224,7 +1367,6 @@ These three packages work together: glob finds the files, numpy processes the da
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use.
  -->
-</div>
 </section></section><section id="aio-04-use-copilot-improve-code"><p>Content from <a href="04-use-copilot-improve-code.html">How to use Copilot to Improve an Existing Codebase</a></p>
 <hr>
 <p>Last updated on 2026-01-13 |
@@ -1390,8 +1532,8 @@ providers</li>
   "url": "https://carpentries.github.io/workbench-template-md/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/aio.html",
   "dateCreated": "2026-01-13",
-  "dateModified": "2026-01-23",
-  "datePublished": "2026-01-23"
+  "dateModified": "2026-01-26",
+  "datePublished": "2026-01-26"
 }
 
   </script><script>
