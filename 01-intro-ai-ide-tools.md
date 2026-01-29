@@ -12,6 +12,7 @@ exercises: 5
 - What are the limitations of a free Copilot account?
 - What is GitHub Copilot?
 - Which AI models are available within Copilot?
+- How do I make use of other third party or bespoke language models?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -21,6 +22,9 @@ exercises: 5
 - Describe some common tasks undertaken by an IDE coding assistant
 - Describe a responsible approach to using IDE coding assistants in development
 - Describe how GitHub Copilot integrates with Visual Studio Code
+- Describe the different built-in models and their specialisms and tradeoffs
+- Describe how to make use of other non built-in LLMs from third party providers
+- Describe how to use locally hosted models
 - List the limitations of the free pricing tier of GitHub Copilot
 
 ::::::::::::::::::::::::::::::::::::::::::::::::

@@ -8,6 +8,7 @@ exercises: 15
 
 - How do I use Copilot from within Visual Studio Code?
 - How can I improve the relevance of responses from Copilot for my project?
+- What are the differences between the language models available within VSCode?
 - How much of my Copilot quota have I used?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -16,6 +17,7 @@ exercises: 15
 
 - Install and configure Visual Studio Code extension for Copilot
 - Obtain answers to questions about how existing code works using Copilot's natural language chat
+- Compare and contrast responses for a particular coding question from different models
 - Obtain suggestions on how to improve a codebase from Copilot
 - Personalise Copilot suggestions to match project technologies and coding standards
 - Determine Copilot usage within the free tier
