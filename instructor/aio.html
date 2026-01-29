@@ -290,18 +290,6 @@
 </div>
 <!--/div.accordion-flush-->
 
-<div class="accordion accordion-flush" id="accordionFlush6">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading6">
-        <a href="05-use-different-models.html">5. How to use Different Copilot Models and Model Providers</a>
-    </div>
-<!--/div.accordion-header-->
-
-  </div>
-<!--/div.accordion-item-->
-</div>
-<!--/div.accordion-flush-->
-
                 </div>
               </div>
             </div>
@@ -359,7 +347,7 @@
         
 <section id="aio-01-intro-ai-ide-tools"><p>Content from <a href="01-intro-ai-ide-tools.html">Introduction to AI Coding IDE Tools</a></p>
 <hr>
-<p>Last updated on 2026-01-13 |
+<p>Last updated on 2026-01-29 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-intro-ai-ide-tools.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -382,6 +370,8 @@ in my development workflow?</li>
 <li>What are the limitations of a free Copilot account?</li>
 <li>What is GitHub Copilot?</li>
 <li>Which AI models are available within Copilot?</li>
+<li>How do I make use of other third party or bespoke language
+models?</li>
 </ul>
 </div>
 </div>
@@ -397,6 +387,11 @@ assistant</li>
 <li>Describe a responsible approach to using IDE coding assistants in
 development</li>
 <li>Describe how GitHub Copilot integrates with Visual Studio Code</li>
+<li>Describe the different built-in models and their specialisms and
+tradeoffs</li>
+<li>Describe how to make use of other non built-in LLMs from third party
+providers</li>
+<li>Describe how to use locally hosted models</li>
 <li>List the limitations of the free pricing tier of GitHub Copilot</li>
 </ul>
 </div>
@@ -668,7 +663,7 @@ left to indicate it’s working.</p>
   Checkpoint: who’s successfully managed to install the Python extension?
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 
 </div>
@@ -704,7 +699,7 @@ configured.</p>
   Checkpoint: who’s configured the Python extension?
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 
 </div>
@@ -761,7 +756,7 @@ popup appears.</p>
   Checkpoint: who’s been able to download the code and open it within VSCode?
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
 <div class="accordion-body">
 
 </div>
@@ -937,7 +932,7 @@ steve@laptop:~/code-style-example$ </code></pre>
   Checkpoint: who’s run their Python progran and seen some output in a pop-up window?
   </h3>
 </button>
-<div id="collapseInstructor4" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor4" aria-labelledby="headingInstructor4">
+<div id="collapseInstructor4" class="accordion-collapse collapse" aria-labelledby="headingInstructor4" data-bs-parent="#accordionInstructor4">
 <div class="accordion-body">
 
 </div>
@@ -979,7 +974,7 @@ and <code>Command Palette</code> in the menu, or by pressing
   Checkpoint: if you’re using Conda and encountered this error, did it fix it?
   </h3>
 </button>
-<div id="collapseInstructor5" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor5" aria-labelledby="headingInstructor5">
+<div id="collapseInstructor5" class="accordion-collapse collapse" aria-labelledby="headingInstructor5" data-bs-parent="#accordionInstructor5">
 <div class="accordion-body">
 
 </div>
@@ -1055,6 +1050,8 @@ any links that you are not going to use.
 <li>How do I use Copilot from within Visual Studio Code?</li>
 <li>How can I improve the relevance of responses from Copilot for my
 project?</li>
+<li>What are the differences between the language models available
+within VSCode?</li>
 <li>How much of my Copilot quota have I used?</li>
 </ul>
 </div>
@@ -1068,6 +1065,8 @@ project?</li>
 <li>Install and configure Visual Studio Code extension for Copilot</li>
 <li>Obtain answers to questions about how existing code works using
 Copilot’s natural language chat</li>
+<li>Compare and contrast responses for a particular coding question from
+different models</li>
 <li>Obtain suggestions on how to improve a codebase from Copilot</li>
 <li>Personalise Copilot suggestions to match project technologies and
 coding standards</li>
@@ -1270,7 +1269,7 @@ and so on.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Describe the main packages used? e.g.</li>
@@ -1478,7 +1477,7 @@ similar? How are these responses different?</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Following the exercise, talk through the possible solution to this
 below, highlighting the key similarities and differences between each
@@ -1492,7 +1491,7 @@ response.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For the question <code>How can I make this code more readable?</code>
 (your responses may differ!)</p>
@@ -1659,7 +1658,7 @@ your work?</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
   <h3 class="accordion-header" id="headingInstructor2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>For this exercise, send out a shared notes document to the cohort
 (writable by everyone) that is split into two sections: Benefits and
@@ -1675,7 +1674,7 @@ summarise the comments.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Possible benefits:</p>
 <ul>
@@ -1727,7 +1726,7 @@ adapt our day-to-day development to accomodate these changes?</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor3" aria-expanded="false" aria-controls="collapseInstructor3">
   <h3 class="accordion-header" id="headingInstructor3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <p>For this exercise, in the shared notes document have a section for
 participants to add in answers.</p>
@@ -1740,7 +1739,7 @@ participants to add in answers.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <ul>
 <li>Ensure suggested changes are throughly reviewed understood prior to
@@ -1872,66 +1871,6 @@ from Copilot</li>
 domain-specific task</li>
 <li>Describe key limitations and known issues of using Copilot as a
 coding assistant within an IDE</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul>
-<li>FIXME</li>
-</ul>
-</div>
-</div>
-</div></section><section id="aio-05-use-different-models"><p>Content from <a href="05-use-different-models.html">How to use Different Copilot Models and Model Providers</a></p>
-<hr>
-<p>Last updated on 2026-01-13 |
-
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/05-use-different-models.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>What are the differences between the language models available
-within VSCode?</li>
-<li>How can I customise which models are used?</li>
-<li>How do I make use of other third party or bespoke language
-models?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Describe the different built-in models and their specialisms and
-tradeoffs</li>
-<li>Use different models to accomplish a particular small-scale coding
-task</li>
-<li>Compare and contrast responses for a particular question from
-different models</li>
-<li>Use the language models editor to customise the available models in
-Copilot</li>
-<li>Describe how to make use of other non built-in LLMs from third party
-providers</li>
-<li>Describe how to use locally hosted models</li>
 </ul>
 </div>
 </div>
