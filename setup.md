@@ -89,6 +89,7 @@ Note: for older versions of git bash you will need to use .bashrc rather than .b
 #### Bash Shell
 
 You can open a terminal by opening the “Terminal” application, which can be found in the “Utilities” folder which is in your “Applications” folder.
+Z shell is the default shell on Mac, but you can run a Bash shell from the terminal by typing `bash` and pressing enter.
 
 #### Git Setup
 

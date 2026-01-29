@@ -125,7 +125,8 @@ This code generates visualization plots for inflammation data:
 
 You'll likely find it's not exactly the same.
 Due to the ways in which LLMs process requests, based on an iterative probabilistic model,
-responses based on the same question will show differences.
+responses based on the same question will show differences:
+so essentially, AI models are *probablistic*, not *deterministic*.
 This effect is often visibly compounded over time, as the probabilistic outcome of a response generates an increasingly different result.
 
 :::::::::::::::::::::::::::::::::::::::::
@@ -288,10 +289,300 @@ Approve this file addition by selecting `Keep`.
 From this starting point we are free to update this file manually as we continue to develop the code,
 and this context will be used whenever we interact with Copilot.
 
-## 
+## Obtaining Guidance on how to Improve our Code
+
+Now have an instructions file to guide Copilot,
+let's take its guidance one step further.
+So far we've been asking quite specific questions about this codebase in order to learn more about it.
+But let's now consider we might want to do to improve it.
+
+Looking at the code, you may already have your own ideas for how it could be improved,
+but let's ask Copilot instead.
+Another aspect we haven't looked into yet is the other available AI models we can use.
+So far we've only used the `Claude Haiku 4.5` model,
+but there are others at time of writing selectable from the models dropdown:
+essentially some variants of GPT, and a Raptor model preview.
+
+::::::::::::::::::::::::::::::::: callout
+
+## What's the 'x' Figure Displayed Next to Each Model?
+
+Next to each model you'll see an `x` figure, e.g. `1x`.
+This is a multiplier related to the "cost" of using this model within our quota of requests.
+So models with a `2x` beside them will cost twice as much as one with `1x`.
+
+It's important to be clear on the relative cost,
+since our quotas will be consumed more quickly with higher cost multipliers!
+
+:::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::: challenge
+
+## Asking Copilot to Suggest Improvements
+
+15 mins.
+
+Ensuring you have the `Ask` mode selected in the chat box:
+
+1. Select one of the `Claude Haiku 4.5` or `GPT-5 mini` models in the model dropdown.
+1. Choose a prompt to ask Copilot how to improve this code, e.g.:
+   - `How can I make this code more readable?`
+   - `How should I refactor this code to be more modular?`
+   - `What can I do to improve this code?`
+
+Repeat this for the other model types, asking the same exact question each time.
+What answer does each model give you?
+How are these responses similar?
+How are these responses different?
 
 
+:::::::::::::::::::::::::: instructor
 
+Following the exercise, talk through the possible solution to this below,
+highlighting the key similarities and differences between each response.
+
+:::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::: solution
+
+For the question `How can I make this code more readable?` (your responses may differ!)
+
+Note that, for each model, at the top of the response, it mentions three references are used:
+
+- `copilot-instructions.md` - as we would expect
+- `inflammation-01.csv` - since it's pattern is referenced in the source code
+- `inflammation-plot.py` - since this is the file it's taken as context
+
+Claude Haiku 4.5:
+
+```
+Your code can be made more readable by extracting the repetitive subplot pattern into a helper function and using a tuple/list to store the axes. Here's a refactored version:
+```
+
+```python
+import glob
+
+import numpy as np
+from matplotlib import pyplot as plt
+
+def plot_statistics(axes, data, stat_func, label):
+    """Plot a single statistic on the given axes.
+    
+    Args:
+        axes: Matplotlib axes object
+        data: NumPy array of inflammation measurements
+        stat_func: Function to compute statistic (e.g., data.mean)
+        label: Y-axis label string
+    """
+    axes.set_ylabel(label)
+    axes.plot(stat_func(axis=0))
+
+filenames = glob.glob('../data/inflammation-*.csv')
+filenames.sort()
+filenames = filenames[0:3]
+
+for filename in filenames:
+    print(filename)
+
+    data = np.loadtxt(fname=filename, delimiter=',')
+
+    fig = plt.figure(figsize=(10.0, 3.0))
+    axes = [fig.add_subplot(1, 3, i) for i in range(1, 4)]
+
+    plot_statistics(axes[0], data, data.mean, 'average')
+    plot_statistics(axes[1], data, data.max, 'max')
+    plot_statistics(axes[2], data, data.min, 'min')
+
+    fig.tight_layout()
+    fig.savefig(filename + '.png')
+```
+
+```
+Key improvements:
+
+- Helper function eliminates the three identical ylabel/plot blocks
+- List comprehension replaces axes1, axes2, axes3 variables
+- Docstring documents the function's purpose and parameters
+- Maintains all existing functionality and conventions from your codebase
+```
+
+GPT-5 mini:
+
+```
+Refactored file to improve readability (extracted helper, constants, main, axes list):
+```
+
+```python
+# ...existing code...
+import glob
+import numpy as np
+from matplotlib import pyplot as plt
+
+FIGSIZE = (10.0, 3.0)
+DATA_PATTERN = '../data/inflammation-*.csv'
+FILE_LIMIT = 3
+
+def plot_stat(ax, data, stat_func, ylabel):
+    """Plot a statistic computed from data on ax."""
+    ax.set_ylabel(ylabel)
+    ax.plot(stat_func(data))
+
+def main():
+    filenames = glob.glob(DATA_PATTERN)
+    filenames.sort()
+    filenames = filenames[:FILE_LIMIT]
+
+    for filename in filenames:
+        print(filename)
+        data = np.loadtxt(fname=filename, delimiter=',')
+
+        fig = plt.figure(figsize=FIGSIZE)
+        axes = [fig.add_subplot(1, 3, i + 1) for i in range(3)]
+
+        plot_stat(axes[0], data, lambda d: d.mean(axis=0), 'average')
+        plot_stat(axes[1], data, lambda d: d.max(axis=0), 'max')
+        plot_stat(axes[2], data, lambda d: d.min(axis=0), 'min')
+
+        fig.tight_layout()
+        fig.savefig(filename + '.png')
+
+if __name__ == '__main__':
+    main()
+# ...existing code...
+```
+
+For these particular responses,
+there are a number of things worth noting.
+
+Key similarities - both models:
+
+- Refactored the duplicated `fig.add_subplot` generation into a Python list comprehension
+- Refactored the duplicated `axes` set up into a separate function
+- Added a docstring to the new function, albeit only a brief one with `GPT-5 mini`
+
+Key differences:
+
+- Claude Haiku 4.5:
+  - Defines constants for some of the hardcoded values
+  - The high-level code is refactored into a `main()` function
+  - Adds a `__name__ == '__main__'` condition guarding a call to the refactored `main()` function
+- GPT-5 mini: the call to the refactored plotting function uses a `lambda` definition as an argument
+  - Does not provide a textual summary of what it has done at the end
+
+:::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+FIXME: summary of differences between model answers and key model differences and what they are best used for
+
+:::::::::::::::::::::::::::::::::::::: challenge
+
+## Class Discussion: What are the Benefits and Risks?
+
+10 mins.
+
+Having used some of the features of Copilot,
+what do you think are:
+
+- The benefits are of using it? How do you think it would help you in your work?
+- The risks of using it? What could go wrong?
+
+:::::::::::::::::::::::::: instructor
+
+For this exercise, send out a shared notes document to the cohort (writable by everyone) that is split into two sections:
+Benefits and Risks, so that participants can add their own comments to each category.
+For each of these, allow them 4 mins to add comments and 1 minute to summarise the comments.
+
+:::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::: solution
+
+Possible benefits:
+
+- Accelerates coding by generating boilerplate, scaffolding, and repetitive patterns
+- Helps explore implementation options and alternative approaches quickly
+- Assists with learning unfamiliar APIs, frameworks, and languages
+- Improves consistency by mirroring local code style and conventions
+- Speeds up refactoring, renaming, and small transformations
+- Frees developer time to focus on higher level concerns
+
+Possible risks:
+
+- Discourages critical thinking
+- Produce plausible but incorrect or incomplete code
+- Subtly adapt code behaviour that is undesired and difficult to detect
+- Suggest outdated or deprecated patterns
+- Ignore project-specific requirements or architectural decisions
+- Obscures rationale and decision-making responsibility
+- Risks licensing or provenance uncertainty if not reviewed
+- Reinfoce poor existing patterns in the codebase
+- Can deskill developers if used uncritically
+
+:::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::: challenge
+
+## Class Discussion: How Should we Mitigate These Risks?
+
+5 mins.
+
+What can we do to mitigate the risks we've identified?
+How should we adapt our day-to-day development to accomodate these changes?
+
+:::::::::::::::::::::::::: instructor
+
+For this exercise, in the shared notes document have a section for participants to add in answers.
+
+:::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::: solution
+
+- Ensure suggested changes are throughly reviewed understood prior to their inclusion in the code
+- Keep the context and scope of prompts (and their expression) to a minimum to accomplish a task,
+to discourage large and/or complex suggestions that are difficult to understand
+- In the case of refactored code, ensure suggested changes are throughly tested against the original version to ensure correct behaviour, i.e. manually, but also re-running a unit test suite if one exists and includes sufficient tests for the modified code
+- Consider adding unit tests for AI-suggested changes or new features
+
+Note that many of these changes are accepted best practice for code written manually;
+but since much less of our own cognition is involved in this style of development,
+adopting a more prudent and skeptical approach becomes even more important.
+
+:::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+::::::::::::::::::::::::::::::::: callout
+
+## Do Not Assign Rational where it Doesn't Exist
+
+It's tempting to assign a reason why AI models are making certain suggestions.
+However, it's importnat to note that there is no high-level rationale at all, despite appearances.
+
+Copilot and similar tools are *suggesting patterns*, not *reasoning about intent* —
+and that distinction really matters when you’re building software you’ll have to maintain into the future.
+Remember that such tools can be confidently incorrect.
+
+If you assume "Copilot must have chosen this for a good reason", you miss the critical step:
+your own review and justification.
+
+One way to consider Copilot is as a fast junior developer with infinite autocomplete and zero accountability!
+
+:::::::::::::::::::::::::::::::::::::::::
+
+## Limitations
+
+As we've mentioned, AI models are non-deterministic,
+in that the same question can produce different answers.
+In addition to it's probablistic nature, there are other reasons for these differences:
+
+- Context-dependent: small changes in files, cursor position, or prompt matter
+- Approximate understanding: infers intent, doesn't fully "understand" the codebase
+- Not authoritative: may sound confident while being incomplete or wrong
+- Model changes over time: behaviour can shift as Copilot and it's underlying models are updated
+- Optimised for help, not correctness: suggestions still need human review
 
 ## What's my Copilot Usage?
 
