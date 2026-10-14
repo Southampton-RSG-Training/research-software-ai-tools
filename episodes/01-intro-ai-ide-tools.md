@@ -54,165 +54,91 @@ This course aims to:
 - Demonstrate the fundamentals of how to use Copilot within Visual Studio Code to expedite research software development
 - Introduce practical ways to mitigate the risks of using AI coding assistants within day-to-day software development
 
+:::::::::::::::::::::::::::::::::::::: challenge
 
-## Current Landscape of AI
+## Class Discussion: What are your AI Coding Fears?
 
-In recent years, one particular type of AI system, generative AI, has dominated public and professional interaction with artificial intelligence. While highly visible, generative AI represents only one approach within a much broader AI landscape. 
+3 mins.
 
-At a high level, today’s AI systems can be grouped into three broad categories:
+Two questions:
 
-### 1. Rule-Based and Decision Systems
+- How do you hope AI coding assistants will help your software development?
+- Do you have any concerns with using AI coding assistants? e.g. what are you afraid could happen?
 
-These systems operate using explicitly defined rules, logic, or constraints. Their behaviour is deterministic and transparent, which makes them reliable in stable, well-defined environments. Rule-based systems are still widely used in areas such as compliance, governance, and safety-critical decision-making. However, they are limited in their ability to handle ambiguity, novelty, or rapidly changing conditions.
+:::::::::::::::::::::::::: solution
 
-A laboratory safety interlock is an example of a rule-based system. It monitors the state of critical variables, such as door positions, pressure levels, temperature, radiation shielding, or airflow, and allows an action only if all safety conditions are met. For example, a high-power laser system may be physically prevented from firing unless the enclosure door is closed, warning lights are active, and emergency stops are disengaged. If any condition is violated, the system immediately shuts down or blocks operation.
+Some possible benefits:
 
-These systems are deterministic and transparent, in other words the same inputs always lead to the same outcome and the rules governing behaviour are explicitly defined. Unlike learning-based AI systems, laboratory safety interlocks do not adapt or infer, they exist to enforce safety rules reliably, even in the presence of human error.
+- Speed up development
+- Help with understanding codebases
+- Assist with learning and implementing new technologies
+- Rapid prototyping
+- Real-time assistance when writing code in an editor
+- Free up time for doing actual research
 
-### 2. Predictive and Analytical Systems
+Some possible concerns:
 
-These systems learn patterns from data to make predictions, classifications, or risk estimates. Rather than following fixed rules, they use statistical models to answer questions such as 'What category does this belong to?' or 'How likely is this outcome?' Predictive AI systems are common in research and operational settings, including data analysis, diagnostics, and forecasting. Their outputs support decisions but do not create new content.
+- Incorrect but plausible code
+- Hallucinated APIs or behavior
+- Hidden assumptions
+- Over-trust of code / reduced code review
+- Poor maintainability
+- Loss of algorithmic understanding
+- Reproducibility issues
+- Mismatch with scientific methods
+- Licensing/IP uncertainty
+- Security and data leakage risks
 
-One example of a predictive AI system is a machine-learning model trained to automatically label features in microscope images, such as identifying specific cell types or structures.
-
-The model learns from large sets of images that have been annotated by experts, using statistical patterns like shape, texture, and intensity to distinguish between categories. Once trained, it can rapidly classify new images, allowing researchers to analyse large datasets more efficiently and consistently than manual methods.
-
-The system provides probabilities, rather than definitive answers, as outputs and does not generate new content or biological insight. The results must be validated and interpreted by researchers, as the model's performance depends heavily on the quality of the training data and imaging conditions.
-
-![A close-up microscope image of a growth plate, Robert M. Hunt, Public domain, via Wikimedia Commons](fig/micrograph.jpg){alt='Light micrograph of an undecalcified epiphyseal plate that is displaying the hypertrophic zone with its typical chondrocytes, matrix and three zones: maturation (top), degenerative (middle) and provisional calcification (bottom).'}
-
-### 3. Generative Systems
-
-Generative AI systems are designed to produce new outputs that resemble the data on which they were trained. This includes generating text, code, images, or other media. The current AI systems that we are familiar with, such as ChatGPT, fall into this category. These systems are optimised for producing fluent and contextually appropriate responses, not for verifying truth or making authoritative decisions.
-
-Some examples of generative AI uses:
-
-- The language learning app Duolingo uses generative AI to explain mistakes and practice conversations. The features are part of a new subscription tier called "Duolingo Max".
-- The education website Khan Academy is using generative AI for their tutoring chatbot called "Khanmigo"
-- An app called Be My Eyes helps people with visual impairments to identify objects and navigate their surroundings, by using the image recognition capabilities of GPT-4.
-
-![Jernej Furman from Slovenia, CC BY 2.0, via Wikimedia Commons](fig/smartphone_with_chatGPT.jpg){alt='Smartphone with ChatGPT on the US dollar banknotes background'}
-
-Most AI systems in use today are narrow, task-specific tools. Some are designed to enforce rules, others to analyse data and make predictions, and an increasingly visible group, generative systems, are designed to produce new content. Generative AI systems are powerful and influential, but they are not representative of AI as a whole. Hopefully, understanding these broad categories helps us to set appropriate expectations for AI and prepares us to examine generative AI in more detail.
-
-| **AI System Type** | **What the system does** | **Strengths** | **Limitations** |
-|-------------------|-------------------------|---------------|----------------|
-| **Rule-Based & Decision Systems** | Follows clearly defined rules to allow, block, or trigger actions | Predictable and transparent; behaves the same way every time; well suited to safety-critical or regulated settings | Cannot adapt to new situations or handle uncertainty |
-|  **Predictive & Analytical Systems** | Uses data to estimate categories, trends, or likelihoods | Can analyse large datasets efficiently; supports consistent analysis and forecasting | Results depend on data quality; outputs are probabilities, not final answers |
-| **Generative Systems** | Creates new text, code, images, or other content | Flexible and easy to interact with; useful for drafting, coding, and exploring ideas | Outputs can sound confident but be incomplete or wrong |
-
-
-**Human Oversight Across AI Types** 
-
-Human responsibility increases from rule-based to predictive to generative systems because more judgment, interpretation, and accountability must be carried by people rather than the system itself. 
-
-- Rule-based systems behave exactly as specified and therefore the responsibility is mostly in system design, not in day-to-day interpretation.
-- Predictive systems give estimates, not decisions and the responsibility lies with humans for interpretation and validation.
-- Generative systems require the highest human responsibility at the point of use.  For example, when a researcher uses generative AI to draft text, summarise literature, or generate code, the responsibility for correctness remains entirely with the human.
-
-
-## Demystifying Generative AI
-
-### What Is GPT?
-
-The model of generative AI that has been widespread in recent years is GPT. An AI model that can produce text that reads as coherent and context-aware, such as explanations, summaries, or responses to questions.
-
-ChatGPT is an application built on top of GPT models. It provides a user-friendly, conversational interface to interact with the GPT model. ChatGPT is one of many tools that use GPT. 
-
-GPT is also integrated into software products such as Microsoft’s Copilot, search engines, and coding environments. 
-
-GPT stands for Generative Pre-trained Transformer:
-
-- **Generative**: GPT is designed to generate new content. Rather than retrieving fixed answers from a database, it produces original outputs, such as text or code.
-- **Pre-trained**: it is trained on vast amounts of data before deployment.
-- **Transformer**: this refers to the internal design of the neural network that helps the system keep track of context across longer pieces of text.
-
-### Understanding Large Language Models
-
-Systems like GPT belong to a group called Large Language Models (LLMs). An LLM is a program that learns how language works by analysing very large collections of text. It does not store facts in a database or follow pre-programmed rules. Instead, it learns patterns in how words, sentences, and ideas tend to appear together.
-
-LLMs are built using neural networks. In this context, a neural network provides the underlying learning machinery that allows the system to absorb information from large amounts of text and improve its predictions over time.
-
-::::::::::::::::::::::::::::::::::::: callout
-
-## What is a neural network?
-
-A neural network is a type of computational model inspired by how the human brain processes information. The name comes from its loose resemblance to brain cells (called neurons), but it is not a biological model of the brain.
-
-Instead, a neural network is built from many simple processing units, called neurons, that pass information to one another in stages. Each neuron receives inputs, applies a simple rule to transform them, and then passes the result forward. By stacking many of these stages on top of each other, the system can learn complex patterns in data.
-
-Learning in a neural network happens gradually as the network adjusts how strongly the neurons influence each other so that its outputs become more accurate over time.
-
-![A simplified diagram of an artificial neural network. Glosser.ca, CC BY-SA 3.0, via Wikimedia Commons](fig/artificial_neural_network.svg){alt='Artificial neural network with layer coloring'}
- 
-![A diagram of a neuron. Egm4313.s12 at English Wikipedia, CC BY-SA 3.0, via Wikimedia Commons](fig/neuron.png){alt='Neuron and myelinated axon, with signal flow from inputs at dendrites to outputs at axon terminals.'}
+:::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-::::::::::::::::::::::::::::::::::::: callout
+### The Immature and Rapidly Evolving Landscape
 
-## What is a transformer?
+While AI coding assistants in IDEs present features that may appear advanced and polished, the field itself remains relatively immature and is evolving at a rapid pace.
 
-A transformer is a type of neural network architecture designed specifically to work with sequences, such as sentences, paragraphs, or lines of code. Its key strength is the ability to consider context, that is, how different parts of a sequence relate to one another, when processing or generating information.
+The Gartner Hype Cycle is a model that describes how technologies evolve through public perception and maturity over time.
+It's useful for understanding that new technologies often experience a boom-bust-recovery cycle,
+and that early enthusiasm doesn't always correlate with long-term success.
 
-Traditional language-processing systems handled text one word at a time, in order. This made it difficult for them to keep track of long-range relationships, such as how a word at the start of a sentence relates to one at the end. Transformers address this limitation by processing all parts of a text sequence simultaneously, allowing the model to identify patterns and relationships across an entire passage at once.
+![Gartner Hype Cycle. Courtesy of Wikipedia, CC-BY-SA 3.0](fig/Gartner_Hype_Cycle.png){alt="Labelled curve graph of the Gartner Hype Cycle, labelling each of the five stages"}
 
-The central mechanism that enables this is called attention. Attention allows the model to assign different levels of importance to different words in a sentence depending on the context. For example, when interpreting the meaning of a pronoun such as “it,” the transformer can look back across the sentence or paragraph to determine which earlier word is most relevant. This makes the model far more effective at handling complex language structures. For example, consider the sentence "The cat ate the mouse because it was hungry." Attention helps the model see that “it” refers to “the cat”, not “the mouse,” by focusing on the most relevant word in the sentence.
+It has five phases:
 
-In practical terms, the transformer architecture is what enables systems like GPT to produce fluent, context-aware text, maintain coherence over long responses, and adapt their output to different tasks using the same underlying model. However, despite their apparent sophistication, transformers do not reason or understand language; they identify and reproduce patterns based on statistical relationships learned during training.
+1. **Technology Trigger** – a breakthrough or significant media attention launches the technology into public awareness, creating excitement and high expectations
+1. **Peak of Inflated Expectations** – hype reaches its peak as early adopters, vendors, and media promote the technology enthusiastically. Expectations often exceed what the technology can actually deliver
+1. **Trough of Disillusionment** – reality sets in. Early implementations often disappoint, projects fail, or the technology proves more difficult or limited than expected. Media coverage becomes negative, and interest drops sharply.
+1. **Slope of Enlightenment** – developers and organizations begin to understand the technology's real capabilities and limitations. Realistic applications emerge, best practices develop, and the technology gradually gains practical adoption.
+1. **Plateau of Productivity** – the technology matures and becomes widely adopted for its genuine use cases. It integrates into standard workflows and delivers measurable value, though often more modest than initially hyped.
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+The landscape of AI coding assistants is characterized by:
 
+- **Rapid feature development** - new capabilities are continuously being added and refined by vendors competing in this space
+- **Unstable implementations** - how features are implemented, displayed, and accessed changes frequently, sometimes between minor version updates
+- **Shifting vendor priorities** - large technology companies regularly adjust their AI strategies
+For example, Microsoft has recently scaled back some of its ambitious AI goals for Visual Studio Code, which may affect the availability and priority of AI-assisted features in the editor
+- **Incomplete standardization** - there is no industry-wide standard for how AI assistants should integrate with IDEs, leading to inconsistent user experiences across different tools
 
-GPT generates content **token by token**, rather than producing an entire sentence all at once. A token can be a word, part of a word, or a punctuation mark. 
+This rapid evolution means that the tools and best practices applied to them can quickly become outdated.
+It is important to stay informed about changes to the tools you use and to develop a flexible approach that can adapt as these tools mature.
 
-This sequential token generation allows GPT to produce coherent and contextually relevant text because each new token is generated in the context of all previous tokens. It’s like writing a sentence one word at a time, making sure each word fits with everything written before it.
+:::::::::::::::::::::::::::::::::::::: challenge
 
-When you enter a prompt into GPT:
+## Class Discussion: Where Does AI Coding Tools Fall on the Hype Curve?
 
-1. The model looks at the input text (the prompt) and splits it into tokens.
-2. It predicts the probability of each possible next token based on all previous tokens.
-3. A token is chosen based on the model’s predicted probabilities. Either the most likely token is selected, or one is sampled from the distribution of probable tokens to allow more varied or creative outputs.
-4. The token is added to the growing output sequence.
-5. Steps 2–4 repeat until the model produces a complete response.
-6. The tokens are decoded back into human-readable text.
+1 mins.
 
-As you can now understand, GPT doesn't simply retrieve pre-written sentences, but instead builds content step by step and this is why it can generate such flexible and novel outputs. 
+In general, where do you think AI coding tools fall on this curve?
+Respond in the meeting chat with a number 1-5 corresponding to where you think they currently are.
 
-::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::: solution
 
-## What is a token?
+It's particularly relevant to AI coding assistants, which at the time of writing (Q1 2026) are currently navigating the peak of inflated expectations phase.
 
-A **token** is the basic unit of text that a GPT model processes and generates. Tokens are not always whole words. They may be a full word (e.g. `data`), part of a word (e.g. `clean` + `ed`), numbers, symbols, or punctuation (e.g. `.`, `,`, `(`).
-
-Consider the sentence:
-
-*“The dataset was cleaned.”*
-
-Internally, the model might split this into tokens such as:`The`| ` data` | `set` | ` was` | ` clean` | `ed` | `.`
-
-Large language models do not decide how to split words dynamically. Instead, tokenisation is fixed in advance by a tokeniser created before training. Most GPT-style models use subword tokenisation methods such as Byte Pair Encoding (BPE) or similar approaches, which merge frequently occurring character sequences until a fixed vocabulary size is reached.
-
-Common words are typically single tokens (e.g. `data`), while less common or more complex words are split into subword tokens (e.g. `token` + `isation`). This allows the model to handle new or rare words by recombining familiar pieces rather than requiring a unique token for every word.
-
-Tokens do not necessarily align with meaning or syllables because tokenisation is **statistical** rather than **linguistic**. This explains why prompts that seem similar to us humans can produce very different outputs. 
-
-Understanding tokenisation allows us to appreciate a key limitation of GPT: the model optimises for what is **likely** to follow, not for what is **correct**, so early token-level errors can influence the rest of the response.
+:::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-### How a GPT Model is Trained
-
-1. **Data collection** - A large amount of text is gathered to train the AI model on.
-2. **Model architecture design** - The neural network architecture is designed to best suit the purpose of the AI
-3. **Pre-training** - The AI model is trained on the collected text.
-4. **Fine-tuning** - Further training the model on specific datasets and tasks related to its purpose e.g. if it is going to be a code assistant it will be trained on tasks related to code generation. 
-5. **Alignment** – Guide the model so that its outputs are helpful, safe, and in line with human intentions. This often involves human feedback to encourage responses that are accurate, reliable, and appropriate.
-6. **Evaluation and iteration** - Testing the AI in a variety of use cases, getting feedback and iterating the model architecture to improve performance. 
-
-![](fig/model_training_process_cropped.png){alt='Diagram of the 6 steps for training a GPT model'}
 
 
 ## Overview of AI tools that can support research coding
@@ -343,45 +269,6 @@ For the next exercise, in the shared notes document have a section for participa
 
 :::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::: challenge
-
-## Class Discussion: What are your AI Coding Fears?
-
-3 mins.
-
-Two questions:
-
-- How do you hope AI coding assistants will help your software development?
-- Do you have any concerns with using AI coding assistants? e.g. what are you afraid could happen?
-
-:::::::::::::::::::::::::: solution
-
-Some possible benefits:
-
-- Speed up development
-- Help with understanding codebases
-- Assist with learning and implementing new technologies
-- Rapid prototyping
-- Real-time assistance when writing code in an editor
-- Free up time for doing actual research
-
-Some possible concerns:
-
-- Incorrect but plausible code
-- Hallucinated APIs or behavior
-- Hidden assumptions
-- Over-trust of code / reduced code review
-- Poor maintainability
-- Loss of algorithmic understanding
-- Reproducibility issues
-- Mismatch with scientific methods
-- Licensing/IP uncertainty
-- Security and data leakage risks
-
-:::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
 ### A Key Risk: Technical Debt
 
 When faced with a problem that you need to solve by writing code,
@@ -431,52 +318,6 @@ Remedial actions such as maintaining human expertise, a focus on AI literacy, an
 > Organizations that solve the "almost right" problem, turning AI tools into reliable productivity multipliers rather than sources of technical debt,will gain significant advantages in development speed and code quality."
 
 :::::::::::::::::::::::::::::::::::::::::::::
-
-### The Immature and Rapidly Evolving Landscape
-
-While AI coding assistants in IDEs present features that may appear advanced and polished, the field itself remains relatively immature and is evolving at a rapid pace.
-
-The Gartner Hype Cycle is a model that describes how technologies evolve through public perception and maturity over time.
-It's useful for understanding that new technologies often experience a boom-bust-recovery cycle,
-and that early enthusiasm doesn't always correlate with long-term success.
-
-![Gartner Hype Cycle. Courtesy of Wikipedia, CC-BY-SA 3.0](fig/Gartner_Hype_Cycle.png){alt="Labelled curve graph of the Gartner Hype Cycle, labelling each of the five stages"}
-
-It has five phases:
-
-1. **Technology Trigger** – a breakthrough or significant media attention launches the technology into public awareness, creating excitement and high expectations
-1. **Peak of Inflated Expectations** – hype reaches its peak as early adopters, vendors, and media promote the technology enthusiastically. Expectations often exceed what the technology can actually deliver
-1. **Trough of Disillusionment** – reality sets in. Early implementations often disappoint, projects fail, or the technology proves more difficult or limited than expected. Media coverage becomes negative, and interest drops sharply.
-1. **Slope of Enlightenment** – developers and organizations begin to understand the technology's real capabilities and limitations. Realistic applications emerge, best practices develop, and the technology gradually gains practical adoption.
-1. **Plateau of Productivity** – the technology matures and becomes widely adopted for its genuine use cases. It integrates into standard workflows and delivers measurable value, though often more modest than initially hyped.
-
-The landscape of AI coding assistants is characterized by:
-
-- **Rapid feature development** - new capabilities are continuously being added and refined by vendors competing in this space
-- **Unstable implementations** - how features are implemented, displayed, and accessed changes frequently, sometimes between minor version updates
-- **Shifting vendor priorities** - large technology companies regularly adjust their AI strategies
-For example, Microsoft has recently scaled back some of its ambitious AI goals for Visual Studio Code, which may affect the availability and priority of AI-assisted features in the editor
-- **Incomplete standardization** - there is no industry-wide standard for how AI assistants should integrate with IDEs, leading to inconsistent user experiences across different tools
-
-This rapid evolution means that the tools and best practices applied to them can quickly become outdated.
-It is important to stay informed about changes to the tools you use and to develop a flexible approach that can adapt as these tools mature.
-
-:::::::::::::::::::::::::::::::::::::: challenge
-
-## Class Discussion: Where Does AI Coding Tools Fall on the Hype Curve?
-
-1 mins.
-
-In general, where do you think AI coding tools fall on this curve?
-Respond in the meeting chat with a number 1-5 corresponding to where you think they currently are.
-
-:::::::::::::::::::::::::: solution
-
-It's particularly relevant to AI coding assistants, which at the time of writing (Q1 2026) are currently navigating the peak of inflated expectations phase.
-
-:::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 ## Introduction to GitHub Copilot
