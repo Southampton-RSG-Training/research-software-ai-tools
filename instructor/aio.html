@@ -378,7 +378,7 @@
         
 <section id="aio-01-intro-ai-ide-tools"><p>Content from <a href="01-intro-ai-ide-tools.html">Introduction to AI Coding IDE Tools</a></p>
 <hr>
-<p>Last updated on 2026-02-10 |
+<p>Last updated on 2026-10-14 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-intro-ai-ide-tools.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -470,359 +470,155 @@ Code Integrated Development Environment</li>
 Studio Code to expedite research software development</li>
 <li>Introduce practical ways to mitigate the risks of using AI coding
 assistants within day-to-day software development</li>
-</ul></section><section><h2 class="section-heading" id="current-landscape-of-ai">Current Landscape of AI<a class="anchor" aria-label="anchor" href="#current-landscape-of-ai"></a>
-</h2>
-<hr class="half-width">
-<p>In recent years, one particular type of AI system, generative AI, has
-dominated public and professional interaction with artificial
-intelligence. While highly visible, generative AI represents only one
-approach within a much broader AI landscape.</p>
-<p>At a high level, today’s AI systems can be grouped into three broad
-categories:</p>
-<div class="section level3">
-<h3 id="rule-based-and-decision-systems">1. Rule-Based and Decision Systems<a class="anchor" aria-label="anchor" href="#rule-based-and-decision-systems"></a>
-</h3>
-<p>These systems operate using explicitly defined rules, logic, or
-constraints. Their behaviour is deterministic and transparent, which
-makes them reliable in stable, well-defined environments. Rule-based
-systems are still widely used in areas such as compliance, governance,
-and safety-critical decision-making. However, they are limited in their
-ability to handle ambiguity, novelty, or rapidly changing
-conditions.</p>
-<p>A laboratory safety interlock is an example of a rule-based system.
-It monitors the state of critical variables, such as door positions,
-pressure levels, temperature, radiation shielding, or airflow, and
-allows an action only if all safety conditions are met. For example, a
-high-power laser system may be physically prevented from firing unless
-the enclosure door is closed, warning lights are active, and emergency
-stops are disengaged. If any condition is violated, the system
-immediately shuts down or blocks operation.</p>
-<p>These systems are deterministic and transparent, in other words the
-same inputs always lead to the same outcome and the rules governing
-behaviour are explicitly defined. Unlike learning-based AI systems,
-laboratory safety interlocks do not adapt or infer, they exist to
-enforce safety rules reliably, even in the presence of human error.</p>
-</div>
-<div class="section level3">
-<h3 id="predictive-and-analytical-systems">2. Predictive and Analytical Systems<a class="anchor" aria-label="anchor" href="#predictive-and-analytical-systems"></a>
-</h3>
-<p>These systems learn patterns from data to make predictions,
-classifications, or risk estimates. Rather than following fixed rules,
-they use statistical models to answer questions such as ‘What category
-does this belong to?’ or ‘How likely is this outcome?’ Predictive AI
-systems are common in research and operational settings, including data
-analysis, diagnostics, and forecasting. Their outputs support decisions
-but do not create new content.</p>
-<p>One example of a predictive AI system is a machine-learning model
-trained to automatically label features in microscope images, such as
-identifying specific cell types or structures.</p>
-<p>The model learns from large sets of images that have been annotated
-by experts, using statistical patterns like shape, texture, and
-intensity to distinguish between categories. Once trained, it can
-rapidly classify new images, allowing researchers to analyse large
-datasets more efficiently and consistently than manual methods.</p>
-<p>The system provides probabilities, rather than definitive answers, as
-outputs and does not generate new content or biological insight. The
-results must be validated and interpreted by researchers, as the model’s
-performance depends heavily on the quality of the training data and
-imaging conditions.</p>
-<figure><img src="../fig/micrograph.jpg" alt="Light micrograph of an undecalcified epiphyseal plate that is displaying the hypertrophic zone with its typical chondrocytes, matrix and three zones: maturation (top), degenerative (middle) and provisional calcification (bottom)." class="figure mx-auto d-block"><div class="figcaption">A close-up microscope image of a growth plate,
-Robert M. Hunt, Public domain, via Wikimedia Commons</div>
-</figure>
-</div>
-<div class="section level3">
-<h3 id="generative-systems">3. Generative Systems<a class="anchor" aria-label="anchor" href="#generative-systems"></a>
-</h3>
-<p>Generative AI systems are designed to produce new outputs that
-resemble the data on which they were trained. This includes generating
-text, code, images, or other media. The current AI systems that we are
-familiar with, such as ChatGPT, fall into this category. These systems
-are optimised for producing fluent and contextually appropriate
-responses, not for verifying truth or making authoritative
-decisions.</p>
-<p>Some examples of generative AI uses:</p>
-<ul>
-<li>The language learning app Duolingo uses generative AI to explain
-mistakes and practice conversations. The features are part of a new
-subscription tier called “Duolingo Max”.</li>
-<li>The education website Khan Academy is using generative AI for their
-tutoring chatbot called “Khanmigo”</li>
-<li>An app called Be My Eyes helps people with visual impairments to
-identify objects and navigate their surroundings, by using the image
-recognition capabilities of GPT-4.</li>
 </ul>
-<figure><img src="../fig/smartphone_with_chatGPT.jpg" alt="Smartphone with ChatGPT on the US dollar banknotes background" class="figure mx-auto d-block"><div class="figcaption">Jernej Furman from Slovenia, CC BY 2.0, via
-Wikimedia Commons</div>
-</figure><p>Most AI systems in use today are narrow, task-specific tools. Some
-are designed to enforce rules, others to analyse data and make
-predictions, and an increasingly visible group, generative systems, are
-designed to produce new content. Generative AI systems are powerful and
-influential, but they are not representative of AI as a whole.
-Hopefully, understanding these broad categories helps us to set
-appropriate expectations for AI and prepares us to examine generative AI
-in more detail.</p>
-<table class="table">
-<colgroup>
-<col width="25%">
-<col width="33%">
-<col width="20%">
-<col width="21%">
-</colgroup>
-<thead><tr>
-<th><strong>AI System Type</strong></th>
-<th><strong>What the system does</strong></th>
-<th><strong>Strengths</strong></th>
-<th><strong>Limitations</strong></th>
-</tr></thead>
-<tbody>
-<tr>
-<td><strong>Rule-Based &amp; Decision Systems</strong></td>
-<td>Follows clearly defined rules to allow, block, or trigger
-actions</td>
-<td>Predictable and transparent; behaves the same way every time; well
-suited to safety-critical or regulated settings</td>
-<td>Cannot adapt to new situations or handle uncertainty</td>
-</tr>
-<tr>
-<td><strong>Predictive &amp; Analytical Systems</strong></td>
-<td>Uses data to estimate categories, trends, or likelihoods</td>
-<td>Can analyse large datasets efficiently; supports consistent analysis
-and forecasting</td>
-<td>Results depend on data quality; outputs are probabilities, not final
-answers</td>
-</tr>
-<tr>
-<td><strong>Generative Systems</strong></td>
-<td>Creates new text, code, images, or other content</td>
-<td>Flexible and easy to interact with; useful for drafting, coding, and
-exploring ideas</td>
-<td>Outputs can sound confident but be incomplete or wrong</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Human Oversight Across AI Types</strong></p>
-<p>Human responsibility increases from rule-based to predictive to
-generative systems because more judgment, interpretation, and
-accountability must be carried by people rather than the system
-itself.</p>
+<div id="class-discussion-what-are-your-ai-coding-fears" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="class-discussion-what-are-your-ai-coding-fears" class="callout-inner">
+<h3 class="callout-title">Class Discussion: What are your AI Coding
+Fears?</h3>
+<div class="callout-content">
+<p>3 mins.</p>
+<p>Two questions:</p>
 <ul>
-<li>Rule-based systems behave exactly as specified and therefore the
-responsibility is mostly in system design, not in day-to-day
-interpretation.</li>
-<li>Predictive systems give estimates, not decisions and the
-responsibility lies with humans for interpretation and validation.</li>
-<li>Generative systems require the highest human responsibility at the
-point of use. For example, when a researcher uses generative AI to draft
-text, summarise literature, or generate code, the responsibility for
-correctness remains entirely with the human.</li>
+<li>How do you hope AI coding assistants will help your software
+development?</li>
+<li>Do you have any concerns with using AI coding assistants? e.g. what
+are you afraid could happen?</li>
 </ul>
 </div>
-</section><section><h2 class="section-heading" id="demystifying-generative-ai">Demystifying Generative AI<a class="anchor" aria-label="anchor" href="#demystifying-generative-ai"></a>
-</h2>
-<hr class="half-width">
-<div class="section level3">
-<h3 id="what-is-gpt">What Is GPT?<a class="anchor" aria-label="anchor" href="#what-is-gpt"></a>
-</h3>
-<p>The model of generative AI that has been widespread in recent years
-is GPT. An AI model that can produce text that reads as coherent and
-context-aware, such as explanations, summaries, or responses to
-questions.</p>
-<p>ChatGPT is an application built on top of GPT models. It provides a
-user-friendly, conversational interface to interact with the GPT model.
-ChatGPT is one of many tools that use GPT.</p>
-<p>GPT is also integrated into software products such as Microsoft’s
-Copilot, search engines, and coding environments.</p>
-<p>GPT stands for Generative Pre-trained Transformer:</p>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<p>Some possible benefits:</p>
 <ul>
-<li>
-<strong>Generative</strong>: GPT is designed to generate new
-content. Rather than retrieving fixed answers from a database, it
-produces original outputs, such as text or code.</li>
-<li>
-<strong>Pre-trained</strong>: it is trained on vast amounts of data
-before deployment.</li>
-<li>
-<strong>Transformer</strong>: this refers to the internal design of
-the neural network that helps the system keep track of context across
-longer pieces of text.</li>
+<li>Speed up development</li>
+<li>Help with understanding codebases</li>
+<li>Assist with learning and implementing new technologies</li>
+<li>Rapid prototyping</li>
+<li>Real-time assistance when writing code in an editor</li>
+<li>Free up time for doing actual research</li>
+</ul>
+<p>Some possible concerns:</p>
+<ul>
+<li>Incorrect but plausible code</li>
+<li>Hallucinated APIs or behavior</li>
+<li>Hidden assumptions</li>
+<li>Over-trust of code / reduced code review</li>
+<li>Poor maintainability</li>
+<li>Loss of algorithmic understanding</li>
+<li>Reproducibility issues</li>
+<li>Mismatch with scientific methods</li>
+<li>Licensing/IP uncertainty</li>
+<li>Security and data leakage risks</li>
 </ul>
 </div>
-<div class="section level3">
-<h3 id="understanding-large-language-models">Understanding Large Language Models<a class="anchor" aria-label="anchor" href="#understanding-large-language-models"></a>
-</h3>
-<p>Systems like GPT belong to a group called Large Language Models
-(LLMs). An LLM is a program that learns how language works by analysing
-very large collections of text. It does not store facts in a database or
-follow pre-programmed rules. Instead, it learns patterns in how words,
-sentences, and ideas tend to appear together.</p>
-<p>LLMs are built using neural networks. In this context, a neural
-network provides the underlying learning machinery that allows the
-system to absorb information from large amounts of text and improve its
-predictions over time.</p>
-<div id="what-is-a-neural-network" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="what-is-a-neural-network" class="callout-inner">
-<h3 class="callout-title">What is a neural network?</h3>
-<div class="callout-content">
-<p>A neural network is a type of computational model inspired by how the
-human brain processes information. The name comes from its loose
-resemblance to brain cells (called neurons), but it is not a biological
-model of the brain.</p>
-<p>Instead, a neural network is built from many simple processing units,
-called neurons, that pass information to one another in stages. Each
-neuron receives inputs, applies a simple rule to transform them, and
-then passes the result forward. By stacking many of these stages on top
-of each other, the system can learn complex patterns in data.</p>
-<p>Learning in a neural network happens gradually as the network adjusts
-how strongly the neurons influence each other so that its outputs become
-more accurate over time.</p>
-<figure><img src="../fig/artificial_neural_network.svg" alt="Artificial neural network with layer coloring" class="figure mx-auto d-block"><div class="figcaption">A simplified diagram of an artificial neural
-network. Glosser.ca, CC BY-SA 3.0, via Wikimedia Commons</div>
-</figure><figure><img src="../fig/neuron.png" alt="Neuron and myelinated axon, with signal flow from inputs at dendrites to outputs at axon terminals." class="figure mx-auto d-block"><div class="figcaption">A diagram of a neuron. Egm4313.s12 at English
-Wikipedia, CC BY-SA 3.0, via Wikimedia Commons</div>
-</figure>
-</div>
-</div>
-</div>
-<div id="what-is-a-transformer" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="what-is-a-transformer" class="callout-inner">
-<h3 class="callout-title">What is a transformer?</h3>
-<div class="callout-content">
-<p>A transformer is a type of neural network architecture designed
-specifically to work with sequences, such as sentences, paragraphs, or
-lines of code. Its key strength is the ability to consider context, that
-is, how different parts of a sequence relate to one another, when
-processing or generating information.</p>
-<p>Traditional language-processing systems handled text one word at a
-time, in order. This made it difficult for them to keep track of
-long-range relationships, such as how a word at the start of a sentence
-relates to one at the end. Transformers address this limitation by
-processing all parts of a text sequence simultaneously, allowing the
-model to identify patterns and relationships across an entire passage at
-once.</p>
-<p>The central mechanism that enables this is called attention.
-Attention allows the model to assign different levels of importance to
-different words in a sentence depending on the context. For example,
-when interpreting the meaning of a pronoun such as “it,” the transformer
-can look back across the sentence or paragraph to determine which
-earlier word is most relevant. This makes the model far more effective
-at handling complex language structures. For example, consider the
-sentence “The cat ate the mouse because it was hungry.” Attention helps
-the model see that “it” refers to “the cat”, not “the mouse,” by
-focusing on the most relevant word in the sentence.</p>
-<p>In practical terms, the transformer architecture is what enables
-systems like GPT to produce fluent, context-aware text, maintain
-coherence over long responses, and adapt their output to different tasks
-using the same underlying model. However, despite their apparent
-sophistication, transformers do not reason or understand language; they
-identify and reproduce patterns based on statistical relationships
-learned during training.</p>
-</div>
-</div>
-</div>
-<p>GPT generates content <strong>token by token</strong>, rather than
-producing an entire sentence all at once. A token can be a word, part of
-a word, or a punctuation mark.</p>
-<p>This sequential token generation allows GPT to produce coherent and
-contextually relevant text because each new token is generated in the
-context of all previous tokens. It’s like writing a sentence one word at
-a time, making sure each word fits with everything written before
-it.</p>
-<p>When you enter a prompt into GPT:</p>
-<ol style="list-style-type: decimal">
-<li>The model looks at the input text (the prompt) and splits it into
-tokens.</li>
-<li>It predicts the probability of each possible next token based on all
-previous tokens.</li>
-<li>A token is chosen based on the model’s predicted probabilities.
-Either the most likely token is selected, or one is sampled from the
-distribution of probable tokens to allow more varied or creative
-outputs.</li>
-<li>The token is added to the growing output sequence.</li>
-<li>Steps 2–4 repeat until the model produces a complete response.</li>
-<li>The tokens are decoded back into human-readable text.</li>
-</ol>
-<p>As you can now understand, GPT doesn’t simply retrieve pre-written
-sentences, but instead builds content step by step and this is why it
-can generate such flexible and novel outputs.</p>
-<div id="what-is-a-token" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="what-is-a-token" class="callout-inner">
-<h3 class="callout-title">What is a token?</h3>
-<div class="callout-content">
-<p>A <strong>token</strong> is the basic unit of text that a GPT model
-processes and generates. Tokens are not always whole words. They may be
-a full word (e.g. <code>data</code>), part of a word
-(e.g. <code>clean</code> + <code>ed</code>), numbers, symbols, or
-punctuation (e.g. <code>.</code>, <code>,</code>, <code>(</code>).</p>
-<p>Consider the sentence:</p>
-<p><em>“The dataset was cleaned.”</em></p>
-<p>Internally, the model might split this into tokens such
-as:<code>The</code>| <code>data</code> | <code>set</code> |
-<code>was</code> | <code>clean</code> | <code>ed</code> |
-<code>.</code></p>
-<p>Large language models do not decide how to split words dynamically.
-Instead, tokenisation is fixed in advance by a tokeniser created before
-training. Most GPT-style models use subword tokenisation methods such as
-Byte Pair Encoding (BPE) or similar approaches, which merge frequently
-occurring character sequences until a fixed vocabulary size is
-reached.</p>
-<p>Common words are typically single tokens (e.g. <code>data</code>),
-while less common or more complex words are split into subword tokens
-(e.g. <code>token</code> + <code>isation</code>). This allows the model
-to handle new or rare words by recombining familiar pieces rather than
-requiring a unique token for every word.</p>
-<p>Tokens do not necessarily align with meaning or syllables because
-tokenisation is <strong>statistical</strong> rather than
-<strong>linguistic</strong>. This explains why prompts that seem similar
-to us humans can produce very different outputs.</p>
-<p>Understanding tokenisation allows us to appreciate a key limitation
-of GPT: the model optimises for what is <strong>likely</strong> to
-follow, not for what is <strong>correct</strong>, so early token-level
-errors can influence the rest of the response.</p>
-</div>
 </div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="how-a-gpt-model-is-trained">How a GPT Model is Trained<a class="anchor" aria-label="anchor" href="#how-a-gpt-model-is-trained"></a>
+<h3 id="the-immature-and-rapidly-evolving-landscape">The Immature and Rapidly Evolving Landscape<a class="anchor" aria-label="anchor" href="#the-immature-and-rapidly-evolving-landscape"></a>
 </h3>
+<p>While AI coding assistants in IDEs present features that may appear
+advanced and polished, the field itself remains relatively immature and
+is evolving at a rapid pace.</p>
+<p>The Gartner Hype Cycle is a model that describes how technologies
+evolve through public perception and maturity over time. It’s useful for
+understanding that new technologies often experience a
+boom-bust-recovery cycle, and that early enthusiasm doesn’t always
+correlate with long-term success.</p>
+<figure><img src="../fig/Gartner_Hype_Cycle.png" alt="Labelled curve graph of the Gartner Hype Cycle, labelling each of the five stages" class="figure mx-auto d-block"><div class="figcaption">Gartner Hype Cycle. Courtesy of Wikipedia,
+CC-BY-SA 3.0</div>
+</figure><p>It has five phases:</p>
 <ol style="list-style-type: decimal">
 <li>
-<strong>Data collection</strong> - A large amount of text is
-gathered to train the AI model on.</li>
+<strong>Technology Trigger</strong> – a breakthrough or significant
+media attention launches the technology into public awareness, creating
+excitement and high expectations</li>
 <li>
-<strong>Model architecture design</strong> - The neural network
-architecture is designed to best suit the purpose of the AI</li>
+<strong>Peak of Inflated Expectations</strong> – hype reaches its
+peak as early adopters, vendors, and media promote the technology
+enthusiastically. Expectations often exceed what the technology can
+actually deliver</li>
 <li>
-<strong>Pre-training</strong> - The AI model is trained on the
-collected text.</li>
+<strong>Trough of Disillusionment</strong> – reality sets in. Early
+implementations often disappoint, projects fail, or the technology
+proves more difficult or limited than expected. Media coverage becomes
+negative, and interest drops sharply.</li>
 <li>
-<strong>Fine-tuning</strong> - Further training the model on
-specific datasets and tasks related to its purpose e.g. if it is going
-to be a code assistant it will be trained on tasks related to code
-generation.</li>
+<strong>Slope of Enlightenment</strong> – developers and
+organizations begin to understand the technology’s real capabilities and
+limitations. Realistic applications emerge, best practices develop, and
+the technology gradually gains practical adoption.</li>
 <li>
-<strong>Alignment</strong> – Guide the model so that its outputs are
-helpful, safe, and in line with human intentions. This often involves
-human feedback to encourage responses that are accurate, reliable, and
-appropriate.</li>
-<li>
-<strong>Evaluation and iteration</strong> - Testing the AI in a
-variety of use cases, getting feedback and iterating the model
-architecture to improve performance.</li>
+<strong>Plateau of Productivity</strong> – the technology matures
+and becomes widely adopted for its genuine use cases. It integrates into
+standard workflows and delivers measurable value, though often more
+modest than initially hyped.</li>
 </ol>
-<figure><img src="../fig/model_training_process_cropped.png" alt="Diagram of the 6 steps for training a GPT model" class="figure mx-auto d-block"></figure>
+<p>The landscape of AI coding assistants is characterized by:</p>
+<ul>
+<li>
+<strong>Rapid feature development</strong> - new capabilities are
+continuously being added and refined by vendors competing in this
+space</li>
+<li>
+<strong>Unstable implementations</strong> - how features are
+implemented, displayed, and accessed changes frequently, sometimes
+between minor version updates</li>
+<li>
+<strong>Shifting vendor priorities</strong> - large technology
+companies regularly adjust their AI strategies For example, Microsoft
+has recently scaled back some of its ambitious AI goals for Visual
+Studio Code, which may affect the availability and priority of
+AI-assisted features in the editor</li>
+<li>
+<strong>Incomplete standardization</strong> - there is no
+industry-wide standard for how AI assistants should integrate with IDEs,
+leading to inconsistent user experiences across different tools</li>
+</ul>
+<p>This rapid evolution means that the tools and best practices applied
+to them can quickly become outdated. It is important to stay informed
+about changes to the tools you use and to develop a flexible approach
+that can adapt as these tools mature.</p>
+<div id="class-discussion-where-does-ai-coding-tools-fall-on-the-hype-curve" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="class-discussion-where-does-ai-coding-tools-fall-on-the-hype-curve" class="callout-inner">
+<h3 class="callout-title">Class Discussion: Where Does AI Coding Tools
+Fall on the Hype Curve?</h3>
+<div class="callout-content">
+<p>1 mins.</p>
+<p>In general, where do you think AI coding tools fall on this curve?
+Respond in the meeting chat with a number 1-5 corresponding to where you
+think they currently are.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<p>It’s particularly relevant to AI coding assistants, which at the time
+of writing (Q1 2026) are currently navigating the peak of inflated
+expectations phase.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="overview-of-ai-tools-that-can-support-research-coding">Overview of AI tools that can support research coding<a class="anchor" aria-label="anchor" href="#overview-of-ai-tools-that-can-support-research-coding"></a>
 </h2>
@@ -1054,63 +850,10 @@ governance, and oversight in AI-assisted development.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>For the next exercise, in the shared notes document have a section
 for participants to add in answers.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="class-discussion-what-are-your-ai-coding-fears" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="class-discussion-what-are-your-ai-coding-fears" class="callout-inner">
-<h3 class="callout-title">Class Discussion: What are your AI Coding
-Fears?</h3>
-<div class="callout-content">
-<p>3 mins.</p>
-<p>Two questions:</p>
-<ul>
-<li>How do you hope AI coding assistants will help your software
-development?</li>
-<li>Do you have any concerns with using AI coding assistants? e.g. what
-are you afraid could happen?</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<p>Some possible benefits:</p>
-<ul>
-<li>Speed up development</li>
-<li>Help with understanding codebases</li>
-<li>Assist with learning and implementing new technologies</li>
-<li>Rapid prototyping</li>
-<li>Real-time assistance when writing code in an editor</li>
-<li>Free up time for doing actual research</li>
-</ul>
-<p>Some possible concerns:</p>
-<ul>
-<li>Incorrect but plausible code</li>
-<li>Hallucinated APIs or behavior</li>
-<li>Hidden assumptions</li>
-<li>Over-trust of code / reduced code review</li>
-<li>Poor maintainability</li>
-<li>Loss of algorithmic understanding</li>
-<li>Reproducibility issues</li>
-<li>Mismatch with scientific methods</li>
-<li>Licensing/IP uncertainty</li>
-<li>Security and data leakage risks</li>
-</ul>
 </div>
 </div>
 </div>
@@ -1184,102 +927,6 @@ into reliable productivity multipliers rather than sources of technical
 debt,will gain significant advantages in development speed and code
 quality.”</p>
 </blockquote>
-</div>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="the-immature-and-rapidly-evolving-landscape">The Immature and Rapidly Evolving Landscape<a class="anchor" aria-label="anchor" href="#the-immature-and-rapidly-evolving-landscape"></a>
-</h3>
-<p>While AI coding assistants in IDEs present features that may appear
-advanced and polished, the field itself remains relatively immature and
-is evolving at a rapid pace.</p>
-<p>The Gartner Hype Cycle is a model that describes how technologies
-evolve through public perception and maturity over time. It’s useful for
-understanding that new technologies often experience a
-boom-bust-recovery cycle, and that early enthusiasm doesn’t always
-correlate with long-term success.</p>
-<figure><img src="../fig/Gartner_Hype_Cycle.png" alt="Labelled curve graph of the Gartner Hype Cycle, labelling each of the five stages" class="figure mx-auto d-block"><div class="figcaption">Gartner Hype Cycle. Courtesy of Wikipedia,
-CC-BY-SA 3.0</div>
-</figure><p>It has five phases:</p>
-<ol style="list-style-type: decimal">
-<li>
-<strong>Technology Trigger</strong> – a breakthrough or significant
-media attention launches the technology into public awareness, creating
-excitement and high expectations</li>
-<li>
-<strong>Peak of Inflated Expectations</strong> – hype reaches its
-peak as early adopters, vendors, and media promote the technology
-enthusiastically. Expectations often exceed what the technology can
-actually deliver</li>
-<li>
-<strong>Trough of Disillusionment</strong> – reality sets in. Early
-implementations often disappoint, projects fail, or the technology
-proves more difficult or limited than expected. Media coverage becomes
-negative, and interest drops sharply.</li>
-<li>
-<strong>Slope of Enlightenment</strong> – developers and
-organizations begin to understand the technology’s real capabilities and
-limitations. Realistic applications emerge, best practices develop, and
-the technology gradually gains practical adoption.</li>
-<li>
-<strong>Plateau of Productivity</strong> – the technology matures
-and becomes widely adopted for its genuine use cases. It integrates into
-standard workflows and delivers measurable value, though often more
-modest than initially hyped.</li>
-</ol>
-<p>The landscape of AI coding assistants is characterized by:</p>
-<ul>
-<li>
-<strong>Rapid feature development</strong> - new capabilities are
-continuously being added and refined by vendors competing in this
-space</li>
-<li>
-<strong>Unstable implementations</strong> - how features are
-implemented, displayed, and accessed changes frequently, sometimes
-between minor version updates</li>
-<li>
-<strong>Shifting vendor priorities</strong> - large technology
-companies regularly adjust their AI strategies For example, Microsoft
-has recently scaled back some of its ambitious AI goals for Visual
-Studio Code, which may affect the availability and priority of
-AI-assisted features in the editor</li>
-<li>
-<strong>Incomplete standardization</strong> - there is no
-industry-wide standard for how AI assistants should integrate with IDEs,
-leading to inconsistent user experiences across different tools</li>
-</ul>
-<p>This rapid evolution means that the tools and best practices applied
-to them can quickly become outdated. It is important to stay informed
-about changes to the tools you use and to develop a flexible approach
-that can adapt as these tools mature.</p>
-<div id="class-discussion-where-does-ai-coding-tools-fall-on-the-hype-curve" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="class-discussion-where-does-ai-coding-tools-fall-on-the-hype-curve" class="callout-inner">
-<h3 class="callout-title">Class Discussion: Where Does AI Coding Tools
-Fall on the Hype Curve?</h3>
-<div class="callout-content">
-<p>1 mins.</p>
-<p>In general, where do you think AI coding tools fall on this curve?
-Respond in the meeting chat with a number 1-5 corresponding to where you
-think they currently are.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
-<div class="accordion-body">
-<p>It’s particularly relevant to AI coding assistants, which at the time
-of writing (Q1 2026) are currently navigating the peak of inflated
-expectations phase.</p>
-</div>
 </div>
 </div>
 </div>
