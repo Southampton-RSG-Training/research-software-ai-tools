@@ -149,7 +149,7 @@ Answer ‘yes’ to allow the installer to initialize Anaconda3 in your .bashrc.
 ### Microsoft Visual Studio Code
 
 The hands-on part of this topic will be conducted using Visual Studio Code (VS Code), a widely used IDE.
-Please [download the appropriate version of Visual Studio Code][https://code.visualstudio.com/] for your operating system (Windows, macOS, or Linux)
+Please [download the appropriate version of Visual Studio Code](https://code.visualstudio.com/) for your operating system (Windows, macOS, or Linux)
 and system architecture (e.g., 64-bit, ARM).
 
 ### Additional Git Setup
