@@ -228,9 +228,10 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introduction-to-ides">Introduction to IDEs</a></li>
+<li><a href="#an-example-project">An Example Project</a></li>
 <li><a href="#getting-started-with-vscode">Getting Started with VSCode</a></li>
 <li><a href="#installing-dependencies-into-a-virtual-environment">Installing Dependencies into a Virtual Environment</a></li>
-<li><a href="#opening-in-vscode">Opening in VSCode</a></li>
+<li><a href="#setting-up-python-extensions">Setting up Python extensions</a></li>
 <li><a href="#using-vscode">Using VSCode</a></li>
 <li><a href="#running-python-in-vscode">Running Python in VSCode</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -492,6 +493,21 @@ environment for Python and data science</li>
 <a href="https://www.spyder-ide.org/" class="external-link">Spyder</a> – popular among
 scientists using Python</li>
 </ul></div>
+</section><section><h2 class="section-heading" id="an-example-project">An Example Project<a class="anchor" aria-label="anchor" href="#an-example-project"></a></h2>
+<hr class="half-width"><p>For this lesson we’ll be using some example data held in a repository
+on GitHub, which we’ll clone onto our machines using the Bash shell. So
+firstly open a Bash shell (via Git Bash in Windows or Terminal on a
+Mac). Then, on the command line, navigate to where you’d like the
+example code to reside, and use Git to clone it. For example, to clone
+the repository in our home directory, and change our directory to the
+repository contents:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="bu">cd</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="fu">git</span> clone https://github.com/Southampton-RSG-Training/ai-tools-example.git</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1" aria-label="code-block-1-3"></a><span class="bu">cd</span> ai-tools-example</span></code></pre>
+</div>
 </section><section><h2 class="section-heading" id="getting-started-with-vscode">Getting Started with VSCode<a class="anchor" aria-label="anchor" href="#getting-started-with-vscode"></a></h2>
 <hr class="half-width"><p>Let’s start by running VSCode now on our machines, so run it now. How
 you run VSCode will differ depending on which operating system you have
@@ -500,6 +516,50 @@ installed.</p>
 to features for opening files, and creating or opening a project. You
 may find it asks you which kind of theme you’d like - you can select
 from either a dark or light theme.</p>
+<div class="section level3">
+<h3 id="opening-our-example-code-folder-in-vscode">Opening our Example Code Folder in VSCode<a class="anchor" aria-label="anchor" href="#opening-our-example-code-folder-in-vscode"></a></h3>
+<p>Now we need to load the code into VSCode to see it. You can do this
+in a couple of ways, either:</p>
+<ol style="list-style-type: decimal"><li>Select the <code>Source control</code> icon from the middle of the
+icons on the left navigation bar. You should see an
+<code>Open Folder</code> option, so select that.</li>
+<li>Select the <code>File</code> option from the top menu bar, and
+select <code>Open Folder...</code>.</li>
+</ol><p>In either case, you should then be able to use the file browser to
+locate the directory with the repository you cloned, and then select
+<code>Open</code>. Note that we’re looking for the <em>folder</em> that
+contains the files, not a specific file.</p>
+<div id="what-about-using-git-version-control" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="what-about-using-git-version-control" class="callout-inner">
+<h3 class="callout-title">What about using Git Version Control?</h3>
+<div class="callout-content">
+<p>If your system has the Git version control system installed, you may
+see a <code>Clone Repository</code> option here too. If you are familiar
+with Git and wish to use this option instead, select it and enter the
+repository’s location as
+<code>https://github.com/Southampton-RSG-Training/ai-tools-example.git</code>.
+Then use the file browser that is presented to find a convenient
+location to store the cloned code and click on
+<code>Select as Repository Destination</code>, then select
+<code>Open</code> when ‘Would you like to open the cloned repository?’
+popup appears.</p>
+</div>
+</div>
+</div>
+
+<p>You may be presented with a window asking whether you trust the
+authors of this code. In general, it’s a good idea to be at least a
+little wary, since you’re obtaining code from the internet, so be sure
+to check your sources! Be careful here - I found on Windows the “Trust”
+option appears on the left, whilst on Mac, it appears on the right! In
+this case, feel free to trust the repository! You’ll then see the
+explorer present you with some files in a small window (or pane) on the
+left you can use to navigate and find files.</p>
+</div>
 <div class="section level3">
 <h3 id="navigating-around-vscode">Navigating Around VSCode<a class="anchor" aria-label="anchor" href="#navigating-around-vscode"></a></h3>
 <p>So let’s take a look at the application. You’ll see some icons on the
@@ -517,7 +577,7 @@ code control, which includes Git version control functionality. This
 feature means you can do things like clone Git repositories (for
 example, from GitHub), add and commit files to a repository, things like
 that.</p>
-<div id="callout1" class="callout">
+<div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -578,23 +638,6 @@ Jupyter notebooks. If you use Jupyter notebooks, which is a way of
 writing Python programs that you can run line by line from within an
 editor as you write the program, you may find this useful.</p>
 </div>
-<div class="section level3">
-<h3 id="a-sample-project">A Sample Project<a class="anchor" aria-label="anchor" href="#a-sample-project"></a></h3>
-<p>For this lesson we’ll be using some example code available on GitHub,
-which we’ll clone onto our machines using the Bash shell. So firstly
-open a Bash shell (via Git Bash in Windows or Terminal on a Mac). Then,
-on the command line, navigate to where you’d like the example code to
-reside, and use Git to clone it. For example, to clone the repository in
-our home directory, and change our directory to the repository
-contents:</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="bu">cd</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="fu">git</span> clone https://github.com/Southampton-RSG-Training/ai-tools-example.git</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1" aria-label="code-block-1-3"></a><span class="bu">cd</span> ai-tools-example</span></code></pre>
-</div>
-</div>
 </section><section><h2 class="section-heading" id="installing-dependencies-into-a-virtual-environment">Installing Dependencies into a Virtual Environment<a class="anchor" aria-label="anchor" href="#installing-dependencies-into-a-virtual-environment"></a></h2>
 <hr class="half-width"><p>This particular code makes use of two very popular Python
 packages:</p>
@@ -630,11 +673,43 @@ are similar tools for available for Ruby, Java and JavaScript.</li>
 <div class="section level3">
 <h3 id="setting-up-a-virtual-environment">Setting up a Virtual Environment<a class="anchor" aria-label="anchor" href="#setting-up-a-virtual-environment"></a></h3>
 <p>Let’s now create a Python virtual environment and make use of it.
-Make sure you’re in the root directory of the repository, then type</p>
+Within VSCode, select <code>Terminal</code> and then
+<code>New Terminal</code>.</p>
+<p>You should see a Bash prompt.</p>
+<div id="on-windows-i-only-see-a-ps-powershell-prompt" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="on-windows-i-only-see-a-ps-powershell-prompt" class="callout-inner">
+<h3 class="callout-title">On Windows, I only see a <code>PS&gt;</code>
+PowerShell prompt?</h3>
+<div class="callout-content">
+<p>If you open a terminal on Windows but see a PowerShell prompt instead
+(which looks like <code>PS&gt;</code>), you’ll need to change the
+default terminal type to Git Bash.</p>
+<ol style="list-style-type: decimal"><li>Select <code>File</code> from the VSCode menu, then
+<code>Preferences</code> and then <code>Settings</code>.</li>
+<li>Type <code>terminal.integrated.defaultProfile.windows</code> in the
+search bar.</li>
+<li>In the setting that appears, select <code>Git Bash</code> from the
+dropdown.</li>
+<li>Open a new terminal by selecting <code>Terminal</code> from the
+VSCode menu, then <code>New Terminal</code>.</li>
+</ol><p>If you are presented with a Git Bash terminal that looks something
+like the following, you’re ready:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1" aria-label="code-block-2-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1" aria-label="code-block-2-1"></a><span class="ex">user@hostname</span> MINGW64 ~</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span></code></pre>
 </div>
 <p>Here, we’re using the built-on Python <code>venv</code> module -
 short for virtual environment - to create a virtual environment
@@ -644,12 +719,12 @@ convention, as is creating it within the repository root directory. This
 makes sure the virtual environment is closely associated with this
 project, and not easily confused with another.</p>
 <p>Once created, we can <em>activate</em> it so it’s the one in use:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1" aria-label="code-block-3-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1" aria-label="code-block-4-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1" aria-label="code-block-4-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
 </div>
 <p>You should notice the prompt changes to reflect that the virtual
 environment is active, which is a handy reminder. For example:</p>
@@ -661,10 +736,10 @@ environment is active, which is a handy reminder. For example:</p>
 
 <p>Now it’s created, let’s take a look at what’s in this virtual
 environment at this point.</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">python</span> <span class="at">-m</span> pip list</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="ex">python</span> <span class="at">-m</span> pip list</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -684,10 +759,10 @@ access to any globally installed Python packages.</p>
 <h3 id="adding-packages-to-a-virtual-environment">Adding Packages to a Virtual Environment<a class="anchor" aria-label="anchor" href="#adding-packages-to-a-virtual-environment"></a></h3>
 <p>Now we have our virtual environment, we can install NumPy and
 Matplotlib to it:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install numpy matplotlib</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install numpy matplotlib</span></code></pre>
 </div>
 <p>If we do <code>python -m pip list</code> now, we can see these
 packages, and their dependencies, installed within the virtual
@@ -695,57 +770,16 @@ environment we have activated.</p>
 <p>If we want to deactivate this environment, and return to the global
 Python package context, we can use <code>deactivate</code>. To
 reactivate it again, it’s the same as before:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="opening-in-vscode">Opening in VSCode<a class="anchor" aria-label="anchor" href="#opening-in-vscode"></a></h2>
-<hr class="half-width"><p>Now we need to load the code into VSCode to see it. You can do this
-in a couple of ways, either:</p>
-<ol style="list-style-type: decimal"><li>Select the <code>Source control</code> icon from the middle of the
-icons on the left navigation bar. You should see an
-<code>Open Folder</code> option, so select that.</li>
-<li>Select the <code>File</code> option from the top menu bar, and
-select <code>Open Folder...</code>.</li>
-</ol><p>In either case, you should then be able to use the file browser to
-locate the directory with the files you just extracted, and then select
-<code>Open</code>. Note that we’re looking for the <em>folder</em> that
-contains the files, not a specific file.</p>
-<div id="what-about-using-git-version-control" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="what-about-using-git-version-control" class="callout-inner">
-<h3 class="callout-title">What about using Git Version Control?</h3>
-<div class="callout-content">
-<p>If your system has the Git version control system installed, you may
-see a <code>Clone Repository</code> option here too. If you are familiar
-with Git and wish to use this option instead, select it and enter the
-repository’s location as
-<code>https://github.com/Southampton-RSG-Training/ai-tools-example.git</code>.
-Then use the file browser that is presented to find a convenient
-location to store the cloned code and click on
-<code>Select as Repository Destination</code>, then select
-<code>Open</code> when ‘Would you like to open the cloned repository?’
-popup appears.</p>
-</div>
-</div>
-</div>
-
-<p>You may be presented with a window asking whether you trust the
-authors of this code. In general, it’s a good idea to be at least a
-little wary, since you’re obtaining code from the internet, so be sure
-to check your sources! Be careful here - I found on Windows the “Trust”
-option appears on the left, whilst on Mac, it appears on the right! In
-this case, feel free to trust the repository! You’ll then see the
-explorer present you with some files in a small window (or pane) on the
-left you can use to navigate and find files.</p>
-<p>We also need to configure the Python extension within this workspace
+</section><section><h2 class="section-heading" id="setting-up-python-extensions">Setting up Python extensions<a class="anchor" aria-label="anchor" href="#setting-up-python-extensions"></a></h2>
+<hr class="half-width"><p>We also need to configure the Python extension within this workspace
 to use the Python contained with the virtual environment we created
 earlier. VSCode has a sophisticated method to access it’s inner
 functionality known as the Command Palette, which we’ll use to address
@@ -786,39 +820,39 @@ earlier.</p>
 at our example code. Select the <code>inflammation-plot.py</code> file
 in the explorer window, which will bring up the contents of the file in
 the code editor.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="im">import</span> glob</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1" aria-label="code-block-9-6"></a>filenames <span class="op">=</span> glob.glob(<span class="st">'data/inflammation-*.csv'</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1" aria-label="code-block-9-7"></a>filenames.sort()</span>
-<span id="cb9-8"><a href="#cb9-8" tabindex="-1" aria-label="code-block-9-8"></a></span>
-<span id="cb9-9"><a href="#cb9-9" tabindex="-1" aria-label="code-block-9-9"></a><span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
-<span id="cb9-10"><a href="#cb9-10" tabindex="-1" aria-label="code-block-9-10"></a>    <span class="bu">print</span>(filename)</span>
-<span id="cb9-11"><a href="#cb9-11" tabindex="-1" aria-label="code-block-9-11"></a></span>
-<span id="cb9-12"><a href="#cb9-12" tabindex="-1" aria-label="code-block-9-12"></a>    data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span>filename, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb9-13"><a href="#cb9-13" tabindex="-1" aria-label="code-block-9-13"></a></span>
-<span id="cb9-14"><a href="#cb9-14" tabindex="-1" aria-label="code-block-9-14"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">3.0</span>))</span>
-<span id="cb9-15"><a href="#cb9-15" tabindex="-1" aria-label="code-block-9-15"></a></span>
-<span id="cb9-16"><a href="#cb9-16" tabindex="-1" aria-label="code-block-9-16"></a>    axes1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb9-17"><a href="#cb9-17" tabindex="-1" aria-label="code-block-9-17"></a>    axes2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb9-18"><a href="#cb9-18" tabindex="-1" aria-label="code-block-9-18"></a>    axes3 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb9-19"><a href="#cb9-19" tabindex="-1" aria-label="code-block-9-19"></a></span>
-<span id="cb9-20"><a href="#cb9-20" tabindex="-1" aria-label="code-block-9-20"></a>    axes1.set_ylabel(<span class="st">'average'</span>)</span>
-<span id="cb9-21"><a href="#cb9-21" tabindex="-1" aria-label="code-block-9-21"></a>    axes1.plot(data.mean(axis<span class="op">=</span><span class="dv">0</span>))</span>
-<span id="cb9-22"><a href="#cb9-22" tabindex="-1" aria-label="code-block-9-22"></a></span>
-<span id="cb9-23"><a href="#cb9-23" tabindex="-1" aria-label="code-block-9-23"></a>    axes2.set_ylabel(<span class="st">'max'</span>)</span>
-<span id="cb9-24"><a href="#cb9-24" tabindex="-1" aria-label="code-block-9-24"></a>    axes2.plot(data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
-<span id="cb9-25"><a href="#cb9-25" tabindex="-1" aria-label="code-block-9-25"></a></span>
-<span id="cb9-26"><a href="#cb9-26" tabindex="-1" aria-label="code-block-9-26"></a>    axes3.set_ylabel(<span class="st">'min'</span>)</span>
-<span id="cb9-27"><a href="#cb9-27" tabindex="-1" aria-label="code-block-9-27"></a>    axes3.plot(data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
-<span id="cb9-28"><a href="#cb9-28" tabindex="-1" aria-label="code-block-9-28"></a></span>
-<span id="cb9-29"><a href="#cb9-29" tabindex="-1" aria-label="code-block-9-29"></a>    fig.tight_layout()</span>
-<span id="cb9-30"><a href="#cb9-30" tabindex="-1" aria-label="code-block-9-30"></a>    fig.savefig(filename <span class="op">+</span> <span class="st">'.png'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="im">import</span> glob</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1" aria-label="code-block-10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1" aria-label="code-block-10-6"></a>filenames <span class="op">=</span> glob.glob(<span class="st">'data/inflammation-*.csv'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1" aria-label="code-block-10-7"></a>filenames.sort()</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1" aria-label="code-block-10-8"></a></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1" aria-label="code-block-10-9"></a><span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1" aria-label="code-block-10-10"></a>    <span class="bu">print</span>(filename)</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1" aria-label="code-block-10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1" aria-label="code-block-10-12"></a>    data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span>filename, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1" aria-label="code-block-10-13"></a></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1" aria-label="code-block-10-14"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">3.0</span>))</span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1" aria-label="code-block-10-15"></a></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1" aria-label="code-block-10-16"></a>    axes1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1" aria-label="code-block-10-17"></a>    axes2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1" aria-label="code-block-10-18"></a>    axes3 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1" aria-label="code-block-10-19"></a></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1" aria-label="code-block-10-20"></a>    axes1.set_ylabel(<span class="st">'average'</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1" aria-label="code-block-10-21"></a>    axes1.plot(data.mean(axis<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1" aria-label="code-block-10-22"></a></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1" aria-label="code-block-10-23"></a>    axes2.set_ylabel(<span class="st">'max'</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1" aria-label="code-block-10-24"></a>    axes2.plot(data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1" aria-label="code-block-10-25"></a></span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1" aria-label="code-block-10-26"></a>    axes3.set_ylabel(<span class="st">'min'</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1" aria-label="code-block-10-27"></a>    axes3.plot(data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1" aria-label="code-block-10-28"></a></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1" aria-label="code-block-10-29"></a>    fig.tight_layout()</span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1" aria-label="code-block-10-30"></a>    fig.savefig(filename <span class="op">+</span> <span class="st">'.png'</span>)</span></code></pre>
 </div>
 <p>We’ll be using this code example throughout the session. Note that as
 an example, the code is deliberately written to have flaws. Things like
