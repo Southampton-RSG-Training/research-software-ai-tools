@@ -89,6 +89,24 @@ Here are a few widely used IDEs across different languages and fields:
 - [JupyterLab](https://jupyter.org/) – interactive environment for Python and data science
 - [Spyder](https://www.spyder-ide.org/) – popular among scientists using Python
 
+
+## An Example Project
+
+For this lesson we'll be using some example data held in a repository on GitHub,
+which we'll clone onto our machines using the Bash shell.
+So firstly open a Bash shell (via Git Bash in Windows or Terminal on a Mac).
+Then, on the command line, navigate to where you'd like the example code to reside,
+and use Git to clone it.
+For example, to clone the repository in our home directory,
+and change our directory to the repository contents:
+
+```bash
+cd
+git clone https://github.com/Southampton-RSG-Training/ai-tools-example.git
+cd ai-tools-example
+```
+
+
 ## Getting Started with VSCode
 
 Let's start by running VSCode now on our machines, so run it now.
@@ -96,6 +114,42 @@ How you run VSCode will differ depending on which operating system you have inst
 
 The first thing you'll likely see is a welcome-style page with links to features for opening files, and creating or opening a project.
 You may find it asks you which kind of theme you'd like - you can select from either a dark or light theme.
+
+### Opening our Example Code Folder in VSCode
+
+Now we need to load the code into VSCode to see it.
+You can do this in a couple of ways, either:
+
+1. Select the `Source control` icon from the middle of the icons on the left navigation bar. You should see an `Open Folder` option, so select that.
+1. Select the `File` option from the top menu bar, and select `Open Folder...`.
+
+In either case, you should then be able to use the file browser to locate the directory with the repository you cloned, and then select `Open`.
+Note that we're looking for the *folder* that contains the files, not a specific file.
+
+::::::::::::::::::::::::::::::::: callout
+
+## What about using Git Version Control?
+
+If your system has the Git version control system installed, you may see a `Clone Repository` option here too.
+If you are familiar with Git and wish to use this option instead,
+select it and enter the repository's location as `https://github.com/Southampton-RSG-Training/ai-tools-example.git`.
+Then use the file browser that is presented to find a convenient location to store the cloned code and click on `Select as Repository Destination`,
+then select `Open` when ‘Would you like to open the cloned repository?' popup appears.
+
+:::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Checkpoint: who's been able to download the code and open it within VSCode?
+
+::::::::::::::::::::::::::::::::::::::::: 
+
+You may be presented with a window asking whether you trust the authors of this code.
+In general, it's a good idea to be at least a little wary, since you're obtaining code from the internet, so be sure to check your sources!
+Be careful here - I found on Windows the "Trust" option appears on the left, whilst on Mac, it appears on the right!
+In this case, feel free to trust the repository!
+You'll then see the explorer present you with some files in a small window (or pane) on the left you can use to navigate and find files.
+
 
 ### Navigating Around VSCode
 
@@ -154,22 +208,6 @@ Once complete, you should see a couple of "Welcome" windows introducing you to t
 If you use Jupyter notebooks, which is a way of writing Python programs that you can run line by line from within an editor as you write the program, you may find this useful.
 
 
-### A Sample Project
-
-For this lesson we'll be using some example code available on GitHub,
-which we'll clone onto our machines using the Bash shell.
-So firstly open a Bash shell (via Git Bash in Windows or Terminal on a Mac).
-Then, on the command line, navigate to where you'd like the example code to reside,
-and use Git to clone it.
-For example, to clone the repository in our home directory,
-and change our directory to the repository contents:
-
-```bash
-cd
-git clone https://github.com/Southampton-RSG-Training/ai-tools-example.git
-cd ai-tools-example
-```
-
 ## Installing Dependencies into a Virtual Environment
 
 This particular code makes use of two very popular Python packages:
@@ -212,7 +250,29 @@ it becomes much easier for someone else (which could be a future version of ours
 ### Setting up a Virtual Environment
 
 Let's now create a Python virtual environment and make use of it.
-Make sure you're in the root directory of the repository, then type
+Within VSCode, select `Terminal` and then `New Terminal`.
+
+You should see a Bash prompt.
+
+::::::::::::::::::::::::::::::::: callout
+
+## On Windows, I only see a `PS>` PowerShell prompt?
+
+If you open a terminal on Windows but see a PowerShell prompt instead (which looks like `PS>`),
+you'll need to change the default terminal type to Git Bash.
+
+1. Select `File` from the VSCode menu, then `Preferences` and then `Settings`.
+1. Type `terminal.integrated.defaultProfile.windows` in the search bar.
+1. In the setting that appears, select `Git Bash` from the dropdown.
+1. Open a new terminal by selecting `Terminal` from the VSCode menu, then `New Terminal`.
+
+If you are presented with a Git Bash terminal that looks something like the following, you're ready:
+
+```bash
+user@hostname MINGW64 ~
+```
+
+:::::::::::::::::::::::::::::::::::::::::
 
 ```bash
 python3 -m venv venv
@@ -285,40 +345,7 @@ To reactivate it again, it's the same as before:
 ```
 
 
-## Opening in VSCode
-
-Now we need to load the code into VSCode to see it.
-You can do this in a couple of ways, either:
-
-1. Select the `Source control` icon from the middle of the icons on the left navigation bar. You should see an `Open Folder` option, so select that.
-1. Select the `File` option from the top menu bar, and select `Open Folder...`.
-
-In either case, you should then be able to use the file browser to locate the directory with the files you just extracted, and then select `Open`.
-Note that we're looking for the *folder* that contains the files, not a specific file.
-
-::::::::::::::::::::::::::::::::: callout
-
-## What about using Git Version Control?
-
-If your system has the Git version control system installed, you may see a `Clone Repository` option here too.
-If you are familiar with Git and wish to use this option instead,
-select it and enter the repository's location as `https://github.com/Southampton-RSG-Training/ai-tools-example.git`.
-Then use the file browser that is presented to find a convenient location to store the cloned code and click on `Select as Repository Destination`,
-then select `Open` when ‘Would you like to open the cloned repository?' popup appears.
-
-:::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::: instructor
-
-## Checkpoint: who's been able to download the code and open it within VSCode?
-
-::::::::::::::::::::::::::::::::::::::::: 
-
-You may be presented with a window asking whether you trust the authors of this code.
-In general, it's a good idea to be at least a little wary, since you're obtaining code from the internet, so be sure to check your sources!
-Be careful here - I found on Windows the "Trust" option appears on the left, whilst on Mac, it appears on the right!
-In this case, feel free to trust the repository!
-You'll then see the explorer present you with some files in a small window (or pane) on the left you can use to navigate and find files.
+## Setting up Python extensions
 
 We also need to configure the Python extension within this workspace to use the Python contained with the virtual environment we created earlier.
 VSCode has a sophisticated method to access it's inner functionality known as the Command Palette, which we'll use to address this.
