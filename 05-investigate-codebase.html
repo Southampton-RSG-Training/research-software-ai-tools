@@ -254,7 +254,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#preparing-useful-prompts">Preparing Useful Prompts</a></li>
+        <ul><li><a href="#preparing-useful-skills">Preparing Useful Skills</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -333,7 +333,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Investigate a New Codebase</h1>
-        <p>Last updated on 2026-02-10 |
+        <p>Last updated on 2026-10-16 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/05-investigate-codebase.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -373,34 +373,34 @@ improvement.</li>
 <p>In this episode we’ll investigate a new codebase to increase our
 understanding of how it operates and to identify strengths, weaknesses
 and ways to improve it.</p>
-<section><h2 class="section-heading" id="preparing-useful-prompts">Preparing Useful Prompts<a class="anchor" aria-label="anchor" href="#preparing-useful-prompts"></a></h2>
+<section><h2 class="section-heading" id="preparing-useful-skills">Preparing Useful Skills<a class="anchor" aria-label="anchor" href="#preparing-useful-skills"></a></h2>
 <hr class="half-width"><p>We’ve seen how we are able to reuse prompts by storing them in a
-prompt file. Before we go ahead and investigate a new codebase, let’s
+skills file. Before we go ahead and investigate a new codebase, let’s
 add some reusable specialist prompts to help conduct this investigation
 for us.</p>
 <div class="section level3">
-<h3 id="prompt-to-explain-a-codebase">Prompt to Explain a Codebase<a class="anchor" aria-label="anchor" href="#prompt-to-explain-a-codebase"></a></h3>
-<p>Let’s start with a prompt to help us understand a codebase. Here’s an
-example code review prompt file based on one from the <a href="https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file#code-explanation-prompt" class="external-link">GitHub
-Docs</a>. Add the following draft to a new prompt file at
-<code>.github/prompts/explain-code.prompt.md</code>:</p>
+<h3 id="skill-to-explain-a-codebase">Skill to Explain a Codebase<a class="anchor" aria-label="anchor" href="#skill-to-explain-a-codebase"></a></h3>
+<p>Let’s start with a skill to help us understand a codebase. Here’s an
+example code review skill file based on one from the <a href="https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file#code-explanation-prompt" class="external-link">GitHub
+Docs</a>. Add the following draft to a new <code>explain-code.md</code>
+skills file at a location of your choice:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="an">description:</span><span class="co"> 'Generate a clear code explanation with examples'</span></span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1" aria-label="code-block-1-3"></a><span class="an">agent:</span><span class="co"> 'agent'</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="an">name:</span><span class="co"> explain-code</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1" aria-label="code-block-1-3"></a><span class="an">description:</span><span class="co"> 'Generate a clear code explanation with examples'</span></span>
 <span id="cb1-4"><a href="#cb1-4" tabindex="-1" aria-label="code-block-1-4"></a><span class="co">---</span></span>
 <span id="cb1-5"><a href="#cb1-5" tabindex="-1" aria-label="code-block-1-5"></a></span>
 <span id="cb1-6"><a href="#cb1-6" tabindex="-1" aria-label="code-block-1-6"></a>Explain the following code in a clear, beginner-friendly way:</span>
 <span id="cb1-7"><a href="#cb1-7" tabindex="-1" aria-label="code-block-1-7"></a></span>
 <span id="cb1-8"><a href="#cb1-8" tabindex="-1" aria-label="code-block-1-8"></a>Please provide:</span>
 <span id="cb1-9"><a href="#cb1-9" tabindex="-1" aria-label="code-block-1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10" tabindex="-1" aria-label="code-block-1-10"></a><span class="ss">* </span>A brief overview of what the code does</span>
-<span id="cb1-11"><a href="#cb1-11" tabindex="-1" aria-label="code-block-1-11"></a><span class="ss">* </span>A step-by-step breakdown of the main parts</span>
-<span id="cb1-12"><a href="#cb1-12" tabindex="-1" aria-label="code-block-1-12"></a><span class="ss">* </span>Explanation of any key concepts or terminology</span>
-<span id="cb1-13"><a href="#cb1-13" tabindex="-1" aria-label="code-block-1-13"></a><span class="ss">* </span>A simple example showing how it works</span>
-<span id="cb1-14"><a href="#cb1-14" tabindex="-1" aria-label="code-block-1-14"></a><span class="ss">* </span>Common use cases or when you might use this approach</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1" aria-label="code-block-1-10"></a><span class="ss">- </span>A brief overview of what the code does</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1" aria-label="code-block-1-11"></a><span class="ss">- </span>A step-by-step breakdown of the main parts</span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1" aria-label="code-block-1-12"></a><span class="ss">- </span>Explanation of any key concepts or terminology</span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1" aria-label="code-block-1-13"></a><span class="ss">- </span>A simple example showing how it works</span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1" aria-label="code-block-1-14"></a><span class="ss">- </span>Common use cases or when you might use this approach</span>
 <span id="cb1-15"><a href="#cb1-15" tabindex="-1" aria-label="code-block-1-15"></a></span>
 <span id="cb1-16"><a href="#cb1-16" tabindex="-1" aria-label="code-block-1-16"></a>Use clear, simple language and avoid unnecessary jargon.</span></code></pre>
 </div>
@@ -414,8 +414,8 @@ Docs</a>. Add the following draft to a new prompt file at
 <div class="callout-content">
 <p>3 mins.</p>
 <p>When investigating a new codebase, what is it that really helps you
-to understand what it does and how it works? Tailor the
-<code>explain-code.prompt.md</code> file to include this criteria.</p>
+to understand what it does and how it works? Tailor the skills file to
+include this criteria.</p>
 </div>
 </div>
 </div>
@@ -433,19 +433,19 @@ to understand what it does and how it works? Tailor the
 </div>
 </div>
 <div class="section level3">
-<h3 id="prompt-to-conduct-a-code-review">Prompt to Conduct a Code Review<a class="anchor" aria-label="anchor" href="#prompt-to-conduct-a-code-review"></a></h3>
-<p>Next, let’s add a reusable prompt to conduct a code review of a
+<h3 id="skill-to-conduct-a-code-review">Skill to Conduct a Code Review<a class="anchor" aria-label="anchor" href="#skill-to-conduct-a-code-review"></a></h3>
+<p>Next, let’s add a reusable skill to conduct a code review of a
 codebase, to help us understand it’s strengths and weaknesses, and what
 needs to be fixed.</p>
-<p>Here’s an example code review prompt file based on one from the <a href="https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/review-code" class="external-link">GitHub
-Docs</a>. Copy this into a
-<code>.github/prompts/review-code.prompt.md</code> file:</p>
+<p>Here’s an example code review skills file based on one from the
+GitHub documentation. Copy this into a <code>code-review.md</code>
+file:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" tabindex="-1" aria-label="code-block-2-1"></a><span class="co">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1" aria-label="code-block-2-2"></a><span class="an">description:</span><span class="co"> 'Perform a comprehensive code review'</span></span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1" aria-label="code-block-2-3"></a><span class="an">agent:</span><span class="co"> 'agent'</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1" aria-label="code-block-2-2"></a><span class="an">name:</span><span class="co"> code-review</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1" aria-label="code-block-2-3"></a><span class="an">description:</span><span class="co"> 'Perform a comprehensive code review'</span></span>
 <span id="cb2-4"><a href="#cb2-4" tabindex="-1" aria-label="code-block-2-4"></a><span class="co">---</span></span>
 <span id="cb2-5"><a href="#cb2-5" tabindex="-1" aria-label="code-block-2-5"></a></span>
 <span id="cb2-6"><a href="#cb2-6" tabindex="-1" aria-label="code-block-2-6"></a><span class="fu">## Role</span></span>
@@ -512,8 +512,7 @@ Docs</a>. Copy this into a
 <p>3 mins.</p>
 <p>If you were to conduct a code review of a codebase, how would you go
 about it? Which areas would you look at and how would you investigate
-them? Tailor the <code>review-code.prompt.md</code> file to include this
-criteria.</p>
+them? Tailor the skills file to include this criteria.</p>
 </div>
 </div>
 </div>
@@ -541,10 +540,15 @@ criteria.</p>
 <p>Pick a GitHub code repository of your choice. It could be something
 you (or your group) has written, something you’re planning on using, or
 something you’re simply interested in.</p>
-<p>Clone the repository to your local machine, and use the prompts
-you’ve just created to build an understanding of the codebase and
-explore it’s strengths and weaknesses.</p>
-<p>Do you agree with the assessments? Are they useful? How could you
+<ol style="list-style-type: decimal"><li>Clone the repository to your local machine</li>
+<li>Import the skill files you’ve just created into the repository
+(you’ll need to create the location
+<code>.github/skills/SKILL-NAME/SKILL.md</code> for each of them)</li>
+<li>Select the <code>Local</code> harness and <code>Ask</code> agent
+modes</li>
+<li>Use the skills to build an understanding of the codebase and explore
+it’s strengths and weaknesses.</li>
+</ol><p>Do you agree with the assessments? Are they useful? How could you
 improve them for use in the future?</p>
 </div>
 </div>
@@ -627,8 +631,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-md/05-investigate-codebase.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/05-investigate-codebase.html",
   "dateCreated": "2026-01-13",
-  "dateModified": "2026-02-10",
-  "datePublished": "2026-10-14"
+  "dateModified": "2026-10-16",
+  "datePublished": "2026-10-16"
 }
 
   </script><script>

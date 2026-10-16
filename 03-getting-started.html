@@ -236,10 +236,10 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#install-vscode-copilot-extension">Install VSCode Copilot Extension</a></li>
+        <ul><li><a href="#configure-copilot">Configure Copilot</a></li>
 <li><a href="#asking-questions-about-your-code">Asking Questions about Your Code</a></li>
-<li><a href="#personalising-copilot-to-match-our-project">Personalising Copilot to Match our Project</a></li>
 <li><a href="#obtaining-guidance-on-how-to-improve-our-code">Obtaining Guidance on how to Improve our Code</a></li>
+<li><a href="#personalising-copilot-to-match-our-project">Personalising Copilot to Match our Project</a></li>
 <li><a href="#whats-my-copilot-usage">What’s my Copilot Usage?</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -337,7 +337,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Getting Started with using Copilot within VSCode</h1>
-        <p>Last updated on 2026-02-12 |
+        <p>Last updated on 2026-10-16 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-getting-started.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -372,8 +372,6 @@ available within VSCode?</li>
 <ul><li>Install and configure Visual Studio Code extension for Copilot</li>
 <li>Obtain answers to questions about how existing code works using
 Copilot’s natural language chat</li>
-<li>Compare and contrast responses for a particular coding question from
-different models</li>
 <li>Obtain suggestions on how to improve a codebase from Copilot</li>
 <li>Personalise Copilot suggestions to match project technologies and
 coding standards</li>
@@ -383,10 +381,10 @@ coding standards</li>
 </div>
 </div>
 </div>
-<p>In this episode we’ll look at installing and setting up Copilot
-within Visual Studio Code, so we can use it with our example project,
-and explore some basic features along the way.</p>
-<section><h2 class="section-heading" id="install-vscode-copilot-extension">Install VSCode Copilot Extension<a class="anchor" aria-label="anchor" href="#install-vscode-copilot-extension"></a></h2>
+<p>In this episode we’ll look at configuring Copilot within Visual
+Studio Code, so we can use it with our example project, and explore some
+basic features along the way.</p>
+<section><h2 class="section-heading" id="configure-copilot">Configure Copilot<a class="anchor" aria-label="anchor" href="#configure-copilot"></a></h2>
 <hr class="half-width"><p>Extensions are a major strength of VSCode. Whilst VSCode appears
 quite lightweight, and presents a simple interface (particularly
 compared to many other IDEs!), this is quite deceptive. You can extend
@@ -394,38 +392,37 @@ its functionality in many different ways. For example, installing
 support for other languages, greater support for version control,
 there’s even support for working with databases, and so on. There are
 literally tens of thousands of possible extensions now.</p>
-<p>You may remember when you opened VSCode for this project there was a
-“Build with Agent” panel on the right. This is the main chat interface
-to Copilot. But in order to use it (and other Copilot features) we need
-to install some extensions first. It’s possible to have VSCode manage
-the installation of these extensions automatically, but we’ll do this
-explicitly so you see the explicit changes necessary to get it
-working.</p>
+<p>The extension we need for GitHub Copilot is actually already
+installed by default for us, so let’s take a quick look at it now:</p>
 <ol style="list-style-type: decimal"><li>Firstly, select the extensions icon, then type in “Copilot” into the
 search box at the top, and it’ll give you a list of all Copilot-related
 extensions.</li>
 <li>Select the one which says <code>GitHub Copilot</code> from GitHub,
 which is the official Copilot extension. You may also see the
-<code>GitHub Copilot Chat</code> extension, which will be automatically
-installed along with this one.</li>
-<li>Select <code>Install</code>. It might take a minute - you can see a
-sliding blue line in the top left to indicate it’s working.</li>
-<li>You’ll be presented with a “Welcome” page for the extension which
-covers the main features. Select <code>Mark Done</code>.</li>
-</ol><p>Now we have the extension installed, but we need to associate it with
-our GitHub account by signing in:</p>
-<ol style="list-style-type: decimal"><li>Select the <code>Signed out</code> button in the bottom right of the
-VSCode status bar, and <code>Sign in to use AI Features</code>.</li>
+<code>GitHub Copilot Chat</code> extension, which is deprecated and we
+don’t need to worry about. Note the <code>Built-in</code> text next to
+the extension title, meaning it’s already installed for use.</li>
+<li>If you find it isn’t installed (perhaps because you’re using an
+older version of VSCode), select <code>Install</code>
+</li>
+</ol><p>So it’s installed, but we need to associate it with our GitHub
+account by signing in. Select <code>View</code> and <code>Chat</code>
+from the VSCode menu which should display the Copilot chat window,
+then:</p>
+<ol style="list-style-type: decimal"><li>Select the <code>Sign In</code> button in this window or the Copilot
+button in the bottom right of the VSCode status bar.</li>
 <li>Select <code>Continue with GitHub</code>.</li>
 <li>You’ll be redirected to a GitHub login web page to authorise Visual
-Studio Code for GitHub. Select the GitHub account you wish to use and
-select <code>Continue</code>.</li>
+Studio Code for GitHub. Select the GitHub account you wish to use if it
+exists in this list and select <code>Continue</code>, otherwise add your
+account here.</li>
 <li>Peruse and select <code>Authorize Visual-Studio-Code</code>.</li>
-<li>You may need to further authenticate with GitHub authorise this
-action.</li>
+<li>Depending on how you have youre GitHub account configured, you may
+need to perform further authentication with GitHub authorise this
+action, for example using Multi-Factor Authentication.</li>
 <li>If a pop-up appears in your browser to open a link within VSCode,
 select <code>Open Link</code>.</li>
-</ol><p>Once completed, you’ll now be able to use GitHub Copilot within
+</ol><p>Once completed, you should now be able to use GitHub Copilot within
 VSCode.</p>
 
 <div id="decide-on-copilot-privacy-settings" class="callout">
@@ -443,8 +440,8 @@ particularly if we are making use of sensitive or otherwise confidential
 data within our codebase.</p>
 <p>We can set this within our GitHub user settings, which will apply to
 all we do with Copilot:</p>
-<ol style="list-style-type: decimal"><li><p>Select out GitHub profile icon at github.com, and select
-<code>Settings</code> and then <code>Copilot</code></p></li>
+<ol style="list-style-type: decimal"><li><p>Select your GitHub profile icon at github.com, and select
+<code>Copilot settings</code></p></li>
 <li>
 <p>Scroll down to <code>Privacy</code>:</p>
 <figure><img src="fig/copilot-privacy.png" alt="Privacy settings within GitHub Copilot" class="figure mx-auto d-block"><div class="figcaption">Privacy settings within GitHub Copilot</div>
@@ -453,10 +450,10 @@ all we do with Copilot:</p>
 <p>In general, it’s a good idea to disable
 <code>Suggestions matching public code</code> since the risk is that it
 may make use of public code sources in a way that isn’t properly
-licensed. In addition, it’s recommended to disable the other two
+licensed. In addition, it’s recommended to disable the other one
 (depending on the extent you trust GitHub and their affiliates), since -
-as it clearly states - they allow GitHub and others to use data and code
-snippets for product improvements.</p>
+as it clearly states - they allow GitHub and others to use your inputs
+and outputs (which includes code) for product improvements.</p>
 
 </div>
 </div>
@@ -507,55 +504,96 @@ patient</li>
 </div>
 </div>
 <div class="section level3">
-<h3 id="using-copilot-for-the-first-time">Using Copilot for the First Time<a class="anchor" aria-label="anchor" href="#using-copilot-for-the-first-time"></a></h3>
-<p>Let’s move over to using the VSCode pane on the right, labeled
-<code>Build with Agent</code>. You’ll notice at the bottom there’s a
-“chat” box, with a number of selectable dropdown options below it. You
-can hover over each one to discover what it is.</p>
-<p>On the left, there’s <code>Set Agent</code>, which allows you to set
-the mode of operation with Copilot. Each of these modes provides an
-increasing degree of autonomy for Copilot to interact with your
-code:</p>
+<h3 id="a-quick-tour-of-copilot-chat">A Quick Tour of Copilot Chat<a class="anchor" aria-label="anchor" href="#a-quick-tour-of-copilot-chat"></a></h3>
+<p>Let’s move over to using the VSCode chat pane on the right. You’ll
+notice at the bottom there’s a “Chat with Copilot” box, with a number of
+selectable dropdown options below it.</p>
+<p>You can hover over each one to discover what it is. Let’s look at the
+bottom row of options first.</p>
+<p><code>Set Session Target</code> gives you options that differ in how
+requests will run, how they access workspace tools, and the level of
+autonomy they have:</p>
 <ul><li>
-<code>Ask</code> - designed for learning and orienting yourself with
-existing code without changing it.</li>
+<code>Local harness</code> - runs within VSCode Extension Host on
+local machine, closely integrates your active workspace with VSCode
+extensions and capabilities. Note that despite the <code>local</code>
+designation, the AI model still runs within the GitHub cloud
+environment.</li>
 <li>
+<code>GitHub Copilot harness</code> - runs in an isolated Agent Host
+on your machine, or within the cloud. Built for longer running,
+coordination heavy work potentially across projects, and supports
+autonomous workflows that run in the background.</li>
+</ul><p>The next dropdown on the bottom row allows you to set permissions for
+what Copilot can do and can’t do, from <code>Default permissions</code>
+(where it asks you by default) to <code>Autopilot</code> (where it goes
+ahead and runs everything without asking). Ensure
+<code>Default permissions</code> is set.</p>
+<p>Just above this is another row of options. From the left to the
+right:</p>
+<ul><li><p><code>+</code> / <code>Add Context</code> - choose files to add
+specific context for requests, to limit the scope of what you want the
+AI to look at</p></li>
+<li>
+<p><code>Set Agent</code> - an agent selection dropdown, which
+allows you to set the mode of operation with Copilot. With the
+<code>Local</code> harness, Each of these modes provides an increasing
+degree of autonomy for Copilot to interact with your code:</p>
+<ul><li>
 <code>Agent</code> - proposes concrete code changes for your
 approval based on your instructions. It’s useful when you already
 understand a codebase that you want to change.</li>
 <li>
-<code>Plan</code> - the most powerful mode, which lets you specify a
-high-level prompt to allow Copilot at a high level of autonomy to plan
-changes in steps, select files, and run tools or terminal commands,
-iterating on code edits until it is complete.</li>
-</ul><p>Since we want to ask questions regarding our codebase, let’s set the
-mode to <code>Ask</code>.</p>
-<p>The next dropdown is the AI language model being used. By default,
-this is set to <code>Auto</code> so that Copilot will decide the model.
-However, for consistency in this training, let’s select the entry for
-<code>Claude Haiki 4.5</code>.</p>
-<p>Select the <code>inflammation-plot.py</code> file in the File
-Explorer. You’ll notice this appears as “context” at the top of the chat
-box. Essentially, this is what we’re asking questions about.</p>
-<p>Let’s now ask the very high level question:
-<code>What does this code do?</code>, and press enter. You’ll likely be
-asked whether you want to enable Claude Haiku 4.5 for all clients -
-select <code>Enable</code> when prompted.</p>
-<p>You’ll find the response looks something like the following:</p>
-<pre><code>This code generates visualization plots for inflammation data:
+<code>Ask</code> - designed for learning and orienting yourself with
+existing code without changing it, and asking general questions.</li>
+<li>
+<code>Plan</code> - lets you specify a high-level prompt to allow
+Copilot at a high level of autonomy to plan changes in steps, select
+files, and run tools or terminal commands, iterating on code edits until
+it is complete.</li>
+</ul></li>
+</ul><p>Note that for the <code>Copilot</code> harness the <code>Plan</code>
+option doesn’t appear.</p>
+<ul><li>
+<code>Models</code> - choose which AI model you wish to use. The
+free tier only provides access to <code>Auto</code>, meaning Copilot
+will choose which one to use for a task</li>
+<li>
+<code>Configure Model</code> - choose to optimise requests for
+<code>Performance</code>, <code>Balance</code>, or
+<code>Intelligence</code>, with each level taking longer to process (and
+costing more tokens)</li>
+</ul><p>We’ll focus on using the Local harness for this training.</p>
+</div>
+<div class="section level3">
+<h3 id="investigating-the-codebase">Investigating the Codebase<a class="anchor" aria-label="anchor" href="#investigating-the-codebase"></a></h3>
+<p>Let’s now use Copilot to help us understand this codebase.</p>
+<ol style="list-style-type: decimal"><li>Select the <code>Local</code> harness from the
+<code>Set Session Target</code> dropdown.</li>
+<li>Select the <code>Ask</code> option in the <code>Set Agent</code>
+dropdown, since we don’t want Copilot to make any changes.</li>
+<li>Select the <code>inflammation-plot.py</code> file in the File
+Explorer. You’ll notice this appears as selectable “context” at the top
+of the chat box.</li>
+<li>Select the <code>+</code> button to add it to the chat context - it
+should change to an <code>X</code> symbol. Essentially, this is what
+we’re asking questions about.</li>
+<li>In the chat window ask the very high level question:
+<code>What does this code do?</code>, and press enter.</li>
+</ol><p>You’ll find the response looks something like the following:</p>
+<pre><code>The script finds every data/inflammation-*.csv file, sorts the filenames, and processes each one.
 
-1. Loads data files: Uses glob to find all CSV files matching the pattern inflammation-*.csv in the ../data/ directory, sorts them, and limits processing to the first 3 files.
+For each file, it loads the CSV as a NumPy array and creates a figure with three plots. Each plot shows a statistic for every column (typically a time point), calculated across all rows (typically patients):
 
-2. Processes each file: For each CSV file, it:
-   - Loads the data as a NumPy array using comma delimiters
-   - Creates a figure with 3 subplots arranged horizontally
+- Average inflammation
+- Maximum inflammation
+- Minimum inflammation
 
-3. Generates three plots showing statistical summaries across patients (rows):
-   - Left plot: Average inflammation values per day
-   - Middle plot: Maximum inflammation values per day
-   - Right plot: Minimum inflammation values per day
-
-4. Saves output: Each figure is saved as a PNG file with the same name as the input CSV file plus .png extension.</code></pre>
+It saves the figure next to the CSV, with .png appended to the filename, such as inflammation-01.csv.png. It prints each filename as it processes it; it does not display the plots interactively.</code></pre>
+<p>Note that if you hover over the response, it mentions the model used.
+In this case, <code>GPT-6 Luna</code>. Given this is automatically
+selected based on a number of factors, you may find the model selected
+for your request was different.</p>
 <div id="why-arent-i-seeing-the-same-response" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -564,10 +602,11 @@ select <code>Enable</code> when prompted.</p>
 <div id="why-arent-i-seeing-the-same-response" class="callout-inner">
 <h3 class="callout-title">Why Aren’t I Seeing the Same Response?</h3>
 <div class="callout-content">
-<p>You’ll likely find it’s not exactly the same. Due to the ways in
-which LLMs process requests, based on an iterative probabilistic model,
-responses based on the same question will show differences: so
-essentially, AI models are <em>probablistic</em>, not
+<p>You’ll likely find it’s not exactly the same, and not only because
+the AI model used was different.</p>
+<p>Due to the ways in which LLMs process requests, based on an iterative
+probabilistic model, responses based on the same question will show
+differences: so essentially, AI models are <em>probablistic</em>, not
 <em>deterministic</em>. This effect is often visibly compounded over
 time, as the probabilistic outcome of a response generates an
 increasingly different result.</p>
@@ -606,17 +645,16 @@ promptEngineering repository</a>.</p>
 <h3 class="callout-title">Managing Context</h3>
 <div class="callout-content">
 <p>To improve the specificity of a prompt, it’s helpful to add as much
-context as you can.</p>
-<p>To add context to a chat prompt you can type <code>#</code> followed
-by the context item you want to add, such as a file, folder, tools, code
-elements (such as variables, functions or classes), tools, amongst
-others. Then press <code>Tab</code> to confirm. For example, we could
-type <code>#inflammation-plot.py</code> to ensure only responses
-relevant to that specific file will be generated. We could use
-<code>#codebase</code> if we aren’t sure which files are relevant to our
-question, to include all our files. Of course, our code may make use of
-sensitive data files that we don’t want Copilot to use, which we’ll look
-at shortly.</p>
+context as you can. As we’ve seen, we can do this if we select a file in
+the File Explorer and select <code>+</code> in the chat window.</p>
+<p>Another way add context to a chat prompt you can type <code>#</code>
+followed by the context item you want to add, such as a file, folder,
+tools, code elements (such as variables, functions or classes), tools,
+amongst others. Then press <code>Tab</code> to confirm. For example, we
+could type <code>#attachment:inflammation-plot.py</code> to ensure only
+responses relevant to that specific file will be generated. Helpfully,
+it autocompletes this if you start typing <code>inflammation</code>. In
+this way, we could add multiple files as context if we wanted.</p>
 <p>Another thing to remember is how the context of each chat informs the
 flow of questions. Copilot chat uses the history of a chat thread to get
 context about your request. To ensure you only provide the context you
@@ -654,8 +692,9 @@ shared Google Doc.</p>
 <h3 class="callout-title">What do I Need to Know?</h3>
 <div class="callout-content">
 <p>5 mins.</p>
-<p>Ask the following questions about the code:</p>
-<ol style="list-style-type: decimal"><li>What are the main packages used?</li>
+<p>In the same chat thread, ask the following questions about the
+code:</p>
+<ol style="list-style-type: decimal"><li>Describe the main packages used</li>
 <li>How is Matplotlib used to generate the plots?</li>
 </ol></div>
 </div>
@@ -665,41 +704,33 @@ shared Google Doc.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>Describe the main packages used? e.g.</li>
-</ol><pre><code>1. glob: Built-in Python module for file pattern matching
-   - glob.glob() finds all files matching a wildcard pattern (inflammation-*.csv)
-   - Useful for batch processing multiple files with consistent naming
+</ol><div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>The script uses three packages:
 
-2. numpy: Numerical computing library
-   - np.loadtxt() loads CSV data into a NumPy array
-   - data.mean(axis=0), data.max(axis=0), data.min(axis=0) compute statistics across patients (rows) for each day (columns)
-
-3. matplotlib.pyplot: Plotting library for creating visualizations
-   - plt.figure() creates a new figure window
-   - fig.add_subplot() adds subplots to the figure
-   - axes.set_ylabel() and axes.plot() configure and draw the plots
-   - fig.tight_layout() optimizes spacing
-   - fig.savefig() exports the figure as an image file
-
-These three packages work together: glob finds the files, numpy processes the data, and matplotlib visualizes the results.</code></pre>
+- glob — Python’s standard library module. It finds files matching the pattern data/inflammation-*.csv.
+- numpy (imported as np) — loads each CSV into an array and calculates the column-wise mean, maximum, and minimum.
+- matplotlib.pyplot (imported as plt) — creates the three-panel plots and saves them as PNG files.
+These are the packages imported in inflammation-plot.py.</code></pre>
+</div>
 <ol start="2" style="list-style-type: decimal"><li>How is Matplotlib used to generate the plots? e.g.</li>
-</ol><pre><code>This script uses Matplotlib to create and save visualization plots:
+</ol><div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>For each CSV file, Matplotlib builds and saves a figure:
 
-1. Create a figure: plt.figure(figsize=(10.0, 3.0)) creates a new figure with dimensions 10 inches wide by 3 inches tall.
+- plt.figure(figsize=(10.0, 3.0)) creates a figure 10 inches wide and 3 inches tall.
+- fig.add_subplot(1, 3, n) creates three plots in one row. Each plot gets one statistic: the column-wise average, maximum, or minimum.
+- set_ylabel(...) labels each plot’s y-axis; plot(...) draws the statistic values. The x-axis is the column position, shown by default.
+- fig.tight_layout() adjusts spacing so the plots fit neatly.
+- fig.savefig(filename + '.png') saves the figure as a PNG next to its CSV file.
 
-2. Add subplots: fig.add_subplot(1, 3, n) creates a grid of 1 row and 3 columns, with n specifying which subplot (1, 2, or 3):
-   - axes1, axes2, axes3 are the three subplot axes objects
-
-3. Label and plot data:
-   - axes.set_ylabel() adds a label to the y-axis
-   - axes.plot() draws a line plot of the data on that subplot
-   - Each subplot shows a different calculation: mean(), max(), and min()
-
-4. Layout adjustment: fig.tight_layout() automatically adjusts spacing between subplots to prevent overlap.
-
-5. Save output: fig.savefig() saves the entire figure as a PNG image file.</code></pre>
+The script saves the plots rather than opening an interactive display. These steps are in inflammation-plot.py.</code></pre>
+</div>
 <p>Due to the ambiguous nature of language and how we specify prompts,
 and the nature of how LLMs operate and generate responses, as we have
 seen, we’ll fairly typically have overlaps in responses to multiple
@@ -724,13 +755,110 @@ response, even on the same machine in the same editor.</p>
 <p>As we’ve mentioned, LLMs are non-deterministic, in that the same
 question can produce different answers. In addition to it’s probablistic
 nature, there are other reasons for these differences:</p>
-<ul><li>Context-dependent: small changes in files, cursor position, or
-prompt matter</li>
+<ul><li>Context-dependent: small changes in files, cursor position, chat
+history, or prompt matter</li>
 <li>Approximate understanding: infers intent, doesn’t fully “understand”
 the codebase</li>
 <li>Model changes over time: behaviour can shift as Copilot and it’s
 underlying models are updated</li>
 </ul></div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="obtaining-guidance-on-how-to-improve-our-code">Obtaining Guidance on how to Improve our Code<a class="anchor" aria-label="anchor" href="#obtaining-guidance-on-how-to-improve-our-code"></a></h2>
+<hr class="half-width"><p>So far we’ve been asking quite specific questions about this codebase
+in order to learn more about it. But let’s now consider we might want to
+do to improve it.</p>
+<p>Looking at the code, you may already have your own ideas for how it
+could be improved, but let’s ask Copilot instead.</p>
+
+<div id="asking-copilot-to-suggest-improvements" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="asking-copilot-to-suggest-improvements" class="callout-inner">
+<h3 class="callout-title">Asking Copilot to Suggest Improvements</h3>
+<div class="callout-content">
+<p>10 mins.</p>
+<ul><li>Select <code>+</code> at the top of the chat window to create a new
+chat conversation</li>
+<li>Select the <code>Local</code> harness (it defaults to
+<code>Copilot</code>)</li>
+<li>Ensure you have the <code>inflammation-plot.py</code> file open and
+selected in chat context</li>
+<li>Choose a prompt to ask Copilot how to improve this code, e.g.:
+<ul><li><code>How can I make this code more readable?</code></li>
+<li><code>How should I refactor this code to be more modular?</code></li>
+<li><code>What can I do to improve this code?</code></li>
+</ul></li>
+</ul><p>Don’t update your code with any of the suggestions just yet, we’ll
+come to this in the next episode.</p>
+<p>Use any remaining time to explore asking other questions!</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>For the question <code>How can I make this code more readable?</code>
+(your responses may differ!)</p>
+<p>Note that it mentions the <code>inflammation-plot.py</code> file as
+context</p>
+<pre><code>A few simple refactors would make inflammation-plot.py much easier to follow:
+
+- Use clearer names like csv_path instead of filename
+- Split the plotting logic into a small function
+- Replace repeated subplot setup with a loop
+- Use pathlib instead of raw glob
+- Avoid repeating the same plotting pattern three times
+
+Example:</code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1" aria-label="code-block-5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1" aria-label="code-block-5-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1" aria-label="code-block-5-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1" aria-label="code-block-5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1" aria-label="code-block-5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1" aria-label="code-block-5-7"></a><span class="kw">def</span> plot_inflammation_summary(csv_path: Path) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1" aria-label="code-block-5-8"></a>    data <span class="op">=</span> np.loadtxt(csv_path, delimiter<span class="op">=</span><span class="st">","</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1" aria-label="code-block-5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1" aria-label="code-block-5-10"></a>    fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>))</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1" aria-label="code-block-5-11"></a></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1" aria-label="code-block-5-12"></a>    metrics <span class="op">=</span> [</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1" aria-label="code-block-5-13"></a>        (<span class="st">"average"</span>, data.mean(axis<span class="op">=</span><span class="dv">0</span>)),</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1" aria-label="code-block-5-14"></a>        (<span class="st">"max"</span>, data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>)),</span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1" aria-label="code-block-5-15"></a>        (<span class="st">"min"</span>, data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>)),</span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1" aria-label="code-block-5-16"></a>    ]</span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1" aria-label="code-block-5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1" aria-label="code-block-5-18"></a>    <span class="cf">for</span> ax, (label, values) <span class="kw">in</span> <span class="bu">zip</span>(axes, metrics):</span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1" aria-label="code-block-5-19"></a>        ax.set_ylabel(label)</span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1" aria-label="code-block-5-20"></a>        ax.plot(values)</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1" aria-label="code-block-5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1" aria-label="code-block-5-22"></a>    fig.tight_layout()</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1" aria-label="code-block-5-23"></a>    fig.savefig(csv_path.with_suffix(<span class="st">".png"</span>))</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1" aria-label="code-block-5-24"></a></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1" aria-label="code-block-5-25"></a></span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1" aria-label="code-block-5-26"></a><span class="cf">for</span> csv_path <span class="kw">in</span> <span class="bu">sorted</span>(Path(<span class="st">"data"</span>).glob(<span class="st">"inflammation-*.csv"</span>)):</span>
+<span id="cb5-27"><a href="#cb5-27" tabindex="-1" aria-label="code-block-5-27"></a>    <span class="bu">print</span>(csv_path)</span>
+<span id="cb5-28"><a href="#cb5-28" tabindex="-1" aria-label="code-block-5-28"></a>    plot_inflammation_summary(csv_path)</span></code></pre>
+</div>
+<pre><code>Why this is more readable:
+
+- The code now has one clear responsibility: “plot one inflammation file”
+- The repeated axes1, axes2, axes3 pattern is replaced by a loop
+- The metric names are stored in a single structure, so it’s obvious what is being plotted
+- Path makes the file handling more Pythonic and easier to read
+
+If you want, I can also give you a version that is even more beginner-friendly or one that matches typical scientific Python style.</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -767,50 +895,72 @@ members</li>
 repository doesn’t use</li>
 </ul></div>
 <div class="section level3">
-<h3 id="create-an-instructions-file">Create an Instructions File<a class="anchor" aria-label="anchor" href="#create-an-instructions-file"></a></h3>
-<p>Let’s create an instructions file now, by selecting the gear icon at
-the top right of the <code>CHAT</code> panel, and selecting
-<code>Generate Chat Instructions</code>. At this point, VSCode will do a
-number of things in order to create this file:</p>
-<ol style="list-style-type: decimal"><li>Analyse the structure and files in the workspace</li>
-<li>Analyse the data directory <code>data/</code> which contains our
-inflammation data files</li>
-<li>Create the <code>.github/.copilot-instructions.md</code> file
-itself</li>
-<li>Summarise the contents of the new instructions file</li>
-<li>Provide some questions for feedback to add more specific guidance in
-the instructions file</li>
-</ol><p>Note that it may request access to run a Bash command in the
-<code>data</code> directory, from which it can then ascertain the
-structure of the data, which you’ll have to approve.</p>
-
-<p>We’ll look at the contents of the file in a moment.</p>
-<p>You may also see some feedback questions, such as:</p>
-<pre><code>1. Should I add more detail about the other datasets (climate data, coordinates), or keep focus only on the inflammation data workflow?
-2. Are there specific Python version requirements or package versions that should be documented?
-3. Would you like guidance on handling edge cases (e.g., what happens with empty CSV files, missing columns)?</code></pre>
-</div>
+<h3 id="instructions-file-dos-and-donts">Instructions File Dos and Don’ts<a class="anchor" aria-label="anchor" href="#instructions-file-dos-and-donts"></a></h3>
+<p>Do:</p>
+<ul><li>Structure using markdown headings and bullet points for
+readability</li>
+<li>Use clear and concise language, e.g. “Implement”, “Use”</li>
+<li>Use imperative language where it makes sense, e.g. “MUST”, “ALWAYS”,
+“NEVER”</li>
+<li>Be specific and actionable</li>
+<li>Explain reasoning when it adds value</li>
+<li>Include examples</li>
+<li>Refer to best practices</li>
+</ul><p>Don’t:</p>
+<ul><li>Use ambigious or vague language (like “should”, “perhaps”)</li>
+<li>Include overly verbose explanations (these use more tokens and risk
+ambiguity)</li>
+<li>Add contradictory statements</li>
+<li>Copy-paste from other sources without adding project context (to
+keep it specific and relevant)</li>
+<li>Add rules for scenarios that haven’t occurred</li>
+</ul></div>
 <div class="section level3">
-<h3 id="working-with-our-instructions-file">Working with our Instructions File<a class="anchor" aria-label="anchor" href="#working-with-our-instructions-file"></a></h3>
-<p>You should now see a <code>.github/copilot-instructions.md</code>
-file appear in VSCode’s file browser. If you open this file now, you’ll
-see some things to note:</p>
-<ul><li>Content is highlighted with a <code>Keep / Undo</code> option. This
-is VSCode’s way of highlighting the changes Copilot has made as
-suggestions, so that you explicitly review and approve them.</li>
-<li>A summary of the main code entry point, the data source directory,
-and the overall workflow of the application</li>
-<li>A section on the code patterns and conventions, essentially
-generalising how the code works and providing assumptions on how it
-operates,
-e.g. <code>axis=0 consistently means aggregate across rows (patients), preserving measurement dimensions</code>
-</li>
-<li>Some suggestions on how to refactor (tidy) the codebase and
-otherwise enhancement it</li>
-</ul><p>Approve this file addition by selecting <code>Keep</code>.</p>
+<h3 id="create-an-instructions-file">Create an Instructions File<a class="anchor" aria-label="anchor" href="#create-an-instructions-file"></a></h3>
+<p>In general, it’s a good idea to start with a minimal ruleset and
+build it from there. So let’s create a short instructions file now.</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="fu">## General</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a><span class="ss">- </span>ALWAYS include comments on design decisions</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1" aria-label="code-block-7-4"></a><span class="ss">- </span>ALWAYS include a docstring for functions</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1" aria-label="code-block-7-5"></a><span class="ss">- </span>ALWAYS include type hints</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1" aria-label="code-block-7-6"></a><span class="ss">- </span>Write clear and concise comments when needed</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1" aria-label="code-block-7-7"></a><span class="ss">- </span>Ensure functions have descriptive names</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1" aria-label="code-block-7-8"></a><span class="ss">- </span>Break down complex functions into smaller, more manageable functions</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1" aria-label="code-block-7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1" aria-label="code-block-7-10"></a><span class="fu">## Code style and formatting</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1" aria-label="code-block-7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1" aria-label="code-block-7-12"></a><span class="ss">- </span>Follow PEP 8 style guide</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1" aria-label="code-block-7-13"></a><span class="ss">- </span>Maintain 4 spaces for each level of indentation</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1" aria-label="code-block-7-14"></a><span class="ss">- </span>Add function and class docstrings in the reStructuredText format</span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1" aria-label="code-block-7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1" aria-label="code-block-7-16"></a><span class="fu">## Project structure</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1" aria-label="code-block-7-17"></a></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1" aria-label="code-block-7-18"></a><span class="ss">- </span><span class="in">`data/`</span> - contains inflammation CSV files</span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1" aria-label="code-block-7-19"></a><span class="ss">- </span><span class="in">`inflammation-plot.py`</span> - the main code entrypoint</span></code></pre>
+</div>
+<p>This is only a minimal example. You can find guidance on how to write
+good instructions files all over the web, e.g.</p>
+<ul><li><a href="https://github.com/PlagueHO/github-copilot-assets-library/blob/main/instructions/python.instructions.md" class="external-link">PlagueHO
+GitHub Copilot Assets Library</a></li>
+<li><a href="https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/" class="external-link">5
+tips for writing better custom instructions for Copilot</a></li>
+</ul><p>For a more general resource on all things Copilot, with lots of
+examples, see <a href="https://github.com/github/awesome-copilot" class="external-link">Awesome GitHub
+Copilot</a> which contains a horde of useful examples for different
+Copilot agents, instructions, skills, and many other aspects.</p>
+
 <p>From this starting point we are free to update this file manually as
-we continue to develop the code, and this context will be used whenever
-we interact with Copilot.</p>
+we continue to develop the code. This context should be used whenever we
+interact with Copilot, although note that this is not guaranteed, since
+LLMs (particularly on the free tier) have a limited contextual memory
+and these instructions may be pushed out of the context if the context
+gets too large. But in any case, we’re essentially documenting the
+coding standards for our project, which is established good software
+development practice.</p>
 </div>
 <div class="section level3">
 <h3 id="specifying-privacy-per-file-type">Specifying Privacy per File Type<a class="anchor" aria-label="anchor" href="#specifying-privacy-per-file-type"></a></h3>
@@ -836,17 +986,19 @@ Palette</p></li>
 <li>
 <p>In the <code>settings.json</code> file that appears, add the
 following and save the file:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="at">   </span><span class="fu">"github.copilot.enable"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1" aria-label="code-block-5-2"></a><span class="at">      </span><span class="fu">"*"</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="kw">,</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1" aria-label="code-block-5-3"></a><span class="at">      </span><span class="fu">"csv"</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1" aria-label="code-block-5-4"></a><span class="at">   </span><span class="kw">}</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="at">   </span><span class="fu">"github.copilot.enable"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a><span class="at">      </span><span class="fu">"*"</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="kw">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a><span class="at">      </span><span class="fu">"csv"</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1" aria-label="code-block-8-4"></a><span class="at">   </span><span class="kw">}</span></span></code></pre>
 </div>
 </li>
 </ol><p>This will have the effect of potentially including all file types in
-context by default, but not CSV files.</p>
+context by default, but not CSV files, although importantly, this also
+means it won’t benefit from examining these files. Note we could also
+set this per workspace instead if wanted.</p>
 
 <p>If you wanted a stricter “default deny” approach instead, you could
 specify <code>false</code> for <code>*</code> and enable each filetype
@@ -854,205 +1006,6 @@ explicitly.</p>
 <p>There are stricter controls, including some that allow exclusion by
 directory specifications, but these are currently limited to Copilot
 Business users for their repositories and organisations.</p>
-</div>
-</section><section><h2 class="section-heading" id="obtaining-guidance-on-how-to-improve-our-code">Obtaining Guidance on how to Improve our Code<a class="anchor" aria-label="anchor" href="#obtaining-guidance-on-how-to-improve-our-code"></a></h2>
-<hr class="half-width"><p>Now have an instructions file to guide Copilot, let’s take its
-guidance one step further. So far we’ve been asking quite specific
-questions about this codebase in order to learn more about it. But let’s
-now consider we might want to do to improve it.</p>
-<p>Looking at the code, you may already have your own ideas for how it
-could be improved, but let’s ask Copilot instead. Another aspect we
-haven’t looked into yet is the other available AI models we can use. So
-far we’ve only used the <code>Claude Haiku 4.5</code> model, but there
-are others at time of writing selectable from the models dropdown:
-essentially some variants of GPT, and a Raptor model preview.</p>
-<div id="whats-the-x-figure-displayed-next-to-each-model" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="whats-the-x-figure-displayed-next-to-each-model" class="callout-inner">
-<h3 class="callout-title">What’s the ‘x’ Figure Displayed Next to Each
-Model?</h3>
-<div class="callout-content">
-<p>Next to each model you’ll see an <code>x</code> figure,
-e.g. <code>1x</code>. This is a multiplier related to the “cost” of
-using this model within our quota of premium requests. So models with a
-<code>2x</code> beside them will cost twice as much as one with
-<code>1x</code>.</p>
-<p>It’s important to be clear on the relative cost, since our quotas
-will be consumed more quickly with higher cost multipliers!</p>
-</div>
-</div>
-</div>
-
-<div id="asking-copilot-to-suggest-improvements" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="asking-copilot-to-suggest-improvements" class="callout-inner">
-<h3 class="callout-title">Asking Copilot to Suggest Improvements</h3>
-<div class="callout-content">
-<p>10 mins.</p>
-<ul><li>Select <code>+</code> to create a new chat conversation</li>
-<li>Ensure you have the <code>Ask</code> mode selected in the chat box,
-and the <code>inflammation-plot.py</code> file open and selected in the
-code editor</li>
-<li>Select one of the <code>Claude Haiku 4.5</code> or
-<code>GPT-5 mini</code> models in the model dropdown.</li>
-<li>Choose a prompt to ask Copilot how to improve this code, e.g.:
-<ul><li><code>How can I make this code more readable?</code></li>
-<li><code>How should I refactor this code to be more modular?</code></li>
-<li><code>What can I do to improve this code?</code></li>
-</ul></li>
-</ul><p>Repeat this for the other model, asking the same exact question each
-time:</p>
-<ol style="list-style-type: decimal"><li>What answer does each model give you?</li>
-<li>How are these responses similar?</li>
-<li>How are these responses different?</li>
-</ol><p>Don’t update your code with any of the suggestions just yet, we’ll
-come to this in the next episode.</p>
-<p>Use any remaining time to explore asking other questions!</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<ol style="list-style-type: decimal"><li>
-</li></ol><p>For the question <code>How can I make this code more readable?</code>
-(your responses may differ!)</p>
-<p>Note that, for each model, at the top of the response, it mentions
-three references are used:</p>
-<ul><li>
-<code>copilot-instructions.md</code> - as we would expect</li>
-<li>
-<code>inflammation-01.csv</code> - since it’s pattern is referenced
-in the source code</li>
-<li>
-<code>inflammation-plot.py</code> - since this is the file it’s
-taken as context</li>
-</ul><p>Claude Haiku 4.5:</p>
-<pre><code>Your code can be made more readable by extracting the repetitive subplot pattern into a helper function and using a tuple/list to store the axes. Here's a refactored version:</code></pre>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="im">import</span> glob</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1" aria-label="code-block-7-4"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1" aria-label="code-block-7-5"></a></span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1" aria-label="code-block-7-6"></a><span class="kw">def</span> plot_statistics(axes, data, stat_func, label):</span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1" aria-label="code-block-7-7"></a>    <span class="co">"""Plot a single statistic on the given axes.</span></span>
-<span id="cb7-8"><a href="#cb7-8" tabindex="-1" aria-label="code-block-7-8"></a><span class="co">    </span></span>
-<span id="cb7-9"><a href="#cb7-9" tabindex="-1" aria-label="code-block-7-9"></a><span class="co">    Args:</span></span>
-<span id="cb7-10"><a href="#cb7-10" tabindex="-1" aria-label="code-block-7-10"></a><span class="co">        axes: Matplotlib axes object</span></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1" aria-label="code-block-7-11"></a><span class="co">        data: NumPy array of inflammation measurements</span></span>
-<span id="cb7-12"><a href="#cb7-12" tabindex="-1" aria-label="code-block-7-12"></a><span class="co">        stat_func: Function to compute statistic (e.g., data.mean)</span></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1" aria-label="code-block-7-13"></a><span class="co">        label: Y-axis label string</span></span>
-<span id="cb7-14"><a href="#cb7-14" tabindex="-1" aria-label="code-block-7-14"></a><span class="co">    """</span></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1" aria-label="code-block-7-15"></a>    axes.set_ylabel(label)</span>
-<span id="cb7-16"><a href="#cb7-16" tabindex="-1" aria-label="code-block-7-16"></a>    axes.plot(stat_func(axis<span class="op">=</span><span class="dv">0</span>))</span>
-<span id="cb7-17"><a href="#cb7-17" tabindex="-1" aria-label="code-block-7-17"></a></span>
-<span id="cb7-18"><a href="#cb7-18" tabindex="-1" aria-label="code-block-7-18"></a>filenames <span class="op">=</span> glob.glob(<span class="st">'../data/inflammation-*.csv'</span>)</span>
-<span id="cb7-19"><a href="#cb7-19" tabindex="-1" aria-label="code-block-7-19"></a>filenames.sort()</span>
-<span id="cb7-20"><a href="#cb7-20" tabindex="-1" aria-label="code-block-7-20"></a>filenames <span class="op">=</span> filenames[<span class="dv">0</span>:<span class="dv">3</span>]</span>
-<span id="cb7-21"><a href="#cb7-21" tabindex="-1" aria-label="code-block-7-21"></a></span>
-<span id="cb7-22"><a href="#cb7-22" tabindex="-1" aria-label="code-block-7-22"></a><span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
-<span id="cb7-23"><a href="#cb7-23" tabindex="-1" aria-label="code-block-7-23"></a>    <span class="bu">print</span>(filename)</span>
-<span id="cb7-24"><a href="#cb7-24" tabindex="-1" aria-label="code-block-7-24"></a></span>
-<span id="cb7-25"><a href="#cb7-25" tabindex="-1" aria-label="code-block-7-25"></a>    data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span>filename, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb7-26"><a href="#cb7-26" tabindex="-1" aria-label="code-block-7-26"></a></span>
-<span id="cb7-27"><a href="#cb7-27" tabindex="-1" aria-label="code-block-7-27"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">3.0</span>))</span>
-<span id="cb7-28"><a href="#cb7-28" tabindex="-1" aria-label="code-block-7-28"></a>    axes <span class="op">=</span> [fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</span>
-<span id="cb7-29"><a href="#cb7-29" tabindex="-1" aria-label="code-block-7-29"></a></span>
-<span id="cb7-30"><a href="#cb7-30" tabindex="-1" aria-label="code-block-7-30"></a>    plot_statistics(axes[<span class="dv">0</span>], data, data.mean, <span class="st">'average'</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" tabindex="-1" aria-label="code-block-7-31"></a>    plot_statistics(axes[<span class="dv">1</span>], data, data.<span class="bu">max</span>, <span class="st">'max'</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" tabindex="-1" aria-label="code-block-7-32"></a>    plot_statistics(axes[<span class="dv">2</span>], data, data.<span class="bu">min</span>, <span class="st">'min'</span>)</span>
-<span id="cb7-33"><a href="#cb7-33" tabindex="-1" aria-label="code-block-7-33"></a></span>
-<span id="cb7-34"><a href="#cb7-34" tabindex="-1" aria-label="code-block-7-34"></a>    fig.tight_layout()</span>
-<span id="cb7-35"><a href="#cb7-35" tabindex="-1" aria-label="code-block-7-35"></a>    fig.savefig(filename <span class="op">+</span> <span class="st">'.png'</span>)</span></code></pre>
-</div>
-<pre><code>Key improvements:
-
-- Helper function eliminates the three identical ylabel/plot blocks
-- List comprehension replaces axes1, axes2, axes3 variables
-- Docstring documents the function's purpose and parameters
-- Maintains all existing functionality and conventions from your codebase</code></pre>
-<p>GPT-5 mini:</p>
-<pre><code>Refactored file to improve readability (extracted helper, constants, main, axes list):</code></pre>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="co"># ...existing code...</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1" aria-label="code-block-10-2"></a><span class="im">import</span> glob</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1" aria-label="code-block-10-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1" aria-label="code-block-10-4"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1" aria-label="code-block-10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1" aria-label="code-block-10-6"></a>FIGSIZE <span class="op">=</span> (<span class="fl">10.0</span>, <span class="fl">3.0</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1" aria-label="code-block-10-7"></a>DATA_PATTERN <span class="op">=</span> <span class="st">'../data/inflammation-*.csv'</span></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1" aria-label="code-block-10-8"></a>FILE_LIMIT <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1" aria-label="code-block-10-9"></a></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1" aria-label="code-block-10-10"></a><span class="kw">def</span> plot_stat(ax, data, stat_func, ylabel):</span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1" aria-label="code-block-10-11"></a>    <span class="co">"""Plot a statistic computed from data on ax."""</span></span>
-<span id="cb10-12"><a href="#cb10-12" tabindex="-1" aria-label="code-block-10-12"></a>    ax.set_ylabel(ylabel)</span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1" aria-label="code-block-10-13"></a>    ax.plot(stat_func(data))</span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1" aria-label="code-block-10-14"></a></span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1" aria-label="code-block-10-15"></a><span class="kw">def</span> main():</span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1" aria-label="code-block-10-16"></a>    filenames <span class="op">=</span> glob.glob(DATA_PATTERN)</span>
-<span id="cb10-17"><a href="#cb10-17" tabindex="-1" aria-label="code-block-10-17"></a>    filenames.sort()</span>
-<span id="cb10-18"><a href="#cb10-18" tabindex="-1" aria-label="code-block-10-18"></a>    filenames <span class="op">=</span> filenames[:FILE_LIMIT]</span>
-<span id="cb10-19"><a href="#cb10-19" tabindex="-1" aria-label="code-block-10-19"></a></span>
-<span id="cb10-20"><a href="#cb10-20" tabindex="-1" aria-label="code-block-10-20"></a>    <span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
-<span id="cb10-21"><a href="#cb10-21" tabindex="-1" aria-label="code-block-10-21"></a>        <span class="bu">print</span>(filename)</span>
-<span id="cb10-22"><a href="#cb10-22" tabindex="-1" aria-label="code-block-10-22"></a>        data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span>filename, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1" aria-label="code-block-10-23"></a></span>
-<span id="cb10-24"><a href="#cb10-24" tabindex="-1" aria-label="code-block-10-24"></a>        fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>FIGSIZE)</span>
-<span id="cb10-25"><a href="#cb10-25" tabindex="-1" aria-label="code-block-10-25"></a>        axes <span class="op">=</span> [fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, i <span class="op">+</span> <span class="dv">1</span>) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>)]</span>
-<span id="cb10-26"><a href="#cb10-26" tabindex="-1" aria-label="code-block-10-26"></a></span>
-<span id="cb10-27"><a href="#cb10-27" tabindex="-1" aria-label="code-block-10-27"></a>        plot_stat(axes[<span class="dv">0</span>], data, <span class="kw">lambda</span> d: d.mean(axis<span class="op">=</span><span class="dv">0</span>), <span class="st">'average'</span>)</span>
-<span id="cb10-28"><a href="#cb10-28" tabindex="-1" aria-label="code-block-10-28"></a>        plot_stat(axes[<span class="dv">1</span>], data, <span class="kw">lambda</span> d: d.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>), <span class="st">'max'</span>)</span>
-<span id="cb10-29"><a href="#cb10-29" tabindex="-1" aria-label="code-block-10-29"></a>        plot_stat(axes[<span class="dv">2</span>], data, <span class="kw">lambda</span> d: d.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>), <span class="st">'min'</span>)</span>
-<span id="cb10-30"><a href="#cb10-30" tabindex="-1" aria-label="code-block-10-30"></a></span>
-<span id="cb10-31"><a href="#cb10-31" tabindex="-1" aria-label="code-block-10-31"></a>        fig.tight_layout()</span>
-<span id="cb10-32"><a href="#cb10-32" tabindex="-1" aria-label="code-block-10-32"></a>        fig.savefig(filename <span class="op">+</span> <span class="st">'.png'</span>)</span>
-<span id="cb10-33"><a href="#cb10-33" tabindex="-1" aria-label="code-block-10-33"></a></span>
-<span id="cb10-34"><a href="#cb10-34" tabindex="-1" aria-label="code-block-10-34"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb10-35"><a href="#cb10-35" tabindex="-1" aria-label="code-block-10-35"></a>    main()</span>
-<span id="cb10-36"><a href="#cb10-36" tabindex="-1" aria-label="code-block-10-36"></a><span class="co"># ...existing code...</span></span></code></pre>
-</div>
-<ol start="2" style="list-style-type: decimal"><li>
-</li></ol><p>Key similarities - both models:</p>
-<ul><li>Refactored the duplicated <code>fig.add_subplot</code> generation
-into a Python list comprehension</li>
-<li>Refactored the duplicated <code>axes</code> set up into a separate
-function</li>
-<li>Added a docstring to the new function, albeit only a brief one with
-<code>GPT-5 mini</code>
-</li>
-</ul><ol start="3" style="list-style-type: decimal"><li>
-</li></ol><p>Key differences:</p>
-<ul><li>Claude Haiku 4.5:
-<ul><li>Defines constants for some of the hardcoded values</li>
-<li>The high-level code is refactored into a <code>main()</code>
-function</li>
-<li>Adds a <code>__name__ == '__main__'</code> condition guarding a call
-to the refactored <code>main()</code> function</li>
-</ul></li>
-<li>GPT-5 mini: the call to the refactored plotting function uses a
-<code>lambda</code> definition as an argument
-<ul><li>Does not provide a textual summary of what it has done at the
-end</li>
-</ul></li>
-</ul></div>
-</div>
-</div>
-</div>
 
 <div id="class-discussion-what-are-the-benefits-and-risks" class="callout challenge">
 <div class="callout-square">
@@ -1076,7 +1029,7 @@ think are:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Possible benefits:</p>
 <ul><li>Accelerates coding by generating boilerplate, scaffolding, and
@@ -1130,6 +1083,7 @@ for help, not correctness: suggestions still need human review.</p>
 </div>
 </div>
 </div>
+</div>
 </section><section><h2 class="section-heading" id="whats-my-copilot-usage">What’s my Copilot Usage?<a class="anchor" aria-label="anchor" href="#whats-my-copilot-usage"></a></h2>
 <hr class="half-width"><p>It’s important to keep track of just how much of our Copilot “plan”
 we’re using, particularly since we’re (by default) on the free tier of
@@ -1137,10 +1091,12 @@ Copilot. We can see an overview of what we’ve consumed and how much is
 remaining by selecting the Copilot icon (on the left of the bell-shaped
 icon on the far bottom right of the status bar), e.g.</p>
 <figure><img src="fig/copilot-usage.png" alt="Example Copilot usage overview" class="figure mx-auto d-block"><div class="figcaption">Example Copilot usage overview</div>
-</figure><p>So in this case, we can see that this user has consumed 0.3% of its
-quota for inline suggestions (which we’ll look at later), and 36% of the
-chat messages quota. This allowance resets on a monthly basis, in this
-case February 23 2026.</p>
+</figure><p>So in this case, we can see that this user has consumed 10% of
+premium credits (which are chat-based and agent-based use of Copilot),
+and 5% of its quota for inline suggestions (which we’ll look at
+later).</p>
+<p>This allowance resets on a monthly basis, the date of which is also
+displayed.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -1241,8 +1197,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-md/03-getting-started.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/03-getting-started.html",
   "dateCreated": "2026-01-13",
-  "dateModified": "2026-02-12",
-  "datePublished": "2026-10-14"
+  "dateModified": "2026-10-16",
+  "datePublished": "2026-10-16"
 }
 
   </script><script>
