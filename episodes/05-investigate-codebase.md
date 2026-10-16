@@ -21,33 +21,33 @@ exercises: 30
 In this episode we'll investigate a new codebase to increase our understanding of how it operates
 and to identify strengths, weaknesses and ways to improve it.
 
-## Preparing Useful Prompts
+## Preparing Useful Skills
 
-We've seen how we are able to reuse prompts by storing them in a prompt file.
+We've seen how we are able to reuse prompts by storing them in a skills file.
 Before we go ahead and investigate a new codebase,
 let's add some reusable specialist prompts to help conduct this investigation for us.
 
-### Prompt to Explain a Codebase
+### Skill to Explain a Codebase
 
-Let's start with a prompt to help us understand a codebase.
-Here's an example code review prompt file based on one from the [GitHub Docs](https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file#code-explanation-prompt).
-Add the following draft to a new prompt file at `.github/prompts/explain-code.prompt.md`:
+Let's start with a skill to help us understand a codebase.
+Here's an example code review skill file based on one from the [GitHub Docs](https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file#code-explanation-prompt).
+Add the following draft to a new `explain-code.md` skills file at a location of your choice:
 
 ```markdown
 ---
+name: explain-code
 description: 'Generate a clear code explanation with examples'
-agent: 'agent'
 ---
 
 Explain the following code in a clear, beginner-friendly way:
 
 Please provide:
 
-* A brief overview of what the code does
-* A step-by-step breakdown of the main parts
-* Explanation of any key concepts or terminology
-* A simple example showing how it works
-* Common use cases or when you might use this approach
+- A brief overview of what the code does
+- A step-by-step breakdown of the main parts
+- Explanation of any key concepts or terminology
+- A simple example showing how it works
+- Common use cases or when you might use this approach
 
 Use clear, simple language and avoid unnecessary jargon.
 ```
@@ -59,26 +59,26 @@ Use clear, simple language and avoid unnecessary jargon.
 3 mins.
 
 When investigating a new codebase, what is it that really helps you to understand what it does and how it works?
-Tailor the `explain-code.prompt.md` file to include this criteria.
+Tailor the skills file to include this criteria.
 
 :::::::::::::::::::::::::: solution
 :::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Prompt to Conduct a Code Review
+### Skill to Conduct a Code Review
 
-Next, let's add a reusable prompt to conduct a code review of a codebase,
+Next, let's add a reusable skill to conduct a code review of a codebase,
 to help us understand it's strengths and weaknesses,
 and what needs to be fixed.
 
-Here's an example code review prompt file based on one from the [GitHub Docs](https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/review-code).
-Copy this into a `.github/prompts/review-code.prompt.md` file:
+Here's an example code review skills file based on one from the GitHub documentation.
+Copy this into a `code-review.md` file:
 
 ```markdown
 ---
+name: code-review
 description: 'Perform a comprehensive code review'
-agent: 'agent'
 ---
 
 ## Role
@@ -144,7 +144,7 @@ Be constructive and educational in your feedback.
 If you were to conduct a code review of a codebase,
 how would you go about it?
 Which areas would you look at and how would you investigate them?
-Tailor the `review-code.prompt.md` file to include this criteria.
+Tailor the skills file to include this criteria.
 
 :::::::::::::::::::::::::: solution
 :::::::::::::::::::::::::::::::::::
@@ -161,8 +161,10 @@ Pick a GitHub code repository of your choice.
 It could be something you (or your group) has written, something you're planning on using,
 or something you're simply interested in.
 
-Clone the repository to your local machine,
-and use the prompts you've just created to build an understanding of the codebase and explore it's strengths and weaknesses.
+1. Clone the repository to your local machine
+1. Import the skill files you've just created into the repository (you'll need to create the location `.github/skills/SKILL-NAME/SKILL.md` for each of them)
+1. Select the `Local` harness and `Ask` agent modes
+1. Use the skills to build an understanding of the codebase and explore it's strengths and weaknesses.
 
 Do you agree with the assessments?
 Are they useful?
