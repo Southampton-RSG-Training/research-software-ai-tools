@@ -17,18 +17,17 @@ exercises: 30
 
 - Install and configure Visual Studio Code extension for Copilot
 - Obtain answers to questions about how existing code works using Copilot's natural language chat
-- Compare and contrast responses for a particular coding question from different models
 - Obtain suggestions on how to improve a codebase from Copilot
 - Personalise Copilot suggestions to match project technologies and coding standards
 - Determine Copilot usage within the free tier
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-In this episode we'll look at installing and setting up Copilot within Visual Studio Code,
+In this episode we'll look at configuring Copilot within Visual Studio Code,
 so we can use it with our example project,
 and explore some basic features along the way.
 
-## Install VSCode Copilot Extension
+## Configure Copilot
 
 Extensions are a major strength of VSCode.
 Whilst VSCode appears quite lightweight, and presents a simple interface (particularly compared to many other IDEs!), this is quite deceptive.
@@ -36,34 +35,24 @@ You can extend its functionality in many different ways.
 For example, installing support for other languages, greater support for version control, there's even support for working with databases, and so on.
 There are literally tens of thousands of possible extensions now.
 
-You may remember when you opened VSCode for this project there was a "Build with Agent" panel on the right.
-This is the main chat interface to Copilot.
-But in order to use it (and other Copilot features) we need to install some extensions first.
-It's possible to have VSCode manage the installation of these extensions automatically,
-but we'll do this explicitly so you see the explicit changes necessary to get it working.
+The extension we need for GitHub Copilot is actually already installed by default for us,
+so let's take a quick look at it now:
 
 1. Firstly, select the extensions icon, then type in "Copilot" into the search box at the top, and it'll give you a list of all Copilot-related extensions.
-1. Select the one which says `GitHub Copilot` from GitHub, which is the official Copilot extension. You may also see the `GitHub Copilot Chat` extension, which will be automatically installed along with this one.
-1. Select `Install`. It might take a minute - you can see a sliding blue line in the top left to indicate it's working.
-1. You'll be presented with a "Welcome" page for the extension which covers the main features. Select `Mark Done`.
+1. Select the one which says `GitHub Copilot` from GitHub, which is the official Copilot extension. You may also see the `GitHub Copilot Chat` extension, which is deprecated and we don't need to worry about. Note the `Built-in` text next to the extension title, meaning it's already installed for use.
+1. If you find it isn't installed (perhaps because you're using an older version of VSCode), select `Install`
 
-::::::::::::::::::::::::::::::::::::::::: instructor
+So it's installed, but we need to associate it with our GitHub account by signing in.
+Select `View` and `Chat` from the VSCode menu which should display the Copilot chat window, then:
 
-## Checkpoint: I've installed the GitHub Copilot extension
-
-::::::::::::::::::::::::::::::::::::::::: 
-
-
-Now we have the extension installed, but we need to associate it with our GitHub account by signing in:
-
-1. Select the `Signed out` button in the bottom right of the VSCode status bar, and `Sign in to use AI Features`.
+1. Select the `Sign In` button in this window or the Copilot button in the bottom right of the VSCode status bar.
 1. Select `Continue with GitHub`.
-1. You'll be redirected to a GitHub login web page to authorise Visual Studio Code for GitHub. Select the GitHub account you wish to use and select `Continue`.
+1. You'll be redirected to a GitHub login web page to authorise Visual Studio Code for GitHub. Select the GitHub account you wish to use if it exists in this list and select `Continue`, otherwise add your account here.
 1. Peruse and select `Authorize Visual-Studio-Code`.
-1. You may need to further authenticate with GitHub authorise this action.
+1. Depending on how you have youre GitHub account configured, you may need to perform further authentication with GitHub authorise this action, for example using Multi-Factor Authentication.
 1. If a pop-up appears in your browser to open a link within VSCode, select `Open Link`.
 
-Once completed, you'll now be able to use GitHub Copilot within VSCode.
+Once completed, you should now be able to use GitHub Copilot within VSCode.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
@@ -81,7 +70,7 @@ particularly if we are making use of sensitive or otherwise confidential data wi
 
 We can set this within our GitHub user settings, which will apply to all we do with Copilot:
 
-1. Select out GitHub profile icon at github.com, and select `Settings` and then `Copilot`
+1. Select your GitHub profile icon at github.com, and select `Copilot settings`
 1. Scroll down to `Privacy`:
 
    ![Privacy settings within GitHub Copilot](fig/copilot-privacy.png)
@@ -89,8 +78,8 @@ We can set this within our GitHub user settings, which will apply to all we do w
 By default, in the free tier, the first two are enabled.
 
 In general, it's a good idea to disable `Suggestions matching public code` since the risk is that it may make use of public code sources in a way that isn't properly licensed.
-In addition, it's recommended to disable the other two (depending on the extent you trust GitHub and their affiliates),
-since - as it clearly states - they allow GitHub and others to use data and code snippets for product improvements.
+In addition, it's recommended to disable the other one (depending on the extent you trust GitHub and their affiliates),
+since - as it clearly states - they allow GitHub and others to use your inputs and outputs (which includes code) for product improvements.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
@@ -143,57 +132,78 @@ to represent the data, where:
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Using Copilot for the First Time
+### A Quick Tour of Copilot Chat
 
-Let's move over to using the VSCode pane on the right, labeled `Build with Agent`.
-You'll notice at the bottom there's a "chat" box,
+Let's move over to using the VSCode chat pane on the right.
+You'll notice at the bottom there's a "Chat with Copilot" box,
 with a number of selectable dropdown options below it.
+
 You can hover over each one to discover what it is.
+Let's look at the bottom row of options first.
 
-On the left, there's `Set Agent`, which allows you to set the mode of operation with Copilot.
-Each of these modes provides an increasing degree of autonomy for Copilot to interact with your code:
+`Set Session Target` gives you options that differ in how requests will run, how they access workspace tools, and the level of autonomy they have:
 
-- `Ask` - designed for learning and orienting yourself with existing code without changing it.
-- `Agent` - proposes concrete code changes for your approval based on your instructions. It's useful when you already understand a codebase that you want to change.
-- `Plan` - the most powerful mode, which lets you specify a high-level prompt to allow Copilot at a high level of autonomy to plan changes in steps, select files, and run tools or terminal commands, iterating on code edits until it is complete.
+- `Local harness` - runs within VSCode Extension Host on local machine, closely integrates your active workspace with VSCode extensions and capabilities. Note that despite the `local` designation, the AI model still runs within the GitHub cloud environment.
+- `GitHub Copilot harness` - runs in an isolated Agent Host on your machine, or within the cloud. Built for longer running, coordination heavy work potentially across projects, and supports autonomous workflows that run in the background.
 
-Since we want to ask questions regarding our codebase, let's set the mode to `Ask`.
+The next dropdown on the bottom row allows you to set permissions for what Copilot can do and can't do, from `Default permissions` (where it asks you by default) to `Autopilot` (where it goes ahead and runs everything without asking).
+Ensure `Default permissions` is set.
 
-The next dropdown is the AI language model being used.
-By default, this is set to `Auto` so that Copilot will decide the model.
-However, for consistency in this training, let's select the entry for `Claude Haiki 4.5`.
+Just above this is another row of options.
+From the left to the right:
 
-Select the `inflammation-plot.py` file in the File Explorer.
-You'll notice this appears as "context" at the top of the chat box.
-Essentially, this is what we're asking questions about.
+- `+` / `Add Context` - choose files to add specific context for requests, to limit the scope of what you want the AI to look at
+- `Set Agent` - an agent selection dropdown, which allows you to set the mode of operation with Copilot.
+With the `Local` harness, Each of these modes provides an increasing degree of autonomy for Copilot to interact with your code:
 
-Let's now ask the very high level question: `What does this code do?`, and press enter.
-You'll likely be asked whether you want to enable Claude Haiku 4.5 for all clients - select `Enable` when prompted.
+  - `Agent` - proposes concrete code changes for your approval based on your instructions. It’s useful when you already understand a codebase that you want to change.
+  - `Ask` - designed for learning and orienting yourself with existing code without changing it, and asking general questions.
+  - `Plan` - lets you specify a high-level prompt to allow Copilot at a high level of autonomy to plan changes in steps, select files, and run tools or terminal commands, iterating on code edits until it is complete.
+
+Note that for the `Copilot` harness the `Plan` option doesn't appear.
+
+- `Models` - choose which AI model you wish to use. The free tier only provides access to `Auto`, meaning Copilot will choose which one to use for a task
+- `Configure Model` - choose to optimise requests for `Performance`, `Balance`, or `Intelligence`, with each level taking longer to process (and costing more tokens)
+
+We'll focus on using the Local harness for this training.
+
+### Investigating the Codebase
+
+Let's now use Copilot to help us understand this codebase.
+
+1. Select the `Local` harness from the `Set Session Target` dropdown.
+1. Select the `Ask` option in the `Set Agent` dropdown, since we don't want Copilot to make any changes.
+1. Select the `inflammation-plot.py` file in the File Explorer.
+You'll notice this appears as selectable "context" at the top of the chat box.
+1. Select the `+` button to add it to the chat context - it should change to an `X` symbol. Essentially, this is what we're asking questions about.
+1. In the chat window ask the very high level question: `What does this code do?`, and press enter.
 
 You'll find the response looks something like the following:
 
 ```
-This code generates visualization plots for inflammation data:
+The script finds every data/inflammation-*.csv file, sorts the filenames, and processes each one.
 
-1. Loads data files: Uses glob to find all CSV files matching the pattern inflammation-*.csv in the ../data/ directory, sorts them, and limits processing to the first 3 files.
+For each file, it loads the CSV as a NumPy array and creates a figure with three plots. Each plot shows a statistic for every column (typically a time point), calculated across all rows (typically patients):
 
-2. Processes each file: For each CSV file, it:
-   - Loads the data as a NumPy array using comma delimiters
-   - Creates a figure with 3 subplots arranged horizontally
+- Average inflammation
+- Maximum inflammation
+- Minimum inflammation
 
-3. Generates three plots showing statistical summaries across patients (rows):
-   - Left plot: Average inflammation values per day
-   - Middle plot: Maximum inflammation values per day
-   - Right plot: Minimum inflammation values per day
-
-4. Saves output: Each figure is saved as a PNG file with the same name as the input CSV file plus .png extension.
+It saves the figure next to the CSV, with .png appended to the filename, such as inflammation-01.csv.png. It prints each filename as it processes it; it does not display the plots interactively.
 ```
+
+Note that if you hover over the response, it mentions the model used.
+In this case, `GPT-6 Luna`.
+Given this is automatically selected based on a number of factors,
+you may find the model selected for your request was different.
 
 ::::::::::::::::::::::::::::::::: callout
 
 ## Why Aren't I Seeing the Same Response?
 
-You'll likely find it's not exactly the same.
+You'll likely find it's not exactly the same,
+and not only because the AI model used was different.
+
 Due to the ways in which LLMs process requests, based on an iterative probabilistic model,
 responses based on the same question will show differences:
 so essentially, AI models are *probablistic*, not *deterministic*.
@@ -223,13 +233,14 @@ which can be found in their [GitHub promptEngineering repository](https://github
 ## Managing Context
 
 To improve the specificity of a prompt, it's helpful to add as much context as you can.
+As we've seen, we can do this if we select a file in the File Explorer and select `+` in the chat window.
 
-To add context to a chat prompt you can type `#` followed by the context item you want to add,
+Another way add context to a chat prompt you can type `#` followed by the context item you want to add,
 such as a file, folder, tools, code elements (such as variables, functions or classes), tools, amongst others.
 Then press `Tab` to confirm.
-For example, we could type `#inflammation-plot.py` to ensure only responses relevant to that specific file will be generated.
-We could use `#codebase` if we aren't sure which files are relevant to our question, to include all our files.
-Of course, our code may make use of sensitive data files that we don't want Copilot to use, which we'll look at shortly.
+For example, we could type `#attachment:inflammation-plot.py` to ensure only responses relevant to that specific file will be generated.
+Helpfully, it autocompletes this if you start typing `inflammation`.
+In this way, we could add multiple files as context if we wanted.
 
 Another thing to remember is how the context of each chat informs the flow of questions.
 Copilot chat uses the history of a chat thread to get context about your request.
@@ -268,52 +279,36 @@ Add your improved questions to the shared Google Doc.
 
 5 mins.
 
-Ask the following questions about the code:
+In the same chat thread, ask the following questions about the code:
 
-1. What are the main packages used?
+1. Describe the main packages used
 2. How is Matplotlib used to generate the plots?
 
 :::::::::::::::::::::::::: solution
 
 1. Describe the main packages used? e.g.
 
-```
-1. glob: Built-in Python module for file pattern matching
-   - glob.glob() finds all files matching a wildcard pattern (inflammation-*.csv)
-   - Useful for batch processing multiple files with consistent naming
+```output
+The script uses three packages:
 
-2. numpy: Numerical computing library
-   - np.loadtxt() loads CSV data into a NumPy array
-   - data.mean(axis=0), data.max(axis=0), data.min(axis=0) compute statistics across patients (rows) for each day (columns)
-
-3. matplotlib.pyplot: Plotting library for creating visualizations
-   - plt.figure() creates a new figure window
-   - fig.add_subplot() adds subplots to the figure
-   - axes.set_ylabel() and axes.plot() configure and draw the plots
-   - fig.tight_layout() optimizes spacing
-   - fig.savefig() exports the figure as an image file
-
-These three packages work together: glob finds the files, numpy processes the data, and matplotlib visualizes the results.
+- glob — Python’s standard library module. It finds files matching the pattern data/inflammation-*.csv.
+- numpy (imported as np) — loads each CSV into an array and calculates the column-wise mean, maximum, and minimum.
+- matplotlib.pyplot (imported as plt) — creates the three-panel plots and saves them as PNG files.
+These are the packages imported in inflammation-plot.py.
 ```
 
 2. How is Matplotlib used to generate the plots? e.g.
 
-```
-This script uses Matplotlib to create and save visualization plots:
+```output
+For each CSV file, Matplotlib builds and saves a figure:
 
-1. Create a figure: plt.figure(figsize=(10.0, 3.0)) creates a new figure with dimensions 10 inches wide by 3 inches tall.
+- plt.figure(figsize=(10.0, 3.0)) creates a figure 10 inches wide and 3 inches tall.
+- fig.add_subplot(1, 3, n) creates three plots in one row. Each plot gets one statistic: the column-wise average, maximum, or minimum.
+- set_ylabel(...) labels each plot’s y-axis; plot(...) draws the statistic values. The x-axis is the column position, shown by default.
+- fig.tight_layout() adjusts spacing so the plots fit neatly.
+- fig.savefig(filename + '.png') saves the figure as a PNG next to its CSV file.
 
-2. Add subplots: fig.add_subplot(1, 3, n) creates a grid of 1 row and 3 columns, with n specifying which subplot (1, 2, or 3):
-   - axes1, axes2, axes3 are the three subplot axes objects
-
-3. Label and plot data:
-   - axes.set_ylabel() adds a label to the y-axis
-   - axes.plot() draws a line plot of the data on that subplot
-   - Each subplot shows a different calculation: mean(), max(), and min()
-
-4. Layout adjustment: fig.tight_layout() automatically adjusts spacing between subplots to prevent overlap.
-
-5. Save output: fig.savefig() saves the entire figure as a PNG image file.
+The script saves the plots rather than opening an interactive display. These steps are in inflammation-plot.py.
 ```
 
 Due to the ambiguous nature of language and how we specify prompts,
@@ -338,12 +333,110 @@ As we've mentioned, LLMs are non-deterministic,
 in that the same question can produce different answers.
 In addition to it's probablistic nature, there are other reasons for these differences:
 
-- Context-dependent: small changes in files, cursor position, or prompt matter
+- Context-dependent: small changes in files, cursor position, chat history, or prompt matter
 - Approximate understanding: infers intent, doesn't fully "understand" the codebase
 - Model changes over time: behaviour can shift as Copilot and it's underlying models are updated
 
 :::::::::::::::::::::::::::::::::::::::::
 
+
+## Obtaining Guidance on how to Improve our Code
+
+So far we've been asking quite specific questions about this codebase in order to learn more about it.
+But let's now consider we might want to do to improve it.
+
+Looking at the code, you may already have your own ideas for how it could be improved,
+but let's ask Copilot instead.
+
+:::::::::::::::::::::::::: instructor
+
+Following the exercise below, talk through the possible solutions,
+highlighting the key similarities and differences between each response.
+
+:::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::: challenge
+
+## Asking Copilot to Suggest Improvements
+
+10 mins.
+
+- Select `+` at the top of the chat window to create a new chat conversation
+- Select the `Local` harness (it defaults to `Copilot`)
+- Ensure you have the `inflammation-plot.py` file open and selected in chat context
+- Choose a prompt to ask Copilot how to improve this code, e.g.:
+   - `How can I make this code more readable?`
+   - `How should I refactor this code to be more modular?`
+   - `What can I do to improve this code?`
+
+Don't update your code with any of the suggestions just yet,
+we'll come to this in the next episode.
+
+Use any remaining time to explore asking other questions!
+
+:::::::::::::::::::::::::: solution
+
+For the question `How can I make this code more readable?` (your responses may differ!)
+
+Note that it mentions the `inflammation-plot.py` file as context
+
+```
+A few simple refactors would make inflammation-plot.py much easier to follow:
+
+- Use clearer names like csv_path instead of filename
+- Split the plotting logic into a small function
+- Replace repeated subplot setup with a loop
+- Use pathlib instead of raw glob
+- Avoid repeating the same plotting pattern three times
+
+Example:
+```
+
+```python
+from pathlib import Path
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def plot_inflammation_summary(csv_path: Path) -> None:
+    data = np.loadtxt(csv_path, delimiter=",")
+
+    fig, axes = plt.subplots(1, 3, figsize=(10, 3))
+
+    metrics = [
+        ("average", data.mean(axis=0)),
+        ("max", data.max(axis=0)),
+        ("min", data.min(axis=0)),
+    ]
+
+    for ax, (label, values) in zip(axes, metrics):
+        ax.set_ylabel(label)
+        ax.plot(values)
+
+    fig.tight_layout()
+    fig.savefig(csv_path.with_suffix(".png"))
+
+
+for csv_path in sorted(Path("data").glob("inflammation-*.csv")):
+    print(csv_path)
+    plot_inflammation_summary(csv_path)
+```
+
+```
+Why this is more readable:
+
+- The code now has one clear responsibility: “plot one inflammation file”
+- The repeated axes1, axes2, axes3 pattern is replaced by a loop
+- The metric names are stored in a single structure, so it’s obvious what is being plotted
+- Path makes the file handling more Pythonic and easier to read
+
+If you want, I can also give you a version that is even more beginner-friendly or one that matches typical scientific Python style.
+```
+
+:::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Personalising Copilot to Match our Project
 
@@ -375,54 +468,76 @@ without instructions Copilot may suggest to:
 - Use an indentation style that isn't typically used by team members
 - Without instructions, Copilot may introduce a new design pattern the repository doesn't use
 
+### Instructions File Dos and Don'ts
+
+Do:
+
+- Structure using markdown headings and bullet points for readability
+- Use clear and concise language, e.g. "Implement", "Use"
+- Use imperative language where it makes sense, e.g. "MUST", "ALWAYS", "NEVER"
+- Be specific and actionable
+- Explain reasoning when it adds value
+- Include examples
+- Refer to best practices
+
+Don't:
+
+- Use ambigious or vague language (like "should", "perhaps")
+- Include overly verbose explanations (these use more tokens and risk ambiguity)
+- Add contradictory statements
+- Copy-paste from other sources without adding project context (to keep it specific and relevant)
+- Add rules for scenarios that haven't occurred
+
+
 ### Create an Instructions File
 
-Let's create an instructions file now, by selecting the gear icon at the top right of the `CHAT` panel,
-and selecting `Generate Chat Instructions`.
-At this point, VSCode will do a number of things in order to create this file:
+In general, it's a good idea to start with a minimal ruleset and build it from there.
+So let's create a short instructions file now.
 
-1. Analyse the structure and files in the workspace
-1. Analyse the data directory `data/` which contains our inflammation data files
-1. Create the `.github/.copilot-instructions.md` file itself
-1. Summarise the contents of the new instructions file
-1. Provide some questions for feedback to add more specific guidance in the instructions file
+```markdown
+## General
 
-Note that it may request access to run a Bash command in the `data` directory,
-from which it can then ascertain the structure of the data,
-which you'll have to approve.
+- ALWAYS include comments on design decisions
+- ALWAYS include a docstring for functions
+- ALWAYS include type hints
+- Write clear and concise comments when needed
+- Ensure functions have descriptive names
+- Break down complex functions into smaller, more manageable functions
+
+## Code style and formatting
+
+- Follow PEP 8 style guide
+- Maintain 4 spaces for each level of indentation
+- Add function and class docstrings in the reStructuredText format
+
+## Project structure
+
+- `data/` - contains inflammation CSV files
+- `inflammation-plot.py` - the main code entrypoint
+```
+
+This is only a minimal example.
+You can find guidance on how to write good instructions files all over the web, e.g.
+
+- [PlagueHO GitHub Copilot Assets Library](https://github.com/PlagueHO/github-copilot-assets-library/blob/main/instructions/python.instructions.md)
+- [5 tips for writing better custom instructions for Copilot](https://github.blog/ai-and-ml/github-copilot/5-tips-for-writing-better-custom-instructions-for-copilot/)
+
+For a more general resource on all things Copilot,
+with lots of examples, see [Awesome GitHub Copilot](https://github.com/github/awesome-copilot) which contains a horde of useful examples for different Copilot agents, instructions, skills, and many other aspects.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Checkpoint: I've generated a Copilot instructions file
+## Checkpoint: I've added a Copilot instructions file
 
 ::::::::::::::::::::::::::::::::::::::::: 
 
-We'll look at the contents of the file in a moment.
+From this starting point we are free to update this file manually as we continue to develop the code.
+This context should be used whenever we interact with Copilot,
+although note that this is not guaranteed,
+since LLMs (particularly on the free tier) have a limited contextual memory and these instructions may be pushed out of the context if the context gets too large.
+But in any case, we're essentially documenting the coding standards for our project,
+which is established good software development practice.
 
-You may also see some feedback questions, such as:
-
-```
-1. Should I add more detail about the other datasets (climate data, coordinates), or keep focus only on the inflammation data workflow?
-2. Are there specific Python version requirements or package versions that should be documented?
-3. Would you like guidance on handling edge cases (e.g., what happens with empty CSV files, missing columns)?
-```
-
-### Working with our Instructions File
-
-You should now see a `.github/copilot-instructions.md` file appear in VSCode's file browser.
-If you open this file now, you'll see some things to note:
-
-- Content is highlighted with a `Keep / Undo` option.
-This is VSCode's way of highlighting the changes Copilot has made as suggestions,
-so that you explicitly review and approve them.
-- A summary of the main code entry point, the data source directory, and the overall workflow of the application
-- A section on the code patterns and conventions, essentially generalising how the code works and providing assumptions on how it operates, e.g. `axis=0 consistently means aggregate across rows (patients), preserving measurement dimensions`
-- Some suggestions on how to refactor (tidy) the codebase and otherwise enhancement it
-
-Approve this file addition by selecting `Keep`.
-
-From this starting point we are free to update this file manually as we continue to develop the code,
-and this context will be used whenever we interact with Copilot.
 
 ### Specifying Privacy per File Type
 
@@ -450,7 +565,8 @@ For example, we edit our VSCode settings to ignore csv files by:
    ```
 
 This will have the effect of potentially including all file types in context by default,
-but not CSV files.
+but not CSV files, although importantly, this also means it won't benefit from examining these files.
+Note we could also set this per workspace instead if wanted.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
@@ -463,199 +579,6 @@ If you wanted a stricter "default deny" approach instead, you could specify `fal
 There are stricter controls, including some that allow exclusion by directory specifications,
 but these are currently limited to Copilot Business users for their repositories and organisations.
 
-
-## Obtaining Guidance on how to Improve our Code
-
-Now have an instructions file to guide Copilot,
-let's take its guidance one step further.
-So far we've been asking quite specific questions about this codebase in order to learn more about it.
-But let's now consider we might want to do to improve it.
-
-Looking at the code, you may already have your own ideas for how it could be improved,
-but let's ask Copilot instead.
-Another aspect we haven't looked into yet is the other available AI models we can use.
-So far we've only used the `Claude Haiku 4.5` model,
-but there are others at time of writing selectable from the models dropdown:
-essentially some variants of GPT, and a Raptor model preview.
-
-::::::::::::::::::::::::::::::::: callout
-
-## What's the 'x' Figure Displayed Next to Each Model?
-
-Next to each model you'll see an `x` figure, e.g. `1x`.
-This is a multiplier related to the "cost" of using this model within our quota of premium requests.
-So models with a `2x` beside them will cost twice as much as one with `1x`.
-
-It's important to be clear on the relative cost,
-since our quotas will be consumed more quickly with higher cost multipliers!
-
-:::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::: instructor
-
-Following the exercise below, talk through the possible solutions,
-highlighting the key similarities and differences between each response.
-
-:::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::: challenge
-
-## Asking Copilot to Suggest Improvements
-
-10 mins.
-
-- Select `+` to create a new chat conversation
-- Ensure you have the `Ask` mode selected in the chat box,
-and the `inflammation-plot.py` file open and selected in the code editor
-- Select one of the `Claude Haiku 4.5` or `GPT-5 mini` models in the model dropdown.
-- Choose a prompt to ask Copilot how to improve this code, e.g.:
-   - `How can I make this code more readable?`
-   - `How should I refactor this code to be more modular?`
-   - `What can I do to improve this code?`
-
-Repeat this for the other model, asking the same exact question each time:
-
-1. What answer does each model give you?
-2. How are these responses similar?
-3. How are these responses different?
-
-Don't update your code with any of the suggestions just yet,
-we'll come to this in the next episode.
-
-Use any remaining time to explore asking other questions!
-
-:::::::::::::::::::::::::: solution
-
-1.
-
-For the question `How can I make this code more readable?` (your responses may differ!)
-
-Note that, for each model, at the top of the response, it mentions three references are used:
-
-- `copilot-instructions.md` - as we would expect
-- `inflammation-01.csv` - since it's pattern is referenced in the source code
-- `inflammation-plot.py` - since this is the file it's taken as context
-
-Claude Haiku 4.5:
-
-```
-Your code can be made more readable by extracting the repetitive subplot pattern into a helper function and using a tuple/list to store the axes. Here's a refactored version:
-```
-
-```python
-import glob
-
-import numpy as np
-from matplotlib import pyplot as plt
-
-def plot_statistics(axes, data, stat_func, label):
-    """Plot a single statistic on the given axes.
-    
-    Args:
-        axes: Matplotlib axes object
-        data: NumPy array of inflammation measurements
-        stat_func: Function to compute statistic (e.g., data.mean)
-        label: Y-axis label string
-    """
-    axes.set_ylabel(label)
-    axes.plot(stat_func(axis=0))
-
-filenames = glob.glob('../data/inflammation-*.csv')
-filenames.sort()
-filenames = filenames[0:3]
-
-for filename in filenames:
-    print(filename)
-
-    data = np.loadtxt(fname=filename, delimiter=',')
-
-    fig = plt.figure(figsize=(10.0, 3.0))
-    axes = [fig.add_subplot(1, 3, i) for i in range(1, 4)]
-
-    plot_statistics(axes[0], data, data.mean, 'average')
-    plot_statistics(axes[1], data, data.max, 'max')
-    plot_statistics(axes[2], data, data.min, 'min')
-
-    fig.tight_layout()
-    fig.savefig(filename + '.png')
-```
-
-```
-Key improvements:
-
-- Helper function eliminates the three identical ylabel/plot blocks
-- List comprehension replaces axes1, axes2, axes3 variables
-- Docstring documents the function's purpose and parameters
-- Maintains all existing functionality and conventions from your codebase
-```
-
-GPT-5 mini:
-
-```
-Refactored file to improve readability (extracted helper, constants, main, axes list):
-```
-
-```python
-# ...existing code...
-import glob
-import numpy as np
-from matplotlib import pyplot as plt
-
-FIGSIZE = (10.0, 3.0)
-DATA_PATTERN = '../data/inflammation-*.csv'
-FILE_LIMIT = 3
-
-def plot_stat(ax, data, stat_func, ylabel):
-    """Plot a statistic computed from data on ax."""
-    ax.set_ylabel(ylabel)
-    ax.plot(stat_func(data))
-
-def main():
-    filenames = glob.glob(DATA_PATTERN)
-    filenames.sort()
-    filenames = filenames[:FILE_LIMIT]
-
-    for filename in filenames:
-        print(filename)
-        data = np.loadtxt(fname=filename, delimiter=',')
-
-        fig = plt.figure(figsize=FIGSIZE)
-        axes = [fig.add_subplot(1, 3, i + 1) for i in range(3)]
-
-        plot_stat(axes[0], data, lambda d: d.mean(axis=0), 'average')
-        plot_stat(axes[1], data, lambda d: d.max(axis=0), 'max')
-        plot_stat(axes[2], data, lambda d: d.min(axis=0), 'min')
-
-        fig.tight_layout()
-        fig.savefig(filename + '.png')
-
-if __name__ == '__main__':
-    main()
-# ...existing code...
-```
-
-2.
-
-Key similarities - both models:
-
-- Refactored the duplicated `fig.add_subplot` generation into a Python list comprehension
-- Refactored the duplicated `axes` set up into a separate function
-- Added a docstring to the new function, albeit only a brief one with `GPT-5 mini`
-
-3.
-
-Key differences:
-
-- Claude Haiku 4.5:
-  - Defines constants for some of the hardcoded values
-  - The high-level code is refactored into a `main()` function
-  - Adds a `__name__ == '__main__'` condition guarding a call to the refactored `main()` function
-- GPT-5 mini: the call to the refactored plotting function uses a `lambda` definition as an argument
-  - Does not provide a textual summary of what it has done at the end
-
-:::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::: instructor
 
@@ -731,9 +654,11 @@ We can see an overview of what we've consumed and how much is remaining by selec
 
 ![Example Copilot usage overview](fig/copilot-usage.png)
 
-So in this case, we can see that this user has consumed 0.3% of its quota for inline suggestions (which we'll look at later),
-and 36% of the chat messages quota.
-This allowance resets on a monthly basis, in this case February 23 2026.
+So in this case, we can see that this user has consumed 10% of premium credits (which are chat-based and agent-based use of Copilot),
+and 5% of its quota for inline suggestions (which we'll look at later).
+
+This allowance resets on a monthly basis, 
+the date of which is also displayed.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 

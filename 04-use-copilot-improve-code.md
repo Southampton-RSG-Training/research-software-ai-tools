@@ -8,7 +8,7 @@ exercises: 30
 
 - How can Copilot help me improve my code?
 - What can I do to improve my Copilot prompts?
-- How can I reuse previous Copilot prompts?
+- How can I create and use reusable Copilot skills?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -18,7 +18,7 @@ exercises: 30
 - Use Copilot to improve a segment of code
 - Use Copilot to add a new, small feature to an existing codebase
 - Describe how to use Copilot to assist with Git commit messages
-- Create and use a reusable prompt context
+- Create and use a reusable Copilot skill
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -43,31 +43,35 @@ we can see the current inline settings:
 
 ![](fig/copilot-inline-settings.png)
 
-So here, we can see that inline settings will apply to all Python files.
+So here, we can see that inline settings are:
+
+- Enabled for `Ghost text suggestions`, where suggestions appear as faded text
+- Partially enabled for `Ghost text suggestions for Instructions`, since we have an instructions file for this project
+- Enabled for `Next edit suggestions`, where it may predict changes that go beyond the immediate context to make suggestions in other places in your code
+- An `Eagerness` setting, so if you find inline suggestions appear too quickly and disrupt your flow, or aren't appearing fast enough, you can set this here
+
 These suggestions will appear as "ghosted text" suggestion which you can autocomplete with tab,
 very similar to how they appear with standard VSCode autocomplete.
-There are also `Next edit suggestions` which go beyond the immediate context to make suggestions in other places in your code.
-These predict the location and the content of the next edit you'll want to make.
 
 Let's say we want to add a new section describing our coding style.
-Add the following at the bottom of the file:
+Add the following at the bottom of the `Coding style and formatting section`:
 
 ```markdown
-## Coding Style
-- 
+- In docstrings
 ```
 
 You should see a suggestion appear direcly after your cursor,
-something like `Use PEP 8 style guidelines for Python code`, `Use descriptive variable names (e.g., data, mean_plot, max_plot, min_plot)` or similar.
+something like `include a description of the function's purpose, its parameters, and its return value`.
 You can accept this suggestion by pressing `Tab`.
 If you continue to add new lines after this, you may find it continues to suggest other things to include,
-so we end up with, for example:
+such as:
 
 ```markdown
 ### Coding Style
-- Use descriptive variable names (e.g., `inflammation_data`, `mean_inflammation`)
-- Follow PEP 8 for formatting (indentation, spacing)
-- Comment code sections for clarity, especially data processing steps
+...
+
+- Use descriptive variable names that convey the purpose of the variable
+- Use single quotes for strings unless the string contains a single quote, in which case use double quotes
 ```
 
 It does this by rapidly incorporating contextual information from a number of sources to infer a suggestion,
@@ -78,27 +82,28 @@ including:
 - Frameworks, languages and dependencies
 - Any instructions file
 
-Copilot suggestions are a starting point, but we should alwyays review, understand, and amend as necessary,
+Copilot suggestions are a starting point, but we should always review, understand, and amend as necessary,
 as opposed to blindly accepting suggestions.
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
 ## Amend the Suggestions
 
-3 mins.
+5 mins.
 
-Read through and understand the Copilot suggestions for the Coding Style section of the `copilot-instructions.md` file,
-and add/amend as you see fit, perhaps to fit your coding style.
+Review and then amend the `Code style and formatting` section as you see fit, perhaps to fit your coding style.
 
 :::::::::::::::::::::::::: solution
 
 For example:
 
 ```markdown
-### Coding Style
-- Follow PEP 8 style guidelines for Python code
-- Use descriptive variable names (e.g., `inflammation_data`, `mean_inflammation`)
-- Comment code sections for clarity, especially to explain purpose and logic, and to describe data processing steps
+- Follow PEP 8 style guide
+- Maintain 4 spaces for each level of indentation
+- Add function and class docstrings in the reStructuredText format
+- In docstrings, include a description of the function's purpose, its parameters, and its return value
+- Use descriptive variable names that convey the purpose of the variable
+- Use single quotes for strings unless the string contains a single quote, in which case use double quotes
 ```
 
 As we'll see shortly, these coding style guidelines will inform future refactoring of our code.
@@ -111,7 +116,7 @@ As we'll see shortly, these coding style guidelines will inform future refactori
 
 ## Inline Suggestions for Code
 
-3 mins.
+5 mins.
 
 In `inflammation-plot.py`, begin adding an additional parameter to the functions calls in the code,
 by placing an additional `, ` at the end of the given list of parameters, and see which inline suggestions are being made, e.g.:
@@ -134,12 +139,11 @@ Try this for the following function calls:
 1. For example:
 
 ```python
-    data = np.loadtxt(fname=filename, delimiter=',', dtype=np.float64)
+    data = np.loadtxt(fname=filename, delimiter=',', dtype=np.float32)
 ```
 
-```python
-    fig = plt.figure(figsize=(10.0, 3.0), dpi=100)
-```
+The inline suggestion for `plt.figure` suggested `constrained_layout=100`,
+which wasn't approved since it doesn't add any feature we want.
 
 For `.plot`, if the first suggestion of a `color` parameter is selected,
 it suggests variants of that for the other calls to `plot`, e.g.
@@ -169,21 +173,19 @@ To get started with using Copilot to make a small edit, you highlight the code y
 For example:
 
 1. Select `+` to create a new chat conversation
+1. Select `Local` harness
 1. Select `inflammation-plot.py` in the chat context
-1. Select `Ask` as the Copilot mode in the chat window
-1. Select a model of your choice
 1. Select the entire for loop in `inflammation-plot.py`; you'll notice that the context now includes this file with the selected line numbers
-1. Enter `Add a comment about this code above this loop`
+1. Enter `Add a comment about this code above this loop` into the chat
 1. Press `Enter`
 
 You'll now see a comment added above the loop highlighted in green, e.g.
 
 ```python
-# Process each inflammation data file and generate a 3-panel visualization
-# showing the mean, maximum, and minimum inflammation values across patients
+# Plot the average, maximum, and minimum inflammation for each dataset.
 ```
 
-You'll also see a `Keep` or `Undo` pop-up displayed at the bottom.
+You’ll also see a `Keep` and `Undo` pop-up options displayed next to the suggestion.
 Read through the comment, and if you agree that the comment summarises the code sufficiently, select `Keep`.
 
 ::::::::::::::::::::::::::::::::: callout
@@ -213,7 +215,7 @@ Let's add the changes we've made so far to the Git staging area:
 
 You should see something like:
 
-`Enhance inflammation plot visualization by adding colors and specifying data type`
+`Enhance inflammation plot script with data type specification and color coding for plots`
 
 Of course, we should vet and edit (or ask Copilot to retry) this description accordingly.
 In this case, it doesn't mention about the DPI setting which might be a particular nuance we wish to add,
@@ -228,16 +230,17 @@ Once we're happy with it, we can then select `Commit` to commit our changes to o
 
 ## A Small Refactor!
 
-3 mins.
+5 mins.
 
 Let's assume we want to rename the `axes` variables to have the prefix `subplot` instead,
 e.g. instead of `axes1`, we'd have `subplot1`.
 
-Use Copilot agent mode to rename all of these variables,
+Using the `Local` harness, have Copilot agent mode rename all of these variables by selecting the appropriate code in the editor and entering the request in the chat window,
 then verify and accept the changes if you agree with them.
 Does the code still run correctly?
 
-Note: after selecting the code, you can also request edits by typing `Ctrl` + `I` (Linux) or `Cmd Key/Windows Key` + `I` (Mac/Windows) to have a small pop-up appear to type in your request,
+Note: after selecting the code you want to change,
+you can also request edits by typing `Ctrl` + `I` (Linux) or `Cmd Key/Windows Key` + `I` (Mac/Windows) to have a small pop-up appear to type in your request,
 which is quicker and sometimes more convenient if it's a small request.
 
 :::::::::::::::::::::::::: solution
@@ -259,12 +262,11 @@ which is quicker and sometimes more convenient if it's a small request.
        axes3.plot(data.min(axis=0))
    ```
 
-1. Ensure `Agent` mode is selected in chat, and enter `Rename axes variables to have a subplot prefix instead`
-1. Press `Enter` and you should see something like the following:
+1. Enter `Rename axes variables to have a subplot prefix instead` into the chat
+1. Press `Enter` and you should see something like the following, where VSCode is giving you the option of `Keep`ing or `Undo`ing each of the changes:
    ![](fig/copilot-rename-variables.png)
-1. After reviewing the suggestions, select `Keep`
-
-The code still runs correctly.
+1. After reviewing each of the suggestions, select `Keep`
+1. Verify that the code still runs correctly.
 
 :::::::::::::::::::::::::::::::::::
 
@@ -287,11 +289,11 @@ Let's now use agent mode to do this as a refactoring activity,
 directly amending our code with the goal to improve its readability.
 
 1. Select `+` to create a new chat conversation
+1. Select `Local` as the harness
 1. Select `inflammation-plot.py` in the chat context
-1. Set Copilot's mode to `Agent`
-1. Select a model you'd like to use
-1. Enter the following prompt: `Refactor this code to improve it's modularity and readability`
+1. Enter the following prompt: `Refactor this code to improve its modularity and readability`
 1. Press `Enter`
+1. You may need to authorise various commands it wants to run as part of its codebase analysis and verification
 1. Once suggested improvements appear, review the changes and either:
    - If you agree with them and think they are an improvement on the original code, `Keep` the suggestions
    - If you don't agree with them, cancel the suggestions and select the circular `Retry` icon at the bottom left of the chat response until you get something more acceptable
@@ -326,7 +328,7 @@ def load_inflammation_data(filename: str) -> np.ndarray:
     return np.loadtxt(fname=filename, delimiter=',')
 
 
-def create_statistics_plot(data: np.ndarray, figure_size: tuple = (10.0, 3.0)) -> plt.Figure:
+def create_statistics_plot(data: np.ndarray) -> plt.Figure:
     """Create a figure with three subplots showing mean, max, and min values.
     
     Args:
@@ -336,22 +338,18 @@ def create_statistics_plot(data: np.ndarray, figure_size: tuple = (10.0, 3.0)) -
     Returns:
         The matplotlib Figure object containing the three subplots.
     """
-    fig = plt.figure(figsize=figure_size)
-    
     # Create subplots for mean, max, and min statistics
-    subplots = [fig.add_subplot(1, 3, i) for i in range(1, 4)]
-    
-    statistics = [
-        ('average', data.mean(axis=0)),
-        ('max', data.max(axis=0)),
-        ('min', data.min(axis=0)),
-    ]
-    
-    for subplot, (label, values) in zip(subplots, statistics):
-        subplot.set_ylabel(label)
-        subplot.plot(values)
-    
-    fig.tight_layout()
+    fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.0), constrained_layout=True)
+    summaries = (
+        ('average', 'blue', data.mean(axis=0)),
+        ('max', 'red', data.max(axis=0)),
+        ('min', 'green', data.min(axis=0)),
+    )
+
+    for axis, (label, color, values) in zip(axes, summaries):
+        axis.set_ylabel(label)
+        axis.plot(values, color=color)
+
     return fig
 
 
@@ -393,6 +391,11 @@ and whilst it is more modular,
 it's now 127 lines of code where before it was 32 lines - 
 we might consider this to be quite an over-engineered overkill.
 
+It has also introduced additional complexity, using a loop and a `zip` function to set the labels and generate plots for each graph.
+This is a common risk with using AI tools, where the level of complexity can grow quickly if we're not careful,
+with the code becoming something we can't easily understand.
+We have to measure accepting such suggestions with the increasing difficulty in maintaining the codebase.
+Essentially: don't accept anything you don't understand!
 
 ::::::::::::::::::::::::::::::::: callout
 
@@ -410,157 +413,40 @@ or pressing `Ctrl + Z` (or `Cmd/Windows Key + Z`).
 We're also able to edit a previous prompt in the chat window,
 perhaps adding more specifics for what we want.
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Checkpoint: Check that the code runs as expected
+
+::::::::::::::::::::::::::::::::::::::::: 
+
 :::::::::::::::::::::::::::::::::::::: challenge
 
 ## A Large Refactor!
 
-5 mins.
+3 mins.
 
 Perhaps the suggestions look generally quite good,
 but maybe it isn't quite what we're after.
 
-Select `Edit` and then `Undo` from the VSCode menu to undo the recent changes.
-
-Edit the agent mode prompt in the chat (using a model of your choice) to include more specificity in the request, for example:
-
-- `Refactor this code to improve its modularity and readability, using the reST format for docstrings`
-- `Refactor this code to improve its modularity and readability, and easy to understand for a novice coder`
-
-You might want to `Retry` or amend your prompt a few times to obtain something you find acceptable!
+Ensuring you have `Local` harness and the `inflammation-plot.py` script selected,
+ask Copilot to make changes as you see fit to improve this codebase.
 
 :::::::::::::::::::::::::: solution
 
-For the second prompt above, for example (note the increased level of commenting, more descriptive docstrings,
-and less complex coding patterns for data processing and generating the plots):
+e.g. deciding to remove the loop and use of `zip` in the `create_statistics_plot()` function for simplicity,
+by selecting the `create_statistics_plot()` function and requesting
+`Remove the loop, keep the label setting and plot generation flat`,
+this code was reduced to the simpler:
 
 ```python
-"""
-Inflammation Data Visualization Script
-
-This script processes inflammation data from CSV files and creates visualizations
-showing average, maximum, and minimum inflammation levels across patients for each day.
-"""
-
-import glob
-import numpy as np
-from matplotlib import pyplot as plt
-
-
-def load_inflammation_data(filepath):
-    """
-    Load inflammation data from a CSV file.
-
-    Args:
-        filepath (str): Path to the CSV file to load
-
-    Returns:
-        np.ndarray: 2D array of inflammation data (rows=patients, columns=days)
-    """
-    data = np.loadtxt(fname=filepath, delimiter=',')
-    return data
-
-
-def create_statistics_figure(data):
-    """
-    Create a figure with three subplots showing statistics of inflammation data.
-
-    Args:
-        data (np.ndarray): 2D array of inflammation data
-
-    Returns:
-        tuple: (figure object, list of subplot axes)
-    """
-    # Create figure with three subplots side by side
-    fig = plt.figure(figsize=(10.0, 3.0))
-
-    # Create three subplots for average, max, and min
-    subplots = [
-        fig.add_subplot(1, 3, 1),
-        fig.add_subplot(1, 3, 2),
-        fig.add_subplot(1, 3, 3),
-    ]
-
-    return fig, subplots
-
-
-def plot_statistics(subplots, data):
-    """
-    Plot average, maximum, and minimum statistics on the given subplots.
-
-    Args:
-        subplots (list): List of matplotlib axes objects
-        data (np.ndarray): 2D array of inflammation data
-    """
-    # Calculate statistics across all patients (axis=0)
-    average = data.mean(axis=0)
-    maximum = data.max(axis=0)
-    minimum = data.min(axis=0)
-
-    # Plot average on first subplot
-    subplots[0].set_ylabel('average')
-    subplots[0].plot(average)
-
-    # Plot maximum on second subplot
-    subplots[1].set_ylabel('max')
-    subplots[1].plot(maximum)
-
-    # Plot minimum on third subplot
-    subplots[2].set_ylabel('min')
-    subplots[2].plot(minimum)
-
-
-def save_figure(figure, filename):
-    """
-    Save a matplotlib figure as a PNG file.
-
-    Args:
-        figure: matplotlib figure object
-        filename (str): Output filename (will add .png extension)
-    """
-    output_filename = filename + '.png'
-    figure.savefig(output_filename)
-    print(f"Saved visualization: {output_filename}")
-
-
-def process_inflammation_files(data_directory='data/inflammation-*.csv'):
-    """
-    Process all inflammation CSV files and create visualizations.
-
-    This function:
-    1. Finds all CSV files matching the pattern
-    2. Loads data from each file
-    3. Creates a figure with statistical plots
-    4. Saves the figure as a PNG file
-
-    Args:
-        data_directory (str): Glob pattern for finding CSV files
-    """
-    # Find all inflammation CSV files
-    filenames = sorted(glob.glob(data_directory))
-
-    # Process each file
-    for filename in filenames:
-        print(f"Processing: {filename}")
-
-        # Load data from file
-        data = load_inflammation_data(filename)
-
-        # Create figure with subplots
-        fig, subplots = create_statistics_figure(data)
-
-        # Plot statistics on the subplots
-        plot_statistics(subplots, data)
-
-        # Arrange subplots so labels don't overlap
-        fig.tight_layout()
-
-        # Save figure as PNG file
-        save_figure(fig, filename)
-
-
-# Main execution
-if __name__ == '__main__':
-    process_inflammation_files()
+   # Create subplots for mean, max, and min statistics
+    fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.0), constrained_layout=True)
+    axes[0].set_ylabel('average')
+    axes[0].plot(data.mean(axis=0), color='blue')
+    axes[1].set_ylabel('max')
+    axes[1].plot(data.max(axis=0), color='red')
+    axes[2].set_ylabel('min')
+    axes[2].plot(data.min(axis=0), color='green')
 ```
 
 :::::::::::::::::::::::::::::::::::
@@ -589,11 +475,12 @@ Perhaps we know that the inflammation data format will change in the future,
 in ways that mean the NumPy library isn't the ideal processing library of choice,
 and that the Pandas library (which is a more general purpose data analysis library) will be a much better fit for this work.
 
-Using agent mode and a model of your choice,
+Using the `Local` harness and `Agent` mode,
 ask Copilot to refactor your code to use Pandas instead of NumPy:
 
 Part 1:
 
+1. Install Pandas into your virtual environment, e.g. `python -m pip install pandas`
 1. Construct and enter a suitable prompt
 1. Review and accept the changes
 1. What do you need to do to be able to re-run the code?
@@ -609,13 +496,81 @@ Part 2:
 
 Part 1:
 
-Prompt: `Modify this code to use Pandas instead of NumPy`
+After installing Pandas into the virtual environment, e.g.
 
-In order to run it, we also need to add pandas library to the virtual environment.
-In a terminal:
+Prompt: `Modify this code to use Pandas instead of NumPy. Use the virtual environment that already exists`
 
-```bash
-python -m pip install pandas
+```python
+"""
+Analyze and visualize inflammation data.
+
+This script reads inflammation CSV files from data/, computes statistics
+(mean, max, min) across patients for each day, and saves corresponding
+plots as PNG files.
+"""
+
+import glob
+
+import pandas as pd
+from matplotlib import pyplot as plt
+
+
+def load_inflammation_data(filename: str) -> pd.DataFrame:
+    """Load inflammation data from a CSV file.
+    
+    Args:
+        filename: Path to the CSV file containing inflammation data.
+        
+    Returns:
+        A DataFrame where rows are patients and columns are days.
+    """
+    return pd.read_csv(filename, header=None)
+
+
+def create_statistics_plot(data: pd.DataFrame) -> plt.Figure:
+    """Create a figure with three subplots showing mean, max, and min values.
+    
+    Args:
+        data: A DataFrame of inflammation values.
+        
+    Returns:
+        The matplotlib Figure object containing the three subplots.
+    """
+    # Create subplots for mean, max, and min statistics
+    fig, axes = plt.subplots(1, 3, figsize=(10.0, 3.0), constrained_layout=True)
+    axes[0].set_ylabel('average')
+    axes[0].plot(data.mean(axis=0), color='blue')
+    axes[1].set_ylabel('max')
+    axes[1].plot(data.max(axis=0), color='red')
+    axes[2].set_ylabel('min')
+    axes[2].plot(data.min(axis=0), color='green')
+
+    return fig
+
+
+def process_inflammation_file(filename: str) -> None:
+    """Load inflammation data and save a statistics plot.
+    
+    Args:
+        filename: Path to the CSV file to process.
+    """
+    print(filename)
+    data = load_inflammation_data(filename)
+    fig = create_statistics_plot(data)
+    output_filename = f"{filename}.png"
+    fig.savefig(output_filename)
+    plt.close(fig)
+
+
+def main() -> None:
+    """Load and process all inflammation data files."""
+    filenames = sorted(glob.glob('data/inflammation-*.csv'))
+    for filename in filenames:
+        process_inflammation_file(filename)
+
+
+if __name__ == '__main__':
+    main()
 ```
 
 :::::::::::::::::::::::::::::::::::
@@ -652,24 +607,16 @@ then add and commit the changes with a Copilot-generated (and reviewed) commit m
 Prompt: `Add a fourth axes plot for standard deviation`
 
 ```python
-    fig = plt.figure(figsize=(13.0, 3.0), dpi=100)
-
-    axes1 = fig.add_subplot(1, 4, 1)
-    axes2 = fig.add_subplot(1, 4, 2)
-    axes3 = fig.add_subplot(1, 4, 3)
-    axes4 = fig.add_subplot(1, 4, 4)
-
-    axes1.set_ylabel('average')
-    axes1.plot(data.mean(axis=0), color='blue')
-
-    axes2.set_ylabel('max')
-    axes2.plot(data.max(axis=0), color='red')
-
-    axes3.set_ylabel('min')
-    axes3.plot(data.min(axis=0), color='green')
-
-    axes4.set_ylabel('std')
-    axes4.plot(data.std(axis=0), color='orange')
+    # Create one subplot for each per-day statistic.
+    fig, axes = plt.subplots(1, 4, figsize=(13.0, 3.0), constrained_layout=True)
+    axes[0].set_ylabel('average')
+    axes[0].plot(data.mean(axis=0), color='blue')
+    axes[1].set_ylabel('max')
+    axes[1].plot(data.max(axis=0), color='red')
+    axes[2].set_ylabel('min')
+    axes[2].plot(data.min(axis=0), color='green')
+    axes[3].set_ylabel('standard deviation')
+    axes[3].plot(data.std(axis=0), color='orange')
 ```
 
 :::::::::::::::::::::::::::::::::::
@@ -747,42 +694,41 @@ adopting a more critical and skeptical approach becomes even more important.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Reusable Code Prompts
+## Reusable Code Skills
 
-Reusable prompts in VSCode Copilot are predefined instructions or templates that you can quickly insert and use to guide Copilot's code generation or assistance.
-These prompts help you standardize requests, save time, and ensure consistency when working on repetitive tasks or when you want Copilot to follow specific patterns.
+Skills in VSCode Copilot are reusable sets of instructions and supporting resources that teach Copilot how to complete a particular task.
+They help you standardize work, save time, and ensure consistency when Copilot performs recurring tasks or follows specific project practices.
 
-### How Reusable Prompts Work
+### How Reusable Skills Work
 
-You can create reusable prompts by saving frequently used chat instructions or code templates in markdown format.
-These reside in the `.github/prompts` directory, and their filenames look like `my-command-name.prompt.md`.
+You can create a skill by placing its instructions in a `SKILL.md` file inside a skill-specific directory.
+For example, a skill named `my-skill` resides at `.github/skills/my-skill/SKILL.md`.
 
-When you need Copilot to perform a task, you can insert a reusable prompt you've already created into the chat using `/` followed by the command name
-(e.g. `/my-command-name`), and Copilot will interpret the prompt and generate code or suggestions based on the provided context.
+Copilot can use a skill when its description matches the task at hand.
+You can also invoke it explicitly in chat with `/` followed by the skill name
+(e.g. `/my-skill`), then Copilot will follow the instructions using the current project context.
 
-Reusable prompts help you:
-- Speed up development by avoiding repetitive typing
-- Maintain consistency in code style and structure
-- Share best practices and prompt templates with your team
+Skills help you:
+- Reuse detailed task instructions and supporting resources
+- Maintain consistency in how tasks are carried out
+- Share workflows and best practices with your team
 
-Common reusable prompts include requests like "Write a function to...", "Add type annotations to...", or "Generate unit tests for...".
-We then have the option to adapt these to our specific project needs.
+Common skills include workflows like generating a README, adding type annotations, or reviewing code.
+We can adapt these to our specific project needs.
 
-Some Copilot extensions or plugins may offer enhanced support for managing and sharing reusable prompts, making it easier to organize and access them within VSCode.
-
-Let's create a reusable prompt now.
-Our code repository is currently lacking a README, so let's adapt a pre-existing prompt definition.
+Let's create a reusable skill now.
+Our code repository is currently lacking a README, so let's adapt a pre-existing skill.
 There are many reusable and freely available Copilot resources at [Awesome GitHub Copilot](https://github.github.com/awesome-copilot/),
-including agents, reusable prompts, and instruction files, all available from a GitHub repository.
+including agents, skills, and instruction files, all available from a GitHub repository.
 
-Let's first obtain a reusable prompt for generating README files.
-Take a look at https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/prompts/readme-blueprint-generator.prompt.md:
+Let's first obtain a reusable skill for generating README files.
+Take a look at https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/skills/readme-blueprint-generator/SKILL.md:
 
 Looking at the file, we can see a number of structural features:
 
-- A metadata header at the top, describing what it aims to do and how it will run (in this case, via an agent)
+- A metadata header at the top, describing the skill and when it should be used
 - A sequence of steps to follow, in this case starting with scanning a certain set of files to build context, using any `copilot-instructions.md` file, and generating a sections each based on specific criteria
-- Some end instructions clarifying how to format the README, and some high-level guidance on how to write it
+- Some instructions clarifying how to format the README, and high-level guidance on how to write it
 
 :::::::::::::::::::::::::: instructor
 
@@ -792,14 +738,15 @@ For the next exercise, add a section into the shared notes so that participants 
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
-## Create a Reusable Prompt File and Generate a README
+## Create a Reusable Skill and Generate a README
 
-5 mins.
+10 mins.
 
-1. Create a new directory at `.github/prompts` to hold any prompt files we want to include
-1. Download the prompt file at https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/prompts/readme-blueprint-generator.prompt.md into this directory
+1. Create a new skills directory at `.github/skills`
+1. Create a new directory at `.github/skills/readme-blueprint-generator`
+1. Download the [README generator skill](https://raw.githubusercontent.com/github/awesome-copilot/refs/heads/main/skills/readme-blueprint-generator/SKILL.md) into that directory as `SKILL.md`
 1. Select agent mode and a model of your choice in the chat
-1. Use the prompt file to generate a README by typing `/readme-blueprint-generator` into the chat. The chat will autocomplete the name. Press enter to invoke it
+1. Use the skill to generate a README by typing `/readme-blueprint-generator` into the chat. The chat will autocomplete the name. Press enter to invoke it
 1. Select `Retry` if you want it to try again
 
 Once generated, review, accept, and amend the README as you see fit.
@@ -823,6 +770,6 @@ Add a short description to the shared notes document describing what you think a
 - Agent mode can suggest larger-scale modifications to our code across multiple files by using `Agent` mode in the chat window, and entering a more comprehensive and complex request.
 - Select `Retry` to have Copilot re-generated a response.
 - It's important to consider how to include AI-based coding assistants in your day-to-day development process to ensure accountability, quality, and sustainability are maintained within a codebase.
-- Reusable prompts in VSCode Copilot are predefined instructions or templates that you can quickly insert and use to guide Copilot’s code generation or assistance.
+- Skills in VSCode Copilot are reusable instructions and resources that guide Copilot through specific tasks.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::

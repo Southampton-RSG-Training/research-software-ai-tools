@@ -325,9 +325,12 @@ VSCode has a sophisticated method to access it's inner functionality known as th
 
 1. Select `View` and `Command Palette` from the VSCode menu
 1. Begin typing `Python: Select Interpreter`, and then select it when it appears
-1. A list of available Python installations should appear. Look for and select the one that says `./venv/bin/python` (our virtual environment)
+1. A list of available Python installations should appear. Look for and select the one that says `./venv/bin/python` (our virtual environment). You may find it at the bottom of the list.
 
-Once selected, the default Python interpreter for VSCode will be configured.
+Once selected, the default Python interpreter for VSCode will be configured,
+as depicted in the bottom right of the status bar.
+
+For future reference, you can also change the interpreter by selecting this label.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
