@@ -378,7 +378,7 @@
         
 <section id="aio-01-intro-ai-ide-tools"><p>Content from <a href="01-intro-ai-ide-tools.html">Introduction to AI Coding IDE Tools</a></p>
 <hr>
-<p>Last updated on 2026-10-14 |
+<p>Last updated on 2026-10-20 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-intro-ai-ide-tools.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -496,7 +496,7 @@ are you afraid could happen?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Some possible benefits:</p>
 <ul>
@@ -610,7 +610,7 @@ think they currently are.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>It’s particularly relevant to AI coding assistants, which at the time
 of writing (Q1 2026) are currently navigating the peak of inflated
@@ -850,7 +850,7 @@ governance, and oversight in AI-assisted development.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>For the next exercise, in the shared notes document have a section
 for participants to add in answers.</p>
@@ -1000,51 +1000,68 @@ GitHub Copilot handles data</a>.</p>
 </h3>
 <p>GitHub Copilot’s free tier provides access to multiple large language
 models, each with different strengths and tradeoffs. The following table
-summarizes the models currently available at time of writing:</p>
-<table class="table">
+summarizes some of the models currently available at time of
+writing:</p>
+<table style="width:100%;" class="table">
 <colgroup>
-<col width="15%">
-<col width="20%">
-<col width="28%">
-<col width="15%">
-<col width="20%">
+<col width="35%">
+<col width="30%">
+<col width="35%">
 </colgroup>
 <thead><tr>
-<th><strong>Model</strong></th>
-<th><strong>Provider</strong></th>
-<th><strong>Specialization</strong></th>
-<th><strong>Speed</strong></th>
+<th><strong>Category</strong></th>
+<th><strong>Models</strong></th>
 <th><strong>Best for</strong></th>
 </tr></thead>
 <tbody>
 <tr>
-<td><strong>Claude Haiku</strong></td>
-<td>Anthropic</td>
-<td>Balanced, efficient reasoning</td>
-<td>Fast</td>
-<td>Quick code completions, lightweight tasks, local development</td>
+<td>Fast, lightweight tasks</td>
+<td>GPT-5.6 Luna, GPT-6 Luna, Claude Haiku 4.5/5.5, Gemini 3.8 Flash,
+MAI-Code-1.1-Flash</td>
+<td>Quick coding questions, code completion, simple fixes and
+explanations</td>
 </tr>
 <tr>
-<td><strong>GPT-4.1</strong></td>
-<td>OpenAI</td>
-<td>Complex reasoning and analysis</td>
-<td>Moderate</td>
-<td>Detailed code reviews, architectural decisions, complex
-refactoring</td>
+<td>General-purpose coding</td>
+<td>GPT-5.6 Terra, GPT-6 Sol, Claude Sonnet 4.6/5/5.5, Grok 4.5/4.6,
+Qwen2.5</td>
+<td>Everyday development, code generation, refactoring, debugging and
+interactive assistance</td>
 </tr>
 <tr>
-<td><strong>GPT-5 Mini</strong></td>
-<td>OpenAI</td>
-<td>Lightweight version of GPT-5</td>
-<td>Faster</td>
-<td>Balance of capability and speed, most general-purpose tasks</td>
+<td>Complex reasoning and debugging</td>
+<td>GPT-5.6 Sol, GPT-6.1 Sol, Claude Opus 4.8/5, Gemini 4 Argon</td>
+<td>Difficult bugs, sophisticated reasoning, complex code changes and
+edge-case analysis</td>
+</tr>
+<tr>
+<td>Agentic software development</td>
+<td>GPT-5.3-Codex, Grok 4.7, Kimi K3</td>
+<td>Autonomous, multistep coding workflows, tool use and working across
+large codebases</td>
+</tr>
+<tr>
+<td>Long-running autonomy</td>
+<td>GPT-6 Astra, Claude Fable 5/5.1, Claude Opus 5.5</td>
+<td>Large-scale development, independent planning, implementation,
+verification/error recovery</td>
 </tr>
 </tbody>
 </table>
-<p>Each model can be selected based on your specific task requirements.
-For routine coding tasks, lighter models like Claude Haiku or GPT-5 Mini
-may be sufficient and faster, while more complex problems may benefit
-from the deeper reasoning of GPT-4.1.</p>
+<p>Generally, as they become more complex, they become capable of
+greater autonomy, until you reach the last entry here where the AI is
+potentially capable of driving the process of development itself, with
+the human providing input where necessary, orchestrating multiple agents
+to accomplish multiple tasks towards a final product. For routine coding
+tasks, lighter models like Claude Haiku or GPT Luna may be sufficient
+and faster, while more complex problems may benefit from the advanced
+reasoning of GPT-5.</p>
+<p>Note that generally speaking, tasks involving larger portions of a
+codebase, more dependencies, or complex interactions generally benefit
+from more complex models that are better able to reason at scale.</p>
+<p>For the free tier of Copilot, which is used throughout this training,
+we’re only able to use a selection of models from the first row, and we
+can’t choose which one is used for any given request.</p>
 <p>There are many <a href="https://docs.github.com/en/copilot/get-started/plans#models" class="external-link">other
 models available</a> for use within various priced priced tiers,
 including other models from OpenAI and Anthropic, as well as models from
@@ -1052,6 +1069,40 @@ Google (i.e. Gemini). Some of these e.g. GPT-5-Codex have been further
 optimised for writing code and other software engineering tasks. You can
 also find a <a href="https://docs.github.com/en/copilot/reference/ai-models/model-comparison" class="external-link">comparison
 of these models</a>.</p>
+</div>
+<div class="section level3">
+<h3 id="model-harnesses">Model Harnesses<a class="anchor" aria-label="anchor" href="#model-harnesses"></a>
+</h3>
+<p>On its own, an AI LLM model is a stateless text predictor. It cannot
+run code, call APIs, or have any “memory” of its own.</p>
+<p>The harness provides the operational layer or wrapper around the LLM
+that makes the model usable and useful, typically handling aspects like
+the following:</p>
+<ul>
+<li>
+<strong>Memory</strong> - curates and manages what information and
+history are fed into the model’s context window, including user
+preferences, chat history, prior context, and so on</li>
+<li>
+<strong>Tools</strong> - an aspect that orchestrates access to other
+resources, such as other agents, databases, code execution, and local
+applications</li>
+<li>
+<strong>Workspace</strong> - files, data, environments - what it can
+access locally, plus things such as VMs</li>
+<li>
+<strong>Guardrails</strong> - enforces security checks, ensures
+human involvement at the right time, and credential management to ensure
+access to actions is done blindly</li>
+<li>
+<strong>Feedback loops/verification</strong> - evaluates and tests
+action results, and feeds aspects of evaluation into future conversation
+loops</li>
+</ul>
+<p>This is an often overlooked aspect. The harness packages up an LLM
+into some form you can actually use, so even with the same LLM,
+different harnesses could give you wildy different coding experiences
+and results. We’ll touch on Copilot harnesses later.</p>
 </div>
 <div class="section level3">
 <h3 id="limitations-of-the-copilot-free-tier">Limitations of the Copilot Free Tier<a class="anchor" aria-label="anchor" href="#limitations-of-the-copilot-free-tier"></a>
@@ -4150,7 +4201,7 @@ include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 
 </div>
@@ -4248,7 +4299,7 @@ them? Tailor the skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
