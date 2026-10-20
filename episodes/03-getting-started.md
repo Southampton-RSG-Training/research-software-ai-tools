@@ -154,11 +154,11 @@ From the left to the right:
 
 - `+` / `Add Context` - choose files to add specific context for requests, to limit the scope of what you want the AI to look at
 - `Set Agent` - an agent selection dropdown, which allows you to set the mode of operation with Copilot.
-With the `Local` harness, Each of these modes provides an increasing degree of autonomy for Copilot to interact with your code:
+With the `Local` harness, each of these modes provides an increasing degree of autonomy for Copilot to interact with your code:
 
-  - `Agent` - proposes concrete code changes for your approval based on your instructions. It’s useful when you already understand a codebase that you want to change.
   - `Ask` - designed for learning and orienting yourself with existing code without changing it, and asking general questions.
   - `Plan` - lets you specify a high-level prompt to allow Copilot at a high level of autonomy to plan changes in steps, select files, and run tools or terminal commands, iterating on code edits until it is complete.
+  - `Agent` (at the top) - proposes concrete code changes for your approval based on your instructions. It’s useful when you already understand a codebase that you want to change.
 
 Note that for the `Copilot` harness the `Plan` option doesn't appear.
 
@@ -363,6 +363,7 @@ highlighting the key similarities and differences between each response.
 
 - Select `+` at the top of the chat window to create a new chat conversation
 - Select the `Local` harness (it defaults to `Copilot`)
+- Select the `Ask` option in the `Set Agent` dropdown, since we don't want Copilot to make any changes.
 - Ensure you have the `inflammation-plot.py` file open and selected in chat context
 - Choose a prompt to ask Copilot how to improve this code, e.g.:
    - `How can I make this code more readable?`
@@ -494,6 +495,17 @@ Don't:
 In general, it's a good idea to start with a minimal ruleset and build it from there.
 So let's create a short instructions file now.
 
+In VSCode terminal (or open a new one via `Terminal` -> `New Terminal`),
+let's create a blank file then edit it in the editor:
+
+```bash
+mkdir .github
+touch .github/copilot-instructions.md
+```
+
+Open the file in the editor by navigating to it in the File Explorer,
+then add the following content:
+
 ```markdown
 ## General
 
@@ -515,6 +527,8 @@ So let's create a short instructions file now.
 - `data/` - contains inflammation CSV files
 - `inflammation-plot.py` - the main code entrypoint
 ```
+
+Then save the file (`File` -> `Save`).
 
 This is only a minimal example.
 You can find guidance on how to write good instructions files all over the web, e.g.
