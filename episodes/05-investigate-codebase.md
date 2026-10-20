@@ -1,7 +1,7 @@
 ---
 title: "Investigate a New Codebase"
 teaching: 10
-exercises: 30
+exercises: 40
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -54,12 +54,12 @@ Use clear, simple language and avoid unnecessary jargon.
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
-## How Do You Understand a Codebase?
+## How Do **You** Understand a Codebase?
 
-3 mins.
+10 mins.
 
 When investigating a new codebase, what is it that really helps you to understand what it does and how it works?
-Tailor the skills file to include this criteria.
+Tailor the explain-code skills file to include this criteria.
 
 :::::::::::::::::::::::::: solution
 :::::::::::::::::::::::::::::::::::
@@ -137,14 +137,14 @@ Be constructive and educational in your feedback.
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
-## How Do You do a Code Review?
+## How Do **You** do a Code Review?
 
-3 mins.
+10 mins.
 
 If you were to conduct a code review of a codebase,
 how would you go about it?
 Which areas would you look at and how would you investigate them?
-Tailor the skills file to include this criteria.
+Tailor the code-review skills file to include this criteria.
 
 :::::::::::::::::::::::::: solution
 :::::::::::::::::::::::::::::::::::

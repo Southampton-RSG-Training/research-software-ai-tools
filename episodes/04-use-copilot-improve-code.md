@@ -1,7 +1,7 @@
 ---
 title: "How to use Copilot to Improve an Existing Codebase"
 teaching: 30
-exercises: 30
+exercises: 55
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -126,6 +126,7 @@ by placing an additional `, ` at the end of the given list of parameters, and se
 ```
 
 Try this for the following function calls:
+
 - `np.loadtxt`
 - `plt.figure`
 - Each of the `.plot` calls to the `axes` variables
@@ -421,9 +422,9 @@ perhaps adding more specifics for what we want.
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
-## A Large Refactor!
+## A Larger Refactor!
 
-3 mins.
+10 mins.
 
 Perhaps the suggestions look generally quite good,
 but maybe it isn't quite what we're after.
@@ -468,7 +469,7 @@ Were you able to achieve something that you regard as well written code that you
 
 ## A "Clever" Refactor!
 
-5 mins.
+10 mins.
 
 Let's assume that we want to expand this codebase further.
 Perhaps we know that the inflammation data format will change in the future,
@@ -595,7 +596,7 @@ and should be avoided.
 
 ## Another Plot Please
 
-3 mins.
+5 mins.
 
 Use agent mode to add the generation of a fourth plot to the code,
 for standard deviation,

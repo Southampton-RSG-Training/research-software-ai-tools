@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with using Copilot within VSCode"
 teaching: 30
-exercises: 30
+exercises: 25
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -260,7 +260,7 @@ For the next exercise, in the shared notes document have a section for participa
 
 ## Improving a Chat Prompt
 
-3 mins.
+5 mins.
 
 A researcher asks two questions of a particular codebase:
 
@@ -283,6 +283,8 @@ In the same chat thread, ask the following questions about the code:
 
 1. Describe the main packages used
 2. How is Matplotlib used to generate the plots?
+
+Feel free to explore and ask other questions!
 
 :::::::::::::::::::::::::: solution
 

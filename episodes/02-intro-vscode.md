@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Microsoft Visual Studio Code"
 teaching: 40
-exercises: 20
+exercises: 0
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
