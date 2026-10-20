@@ -367,21 +367,53 @@ GitHub provides further detailed information about [how GitHub Copilot handles d
 ### Different Models
 
 GitHub Copilot's free tier provides access to multiple large language models, each with different strengths and tradeoffs.
-The following table summarizes the models currently available at time of writing:
+The following table summarizes some of the models currently available at time of writing:
 
-| **Model** | **Provider** | **Specialization** | **Speed** | **Best for** |
-|-----------|--------------|--------------------|-----------|--------------|
-| **Claude Haiku** | Anthropic | Balanced, efficient reasoning | Fast | Quick code completions, lightweight tasks, local development |
-| **GPT-4.1** | OpenAI | Complex reasoning and analysis | Moderate | Detailed code reviews, architectural decisions, complex refactoring |
-| **GPT-5 Mini** | OpenAI | Lightweight version of GPT-5 | Faster | Balance of capability and speed, most general-purpose tasks |
+| **Category** | **Models** | **Best for** |
+|--------------|------------|--------------|
+| Fast, lightweight tasks | GPT-5.6 Luna, GPT-6 Luna, Claude Haiku 4.5/5.5, Gemini 3.8 Flash, MAI-Code-1.1-Flash | Quick coding questions, code completion, simple fixes and explanations |
+| General-purpose coding | GPT-5.6 Terra, GPT-6 Sol, Claude Sonnet 4.6/5/5.5, Grok 4.5/4.6, Qwen2.5 |Everyday development, code generation, refactoring, debugging and interactive assistance |
+| Complex reasoning and debugging | GPT-5.6 Sol, GPT-6.1 Sol, Claude Opus 4.8/5, Gemini 4 Argon | Difficult bugs, sophisticated reasoning, complex code changes and edge-case analysis |
+| Agentic software development | GPT-5.3-Codex, Grok 4.7, Kimi K3 | Autonomous, multistep coding workflows, tool use and working across large codebases |
+| Long-running autonomy | GPT-6 Astra, Claude Fable 5/5.1, Claude Opus 5.5 | Large-scale development, independent planning, implementation, verification/error recovery |
 
-Each model can be selected based on your specific task requirements.
-For routine coding tasks, lighter models like Claude Haiku or GPT-5 Mini may be sufficient and faster, while more complex problems may benefit from the deeper reasoning of GPT-4.1.
+Generally, as they become more complex, they become capable of greater autonomy,
+until you reach the last entry here where the AI is potentially capable of driving the process of development itself,
+with the human providing input where necessary,
+orchestrating multiple agents to accomplish multiple tasks towards a final product.
+For routine coding tasks, lighter models like Claude Haiku or GPT Luna may be sufficient and faster,
+while more complex problems may benefit from the advanced reasoning of GPT-5.
+
+Note that generally speaking, 
+tasks involving larger portions of a codebase, more dependencies, or complex interactions generally benefit from more complex models that are better able to reason at scale.
+
+For the free tier of Copilot, which is used throughout this training,
+we're only able to use a selection of models from the first row,
+and we can't choose which one is used for any given request.
 
 There are many [other models available](https://docs.github.com/en/copilot/get-started/plans#models) for use within various priced priced tiers,
 including other models from OpenAI and Anthropic, as well as models from Google (i.e. Gemini).
 Some of these e.g. GPT-5-Codex have been further optimised for writing code and other software engineering tasks.
 You can also find a [comparison of these models](https://docs.github.com/en/copilot/reference/ai-models/model-comparison).
+
+### Model Harnesses
+
+On its own, an AI LLM model is a stateless text predictor.
+It cannot run code, call APIs, or have any "memory" of its own.
+
+The harness provides the operational layer or wrapper around the LLM that makes the model usable and useful,
+typically handling aspects like the following:
+
+- **Memory** - curates and manages what information and history are fed into the model's context window, including user preferences, chat history, prior context, and so on
+- **Tools** - an aspect that orchestrates access to other resources, such as other agents, databases, code execution, and local applications
+- **Workspace** - files, data, environments - what it can access locally, plus things such as VMs
+- **Guardrails** - enforces security checks, ensures human involvement at the right time, and credential management to ensure access to actions is done blindly
+- **Feedback loops/verification** - evaluates and tests action results, and feeds aspects of evaluation into future conversation loops
+
+This is an often overlooked aspect.
+The harness packages up an LLM into some form you can actually use,
+so even with the same LLM, different harnesses could give you wildy different coding experiences and results.
+We'll touch on Copilot harnesses later.
 
 ### Limitations of the Copilot Free Tier
 
