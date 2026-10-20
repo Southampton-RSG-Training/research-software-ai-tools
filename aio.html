@@ -1172,7 +1172,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-02-intro-vscode"><p>Content from <a href="02-intro-vscode.html">Introduction to Microsoft Visual Studio Code</a></p>
 <hr>
-<p>Last updated on 2026-10-16 |
+<p>Last updated on 2026-10-20 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/02-intro-vscode.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2329,7 +2329,7 @@ useful.</p>
 <div id="improving-a-chat-prompt" class="callout-inner">
 <h3 class="callout-title">Improving a Chat Prompt</h3>
 <div class="callout-content">
-<p>3 mins.</p>
+<p>5 mins.</p>
 <p>A researcher asks two questions of a particular codebase:</p>
 <ul>
 <li>“What does this do?”</li>
@@ -2356,6 +2356,7 @@ code:</p>
 <li>Describe the main packages used</li>
 <li>How is Matplotlib used to generate the plots?</li>
 </ol>
+<p>Feel free to explore and ask other questions!</p>
 </div>
 </div>
 </div>
@@ -2364,7 +2365,7 @@ code:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Describe the main packages used? e.g.</li>
@@ -2477,7 +2478,7 @@ come to this in the next episode.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>For the question <code>How can I make this code more readable?</code>
 (your responses may differ!)</p>
@@ -2735,7 +2736,7 @@ think are:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Possible benefits:</p>
 <ul>
@@ -2853,7 +2854,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-04-use-copilot-improve-code"><p>Content from <a href="04-use-copilot-improve-code.html">How to use Copilot to Improve an Existing Codebase</a></p>
 <hr>
-<p>Last updated on 2026-10-16 |
+<p>Last updated on 2026-10-20 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/04-use-copilot-improve-code.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3023,9 +3024,13 @@ inline suggestions are being made, e.g.:</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a>    data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span>filename, delimiter<span class="op">=</span><span class="st">','</span>, ... )</span></code></pre>
 </div>
-<p>Try this for the following function calls: - <code>np.loadtxt</code>
-- <code>plt.figure</code> - Each of the <code>.plot</code> calls to the
-<code>axes</code> variables</p>
+<p>Try this for the following function calls:</p>
+<ul>
+<li><code>np.loadtxt</code></li>
+<li><code>plt.figure</code></li>
+<li>Each of the <code>.plot</code> calls to the <code>axes</code>
+variables</li>
+</ul>
 <ol style="list-style-type: decimal">
 <li>What’s being suggested?</li>
 <li>Are the suggestions helpful? Are they always the same?</li>
@@ -3396,15 +3401,15 @@ undo these changes, e.g. either by selecting <code>Edit</code> and
 able to edit a previous prompt in the chat window, perhaps adding more
 specifics for what we want.</p>
 
-<div id="a-large-refactor" class="callout challenge">
+<div id="a-larger-refactor" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="a-large-refactor" class="callout-inner">
-<h3 class="callout-title">A Large Refactor!</h3>
+<div id="a-larger-refactor" class="callout-inner">
+<h3 class="callout-title">A Larger Refactor!</h3>
 <div class="callout-content">
-<p>3 mins.</p>
+<p>10 mins.</p>
 <p>Perhaps the suggestions look generally quite good, but maybe it isn’t
 quite what we’re after.</p>
 <p>Ensuring you have <code>Local</code> harness and the
@@ -3451,7 +3456,7 @@ this code was reduced to the simpler:</p>
 <div id="a-clever-refactor" class="callout-inner">
 <h3 class="callout-title">A “Clever” Refactor!</h3>
 <div class="callout-content">
-<p>5 mins.</p>
+<p>10 mins.</p>
 <p>Let’s assume that we want to expand this codebase further. Perhaps we
 know that the inflammation data format will change in the future, in
 ways that mean the NumPy library isn’t the ideal processing library of
@@ -3594,7 +3599,7 @@ and should be avoided.</p>
 <div id="another-plot-please" class="callout-inner">
 <h3 class="callout-title">Another Plot Please</h3>
 <div class="callout-content">
-<p>3 mins.</p>
+<p>5 mins.</p>
 <p>Use agent mode to add the generation of a fourth plot to the code,
 for standard deviation, test the code to ensure it works, then add and
 commit the changes with a Copilot-generated (and reviewed) commit
@@ -3843,7 +3848,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-05-investigate-codebase"><p>Content from <a href="05-investigate-codebase.html">Investigate a New Codebase</a></p>
 <hr>
-<p>Last updated on 2026-10-16 |
+<p>Last updated on 2026-10-20 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/05-investigate-codebase.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -3921,12 +3926,13 @@ skills file at a location of your choice:</p>
 </div>
 <span class="callout-header">Challenge</span>
 <div id="how-do-you-understand-a-codebase" class="callout-inner">
-<h3 class="callout-title">How Do You Understand a Codebase?</h3>
+<h3 class="callout-title">How Do <strong>You</strong> Understand a
+Codebase?</h3>
 <div class="callout-content">
-<p>3 mins.</p>
+<p>10 mins.</p>
 <p>When investigating a new codebase, what is it that really helps you
-to understand what it does and how it works? Tailor the skills file to
-include this criteria.</p>
+to understand what it does and how it works? Tailor the explain-code
+skills file to include this criteria.</p>
 </div>
 </div>
 </div>
@@ -4019,12 +4025,13 @@ file:</p>
 </div>
 <span class="callout-header">Challenge</span>
 <div id="how-do-you-do-a-code-review" class="callout-inner">
-<h3 class="callout-title">How Do You do a Code Review?</h3>
+<h3 class="callout-title">How Do <strong>You</strong> do a Code
+Review?</h3>
 <div class="callout-content">
-<p>3 mins.</p>
+<p>10 mins.</p>
 <p>If you were to conduct a code review of a codebase, how would you go
 about it? Which areas would you look at and how would you investigate
-them? Tailor the skills file to include this criteria.</p>
+them? Tailor the code-review skills file to include this criteria.</p>
 </div>
 </div>
 </div>
