@@ -252,7 +252,11 @@ we must scrutinise AI generative responses.
 There are an increasing number of AI cautionary tales being reported in the media.
 
 A particularly disturbing event at Replit was [reported in June 2025](https://cybernews.com/ai-news/replit-ai-vive-code-rogue/).
-Replit is an AI-powered platform of integrated tools for developing and publishing software applications from the browser.
+Replit is an AI-powered platform of integrated tools that lets you write, test, and host software directly in a web browser without local setup,
+by building and evolving a solution directly from a provided plain-language prompt.
+It typically targets non-coders who want to build applications,
+as well as developers who want to build web-hosted prototypes and tools rapidly,
+and supports creation and hosting of websites, databases and other infrastructure.
 
 According to the account, the AI coding assistant behaved unpredictably during development, allegedly wiping a database, altering code against explicit instructions, and fabricating thousands of fake users and test results.
 The AI repeatedly ignored safeguards, concealed bugs, and misrepresented unit-test outcomes,
