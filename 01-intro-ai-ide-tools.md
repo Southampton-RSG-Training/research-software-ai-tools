@@ -34,8 +34,8 @@ exercises: 5
 
 ## Introduction
 
-Software is critical to research - the Software Sustainability Institute's UK Research Software Survey found that more than 92% of academics use research software, and 56% write their own code.
-A study also conducted by the Institute also found an exponential increase in the prevalence of software-related terms in publications between 2000-2017.
+Software is critical to research - the Institute for Software Sustainability's UK Research Software Survey found that more than 92% of academics use research software, and 56% write their own code.
+Another study also conducted by the Institute found an exponential increase in the prevalence of software-related terms in publications between 2000-2017.
 
 ![Percentage of research publications with software-related terms 2000-2017, S.J.Hettrick](fig/software-terms-publications.png)
 
@@ -51,8 +51,8 @@ This course aims to:
 
 - Recap/provide a light introduction for how to use Microsoft Visual Studio Code
 - Provide a working AI-supported environment within the Visual Studio Code Integrated Development Environment
-- Demonstrate the fundamentals of how to use Copilot within Visual Studio Code to expedite research software development
-- Introduce practical ways to mitigate the risks of using AI coding assistants within day-to-day software development
+- Demonstrate the fundamentals of how to use Copilot within Visual Studio Code to speed-up research software development
+- Introduce practical ways to reduce the risks of using AI coding assistants within day-to-day software development
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
@@ -155,7 +155,7 @@ It's particularly relevant to AI coding assistants, which at the time of writing
 
 5. **Microsoft Copilot** – Integrated into Microsoft tools like Word, Excel, and Visual Studio, this AI assistant helps with code generation, data analysis, and workflow automation.
 
-Within the course, we'll be Copilot with a selection of its integrated AI models (ChatGPT and Claude) as the vehicles to illustrate the concepts and demonstrate how to use these tools.
+Within the course, we'll be using Copilot with a selection of its integrated AI models (ChatGPT and Claude) as the vehicles to illustrate the concepts and demonstrate how to use these tools.
 
 ### Levels of AI-Assisted Coding
 
@@ -212,9 +212,10 @@ At a higher level, they can also provide:
 - **Test generation** – creates unit tests for existing code to improve code reliability
 - **Language/framework translation** – converts code between programming languages and frameworks
 
-Such tools even have the capability to assist with writing new code,
-helping to structure projects and write new functionality by generating code based on high-level descriptions, function signatures, and requirements.
-These initial implementations are then reviewed and refined by developers.
+Such tools have the capability to assist with writing new code,
+helping to structure projects and write new functionality by generating code based on high-level descriptions, function signatures, and requirements,
+as well as editing or extending existing codebases.
+These initial implementations should then be reviewed and refined by developers.
 
 ### Benefits and Risks
 
@@ -226,10 +227,10 @@ Additionally, they make it easier to maintain clear and comprehensive documentat
 
 However, they also introduce a number of significant risks:
 
-- **Correctness and Validation** - generative systems optimize for likelihood, not correctness. AI-generated code can sound confident but be incomplete, incorrect, or insecure. Researchers remain fully responsible for validating outputs.
+- **Correctness and Validation** - generative systems optimize for likelihood, not correctness. AI-generated code can sound confident but be incomplete, incorrect, or insecure. Importantly, researchers remain fully responsible for the code produced by these tools, and should always validate methods, assumptions, documentation, and outputs.
 - **Limited explanation** - unlike a standalone AI like ChatGPT, IDE-integrated AI often provides suggestions without detailed reasoning. This can reduce researchers’ understanding of AI-generated code
 - **Potential over-reliance** - it can be very tempting to accept AI code suggestions that appear to work, without fully understanding them, and this can lead to errors or misunderstandings about what your code does.
-- **Privacy and security risks** - the AI may send code snippets to cloud services for processing. Sensitive data or unpublished research could be exposed if this is not carefully managed.
+- **Privacy and security risks** - the AI may send uploaded data files and prompts to cloud services for processing, have access to files on your computer, or use your credentials like University accounts or GitHub accounts to access files outside the one item you have asked it to process. Sensitive data or unpublished research could be exposed if this is not carefully managed.
 - **Context and Edge Cases** – AI assistants may miss domain-specific requirements, edge cases, or research-specific constraints that are critical for correctness.
 - **Code Quality** - generated code may work but be inefficient, poorly structured, or violate best practices, degrading long-term 
 maintainability.
@@ -243,7 +244,7 @@ These may include the reinforcing of negative stereotypes, over or under-represe
 Research software produces results that inform publications, policy, and further research.
 Unlike commercial software where bugs typically cause inconvenience, errors in research code can invalidate findings, waste resources, introduce unwanted biases, and compromise scientific integrity.
 AI tools optimize for likelihood, not correctness, so again, as responsible researchers,
-we must scrutinise AI generative responses.
+we must scrutinise generative AI responses.
 
 ::::::::::::::::::::::::::::::::::::: callout
 
