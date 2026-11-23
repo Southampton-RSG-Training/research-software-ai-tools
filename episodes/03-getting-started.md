@@ -29,12 +29,6 @@ and explore some basic features along the way.
 
 ## Configure Copilot
 
-Extensions are a major strength of VSCode.
-Whilst VSCode appears quite lightweight, and presents a simple interface (particularly compared to many other IDEs!), this is quite deceptive.
-You can extend its functionality in many different ways. 
-For example, installing support for other languages, greater support for version control, there's even support for working with databases, and so on.
-There are literally tens of thousands of possible extensions now.
-
 The extension we need for GitHub Copilot is actually already installed by default for us,
 so let's take a quick look at it now:
 
@@ -59,6 +53,22 @@ Once completed, you should now be able to use GitHub Copilot within VSCode.
 ## Checkpoint: I've logged the Copilot extension into my GitHub account
 
 ::::::::::::::::::::::::::::::::::::::::: 
+
+::::::::::::::::::::::::::::::::: callout
+
+## What if I have GitHub Education?
+
+GitHub Education provides additional benefits to eligible students, lecturers and other educators,
+including free access to Copilot's premium features once their education status has been verified.
+These benefits are associated with your GitHub account rather than requiring a separate Education account.
+
+If you're using GitHub Education, sign in to VSCode with the GitHub account associated with your benefits.
+You may also need to activate your Copilot benefit separately after verification.
+To check or apply, visit [GitHub Education](https://education.github.com/);
+students can follow [GitHub's instructions for activating Copilot Student](https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students).
+Note that your available models and usage limits may differ from those of a standard free account.
+
+:::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::: callout
 
@@ -350,13 +360,6 @@ But let's now consider we might want to do to improve it.
 Looking at the code, you may already have your own ideas for how it could be improved,
 but let's ask Copilot instead.
 
-:::::::::::::::::::::::::: instructor
-
-Following the exercise below, talk through the possible solutions,
-highlighting the key similarities and differences between each response.
-
-:::::::::::::::::::::::::::::::::::::
-
 :::::::::::::::::::::::::::::::::::::: challenge
 
 ## Asking Copilot to Suggest Improvements
@@ -471,27 +474,6 @@ without instructions Copilot may suggest to:
 - Use an indentation style that isn't typically used by team members
 - Without instructions, Copilot may introduce a new design pattern the repository doesn't use
 
-### Instructions File Dos and Don'ts
-
-Do:
-
-- Structure using markdown headings and bullet points for readability
-- Use clear and concise language, e.g. "Implement", "Use"
-- Use imperative language where it makes sense, e.g. "MUST", "ALWAYS", "NEVER"
-- Be specific and actionable
-- Explain reasoning when it adds value
-- Include examples
-- Refer to best practices
-
-Don't:
-
-- Use ambigious or vague language (like "should", "perhaps")
-- Include overly verbose explanations (these use more tokens and risk ambiguity)
-- Add contradictory statements
-- Copy-paste from other sources without adding project context (to keep it specific and relevant)
-- Add rules for scenarios that haven't occurred
-
-
 ### Create an Instructions File
 
 In general, it's a good idea to start with a minimal ruleset and build it from there.
@@ -540,6 +522,31 @@ You can find guidance on how to write good instructions files all over the web, 
 
 For a more general resource on all things Copilot,
 with lots of examples, see [Awesome GitHub Copilot](https://github.com/github/awesome-copilot) which contains a horde of useful examples for different Copilot agents, instructions, skills, and many other aspects.
+
+::::::::::::::::::::::::::::::::: callout
+
+### Instructions File Dos and Don'ts
+
+Do:
+
+- Structure using markdown headings and bullet points for readability
+- Use clear and concise language, e.g. "Implement", "Use"
+- Use imperative language where it makes sense, e.g. "MUST", "ALWAYS", "NEVER"
+- Be specific and actionable
+- Explain reasoning when it adds value
+- Include examples
+- Refer to best practices
+
+Don't:
+
+- Use ambigious or vague language (like "should", "perhaps")
+- Include overly verbose explanations (these use more tokens and risk ambiguity)
+- Add contradictory statements
+- Copy-paste from other sources without adding project context (to keep it specific and relevant)
+- Add rules for scenarios that haven't occurred
+
+:::::::::::::::::::::::::::::::::::::::::
+
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
