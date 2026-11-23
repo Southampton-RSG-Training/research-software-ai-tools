@@ -376,7 +376,7 @@
         
 <section id="aio-01-intro-ai-ide-tools"><p>Content from <a href="01-intro-ai-ide-tools.html">Introduction to AI Coding IDE Tools</a></p>
 <hr>
-<p>Last updated on 2026-11-20 |
+<p>Last updated on 2026-11-23 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/01-intro-ai-ide-tools.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -438,10 +438,10 @@ Copilot.</li>
 <section><h2 class="section-heading" id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <hr class="half-width">
-<p>Software is critical to research - the Software Sustainability
-Institute’s UK Research Software Survey found that more than 92% of
-academics use research software, and 56% write their own code. A study
-also conducted by the Institute also found an exponential increase in
+<p>Software is critical to research - the Institute for Software
+Sustainability’s UK Research Software Survey found that more than 92% of
+academics use research software, and 56% write their own code. Another
+study also conducted by the Institute found an exponential increase in
 the prevalence of software-related terms in publications between
 2000-2017.</p>
 <figure><img src="fig/software-terms-publications.png" alt="Percentage of research publications with software-related terms 2000-2017, S.J.Hettrick" class="figure mx-auto d-block"><div class="figcaption">Percentage of research publications with
@@ -464,8 +464,8 @@ Studio Code</li>
 <li>Provide a working AI-supported environment within the Visual Studio
 Code Integrated Development Environment</li>
 <li>Demonstrate the fundamentals of how to use Copilot within Visual
-Studio Code to expedite research software development</li>
-<li>Introduce practical ways to mitigate the risks of using AI coding
+Studio Code to speed-up research software development</li>
+<li>Introduce practical ways to reduce the risks of using AI coding
 assistants within day-to-day software development</li>
 </ul>
 <div id="class-discussion-what-are-your-ai-coding-fears" class="callout challenge">
@@ -640,7 +640,7 @@ explanations, summaries, and code generation support.</p></li>
 tools like Word, Excel, and Visual Studio, this AI assistant helps with
 code generation, data analysis, and workflow automation.</p></li>
 </ol>
-<p>Within the course, we’ll be Copilot with a selection of its
+<p>Within the course, we’ll be using Copilot with a selection of its
 integrated AI models (ChatGPT and Claude) as the vehicles to illustrate
 the concepts and demonstrate how to use these tools.</p>
 </div>
@@ -739,11 +739,12 @@ code to improve code reliability</li>
 <strong>Language/framework translation</strong> – converts code
 between programming languages and frameworks</li>
 </ul>
-<p>Such tools even have the capability to assist with writing new code,
+<p>Such tools have the capability to assist with writing new code,
 helping to structure projects and write new functionality by generating
 code based on high-level descriptions, function signatures, and
-requirements. These initial implementations are then reviewed and
-refined by developers.</p>
+requirements, as well as editing or extending existing codebases. These
+initial implementations should then be reviewed and refined by
+developers.</p>
 </div>
 <div class="section level3">
 <h3 id="benefits-and-risks">Benefits and Risks<a class="anchor" aria-label="anchor" href="#benefits-and-risks"></a>
@@ -762,8 +763,10 @@ documentation, supporting long-term code maintainability.</p>
 <li>
 <strong>Correctness and Validation</strong> - generative systems
 optimize for likelihood, not correctness. AI-generated code can sound
-confident but be incomplete, incorrect, or insecure. Researchers remain
-fully responsible for validating outputs.</li>
+confident but be incomplete, incorrect, or insecure. Importantly,
+researchers remain fully responsible for the code produced by these
+tools, and should always validate methods, assumptions, documentation,
+and outputs.</li>
 <li>
 <strong>Limited explanation</strong> - unlike a standalone AI like
 ChatGPT, IDE-integrated AI often provides suggestions without detailed
@@ -775,8 +778,11 @@ to accept AI code suggestions that appear to work, without fully
 understanding them, and this can lead to errors or misunderstandings
 about what your code does.</li>
 <li>
-<strong>Privacy and security risks</strong> - the AI may send code
-snippets to cloud services for processing. Sensitive data or unpublished
+<strong>Privacy and security risks</strong> - the AI may send
+uploaded data files and prompts to cloud services for processing, have
+access to files on your computer, or use your credentials like
+University accounts or GitHub accounts to access files outside the one
+item you have asked it to process. Sensitive data or unpublished
 research could be exposed if this is not carefully managed.</li>
 <li>
 <strong>Context and Edge Cases</strong> – AI assistants may miss
@@ -810,7 +816,7 @@ and further research. Unlike commercial software where bugs typically
 cause inconvenience, errors in research code can invalidate findings,
 waste resources, introduce unwanted biases, and compromise scientific
 integrity. AI tools optimize for likelihood, not correctness, so again,
-as responsible researchers, we must scrutinise AI generative
+as responsible researchers, we must scrutinise generative AI
 responses.</p>
 <div id="the-cautionary-tale-of-replits-use-of-ai" class="callout">
 <div class="callout-square">
@@ -4082,7 +4088,7 @@ skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 
 </div>
@@ -4181,7 +4187,7 @@ them? Tailor the code-review skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
