@@ -22,7 +22,6 @@ exercises: 0
 - Install and configure an extension to VSCode that helps with Python code development
 - Use syntax highlighting to identify code styling issues and common coding mistakes
 - Use code completion to automate finishing an incomplete code statement
-- Describe how VSCode highlights the status of files managed under version control
 - Use VSCode to run a Python script and have any text output displayed within a terminal
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -118,6 +117,27 @@ To download a copy of the example project, we can use VSCode's built-in Git supp
 1. When VSCode asks whether you would like to open the cloned repository,
    select `Open`.
 
+::::::::::::::::::::::::::::::::: callout
+
+## Cloning a Repository from the Command Line
+
+If you encounter problems using the VSCode IDE interface,
+you can clone a repo using the command line instead.
+
+1. Select `Terminal` from the VSCode menu, and then select `New Terminal`.
+   On Windows, use Command Prompt or Git Bash; on Linux or Mac, use the default terminal.
+1. If necessary, use `cd` to navigate to the folder where you want to store the project.
+1. Enter the following command:
+
+   ```bash
+   git clone https://github.com/Southampton-RSG-Training/ai-tools-example.git
+   ```
+
+1. Once cloning has finished, select `File` and then `Open Folder...`.
+   Use the file browser to open the `ai-tools-example` folder created in the terminal's current directory.
+
+:::::::::::::::::::::::::::::::::::::::::
+
 You may be presented with a window asking whether you trust the authors of the code.
 In general, it's a good idea to be at least a little wary, since you're obtaining code from the internet,
 so be sure to check your sources!
@@ -203,6 +223,98 @@ Once complete, you should see a couple of "Welcome" windows introducing you to t
 If you use Jupyter notebooks, which is a way of writing Python programs that you can run line by line from within an editor as you write the program, you may find this useful.
 
 
+## Testing our Machine's Python
+
+Before we do anything else, let's test our Python installation.
+Within VSCode, select `Terminal` and then `New Terminal`.
+
+You should see a Bash prompt.
+
+::::::::::::::::::::::::::::::::: callout
+
+## On Windows, I only see a `PS>` PowerShell prompt?
+
+If you open a terminal on Windows but see a PowerShell prompt instead (which looks like `PS>`),
+you'll need to change the default terminal type to Git Bash.
+
+1. Select `File` from the VSCode menu, then `Preferences` and then `Settings`.
+1. Type `terminal.integrated.defaultProfile.windows` in the search bar.
+1. In the setting that appears, select `Git Bash` from the dropdown.
+1. Open a new terminal by selecting `Terminal` from the VSCode menu, then `New Terminal`.
+
+If you are presented with a Git Bash terminal that looks something like the following, you're ready:
+
+```bash
+user@hostname MINGW64 ~
+```
+
+:::::::::::::::::::::::::::::::::::::::::
+
+Next, run the following which should return the version of Python on our machine:
+
+```bash
+python --version
+```
+
+::::::::::::::::::::::::::::::::: callout
+
+## Windows Git Bash: Being Redirected to the Microsoft Store?
+
+WWindows includes fake `python.exe` shortcuts that redirect to the Microsoft Store
+which block Git Bash from finding your real installation.
+
+1. Open the Windows Start menu and search for `Manage app execution aliases`.
+2. Toggle Off both `App Installer (python.exe)` and `App Installer (python3.exe)`.
+3. Restart Git Bash and try running `python --version` again.
+
+:::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::: callout
+
+## Windows Git Bash: Python Command Not Found?
+
+If you encounter an error about Python not being found, for example:
+
+```output
+-bash: python: command not found
+```
+
+Windows doesn't know where Python is located.
+
+There are some helpful instructions on the [Real Python](https://realpython.com/add-python-to-path/) site,
+for Windows, Linux and macOS.
+
+A quicker alternative is to use the Windows Terminal,
+which is the native Windows command line utility.
+You can run it by entering `cmd` in the Windows search box and pressing `Enter`.
+Although it has a different syntax for its in-built commands,
+for the purposes of this training it should be sufficient.
+However you may need to swap Bash commands for their [Windows Terminal equivalents](https://linuxbasecamp.com/command-translator
+(the Linux commands are on the right, and Windows equivalents are on the left).
+
+:::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::: callout
+
+## Windows Git Bash: Freezing after running Python?
+
+The `python --version` command is recognized, but typing `python` by itself to open the interactive shell might cause Git Bash to freeze.
+As users on [Stack Overflow](https://stackoverflow.com/questions/32597209/python-not-working-in-the-command-line-of-git-bash) point out,
+you can prevent this hang by wrapping the command with `winpty`.
+Run this in Git Bash to set it up permanently:
+
+```bash
+echo "alias python='winpty python.exe'" >> ~/.bashrc
+source ~/.bashrc
+```
+
+This adds an `alias` to the Bash start-up script (which runs whenever a Git Bash session is started),
+that ensures that `winpty` will always run Python when `python` is entered,
+removing the freezing problem.
+
+:::::::::::::::::::::::::::::::::::::::::
+
+
 ## Installing Dependencies into a Virtual Environment
 
 This particular code makes use of two very popular Python packages:
@@ -245,29 +357,6 @@ it becomes much easier for someone else (which could be a future version of ours
 ### Setting up a Virtual Environment
 
 Let's now create a Python virtual environment and make use of it.
-Within VSCode, select `Terminal` and then `New Terminal`.
-
-You should see a Bash prompt.
-
-::::::::::::::::::::::::::::::::: callout
-
-## On Windows, I only see a `PS>` PowerShell prompt?
-
-If you open a terminal on Windows but see a PowerShell prompt instead (which looks like `PS>`),
-you'll need to change the default terminal type to Git Bash.
-
-1. Select `File` from the VSCode menu, then `Preferences` and then `Settings`.
-1. Type `terminal.integrated.defaultProfile.windows` in the search bar.
-1. In the setting that appears, select `Git Bash` from the dropdown.
-1. Open a new terminal by selecting `Terminal` from the VSCode menu, then `New Terminal`.
-
-If you are presented with a Git Bash terminal that looks something like the following, you're ready:
-
-```bash
-user@hostname MINGW64 ~
-```
-
-:::::::::::::::::::::::::::::::::::::::::
 
 ```bash
 python3 -m venv venv
