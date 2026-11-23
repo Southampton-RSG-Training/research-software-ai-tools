@@ -197,16 +197,12 @@ But this potential needs to be tempered with critical thinking and a healthy deg
 
 ### Common Tasks and Features
 
-AI coding assistants in IDEs (such as GitHub Copilot) provide a bewildering array of support for various tasks.
-For code editing, these include:
+AI coding assistants in IDEs (such as GitHub Copilot) provide a bewildering array of support for various tasks:
 
 - **Code completion and generation** – suggests and generates code snippets based on context, reducing time spent on boilerplate and repetitive code
 - **Function and method suggestions** – proposes complete function implementations based on function signatures and docstrings
-- **Refactoring support** – suggestions for improving code structure and readability
-
-At a higher level, they can also provide:
-
 - **Code explanation** – explains how existing code works, helping researchers understand unfamiliar code or learn new programming patterns
+- **Refactoring support** – suggestions for improving code structure and readability
 - **Debugging assistance** – identifies potential bugs and suggests fixes for problematic code
 - **Documentation generation** – automatically generates comments, docstrings, and README content
 - **Test generation** – creates unit tests for existing code to improve code reliability
