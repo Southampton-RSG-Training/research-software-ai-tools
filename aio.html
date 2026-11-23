@@ -2086,7 +2086,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-03-getting-started"><p>Content from <a href="03-getting-started.html">Getting Started with using Copilot within VSCode</a></p>
 <hr>
-<p>Last updated on 2026-10-20 |
+<p>Last updated on 2026-11-23 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-getting-started.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2134,13 +2134,6 @@ basic features along the way.</p>
 <section><h2 class="section-heading" id="configure-copilot">Configure Copilot<a class="anchor" aria-label="anchor" href="#configure-copilot"></a>
 </h2>
 <hr class="half-width">
-<p>Extensions are a major strength of VSCode. Whilst VSCode appears
-quite lightweight, and presents a simple interface (particularly
-compared to many other IDEs!), this is quite deceptive. You can extend
-its functionality in many different ways. For example, installing
-support for other languages, greater support for version control,
-there’s even support for working with databases, and so on. There are
-literally tens of thousands of possible extensions now.</p>
 <p>The extension we need for GitHub Copilot is actually already
 installed by default for us, so let’s take a quick look at it now:</p>
 <ol style="list-style-type: decimal">
@@ -2178,6 +2171,30 @@ select <code>Open Link</code>.</li>
 <p>Once completed, you should now be able to use GitHub Copilot within
 VSCode.</p>
 
+<div id="what-if-i-have-github-education" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="what-if-i-have-github-education" class="callout-inner">
+<h3 class="callout-title">What if I have GitHub Education?</h3>
+<div class="callout-content">
+<p>GitHub Education provides additional benefits to eligible students,
+lecturers and other educators, including free access to Copilot’s
+premium features once their education status has been verified. These
+benefits are associated with your GitHub account rather than requiring a
+separate Education account.</p>
+<p>If you’re using GitHub Education, sign in to VSCode with the GitHub
+account associated with your benefits. You may also need to activate
+your Copilot benefit separately after verification. To check or apply,
+visit <a href="https://education.github.com/" class="external-link">GitHub Education</a>;
+students can follow <a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students" class="external-link">GitHub’s
+instructions for activating Copilot Student</a>. Note that your
+available models and usage limits may differ from those of a standard
+free account.</p>
+</div>
+</div>
+</div>
 <div id="decide-on-copilot-privacy-settings" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -2483,7 +2500,7 @@ code:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Describe the main packages used? e.g.</li>
@@ -2558,7 +2575,6 @@ in order to learn more about it. But let’s now consider we might want to
 do to improve it.</p>
 <p>Looking at the code, you may already have your own ideas for how it
 could be improved, but let’s ask Copilot instead.</p>
-
 <div id="asking-copilot-to-suggest-improvements" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -2596,7 +2612,7 @@ come to this in the next episode.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For the question <code>How can I make this code more readable?</code>
 (your responses may differ!)</p>
@@ -2695,32 +2711,6 @@ repository doesn’t use</li>
 </ul>
 </div>
 <div class="section level3">
-<h3 id="instructions-file-dos-and-donts">Instructions File Dos and Don’ts<a class="anchor" aria-label="anchor" href="#instructions-file-dos-and-donts"></a>
-</h3>
-<p>Do:</p>
-<ul>
-<li>Structure using markdown headings and bullet points for
-readability</li>
-<li>Use clear and concise language, e.g. “Implement”, “Use”</li>
-<li>Use imperative language where it makes sense, e.g. “MUST”, “ALWAYS”,
-“NEVER”</li>
-<li>Be specific and actionable</li>
-<li>Explain reasoning when it adds value</li>
-<li>Include examples</li>
-<li>Refer to best practices</li>
-</ul>
-<p>Don’t:</p>
-<ul>
-<li>Use ambigious or vague language (like “should”, “perhaps”)</li>
-<li>Include overly verbose explanations (these use more tokens and risk
-ambiguity)</li>
-<li>Add contradictory statements</li>
-<li>Copy-paste from other sources without adding project context (to
-keep it specific and relevant)</li>
-<li>Add rules for scenarios that haven’t occurred</li>
-</ul>
-</div>
-<div class="section level3">
 <h3 id="create-an-instructions-file">Create an Instructions File<a class="anchor" aria-label="anchor" href="#create-an-instructions-file"></a>
 </h3>
 <p>In general, it’s a good idea to start with a minimal ruleset and
@@ -2772,6 +2762,39 @@ tips for writing better custom instructions for Copilot</a></li>
 examples, see <a href="https://github.com/github/awesome-copilot" class="external-link">Awesome GitHub
 Copilot</a> which contains a horde of useful examples for different
 Copilot agents, instructions, skills, and many other aspects.</p>
+<div id="instructions-file-dos-and-donts" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="instructions-file-dos-and-donts" class="callout-inner">
+<h3 class="callout-title">Instructions File Dos and Don’ts</h3>
+<div class="callout-content">
+<p>Do:</p>
+<ul>
+<li>Structure using markdown headings and bullet points for
+readability</li>
+<li>Use clear and concise language, e.g. “Implement”, “Use”</li>
+<li>Use imperative language where it makes sense, e.g. “MUST”, “ALWAYS”,
+“NEVER”</li>
+<li>Be specific and actionable</li>
+<li>Explain reasoning when it adds value</li>
+<li>Include examples</li>
+<li>Refer to best practices</li>
+</ul>
+<p>Don’t:</p>
+<ul>
+<li>Use ambigious or vague language (like “should”, “perhaps”)</li>
+<li>Include overly verbose explanations (these use more tokens and risk
+ambiguity)</li>
+<li>Add contradictory statements</li>
+<li>Copy-paste from other sources without adding project context (to
+keep it specific and relevant)</li>
+<li>Add rules for scenarios that haven’t occurred</li>
+</ul>
+</div>
+</div>
+</div>
 
 <p>From this starting point we are free to update this file manually as
 we continue to develop the code. This context should be used whenever we
@@ -2854,7 +2877,7 @@ think are:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Possible benefits:</p>
 <ul>
@@ -4059,7 +4082,7 @@ skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 
 </div>
@@ -4158,7 +4181,7 @@ them? Tailor the code-review skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
