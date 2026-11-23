@@ -493,7 +493,7 @@ are you afraid could happen?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Some possible benefits:</p>
 <ul>
@@ -607,7 +607,7 @@ think they currently are.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>It’s particularly relevant to AI coding assistants, which at the time
 of writing (Q1 2026) are currently navigating the peak of inflated
@@ -647,29 +647,33 @@ the concepts and demonstrate how to use these tools.</p>
 <div class="section level3">
 <h3 id="levels-of-ai-assisted-coding">Levels of AI-Assisted Coding<a class="anchor" aria-label="anchor" href="#levels-of-ai-assisted-coding"></a>
 </h3>
-<p>The <a href="https://oerc.ox.ac.uk/ai-centre/ai-guides/getting-started-with-ai-for-coding" class="external-link">Oxford
-AI Competency Centre</a> suggest thinking about AI-Assisted Coding as
-existing in four levels of differing complexity and capability:</p>
-<p><strong>Level 1: Code Snippets (Copy and Paste)</strong> A Large
-Language Model inside a chatbot generates code that you copy and paste
-into files or environments you manage yourself. Examples: ChatGPT,
-Claude, Gemini, GitHub Copilot Chat</p>
-<p><strong>Level 2: Canvas and Artifacts (Integrated Execution)</strong>
-LLM writes code inside a chatbot and immediately runs it within the chat
-interface, creating interactive applications you can use and modify in
-real-time. Examples: Google Gemini, Claude Artifacts, ChatGPT Canvas</p>
-<p><strong>Level 3: Agentic App Builders (Full Application
-Development)</strong> LLM-powered services that plan and execute the
-entire development process, from concept to deployed application,
-handling multiple files, frameworks, and deployment automatically.
-Examples: Lovable, Bolt, v0 by Vercel, Google AI Studio</p>
-<p><strong>Level 4: Agentic IDEs (Professional Development)</strong>
-AI-powered development environments that assist with complex, multi-file
-projects, handling entire codebases, version control, and sophisticated
-development workflows. Examples: Cursor, GitHub Copilot, Claude Code,
-Google Colab</p>
-<p>This intermediate course addresses working within Level 4, using
-Microsoft Visual Studio Code (VSCode) and Copilot.</p>
+<p>AI coding tools range from simple code completion to largely
+autonomous development. As autonomy increases, developers shift from
+writing code to supervising, validating and managing risk. Best
+practices are still emerging, making established software engineering
+principles essential.</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Inline assistance</strong> - Suggests code as developers
+type, with each suggestion reviewed before acceptance.</p></li>
+<li><p><strong>Conversational assistance</strong> - Answers questions,
+explains code, assists debugging and generates or refactors code through
+dialogue.</p></li>
+<li><p><strong>Agentic coding</strong> - Plans and executes development
+tasks, modifying files and running commands under developer
+supervision.</p></li>
+<li><p><strong>Role-based agentic workflows</strong> - Multiple
+specialised agents collaborate on development, testing, documentation
+and review, with oversight at key stages.</p></li>
+<li><p><strong>Dark Factory</strong> - Largely autonomous software
+development, from requirements to maintenance, with minimal human
+intervention.</p></li>
+</ol>
+<p>Higher autonomy offers greater productivity but increases risks
+around correctness, security, understanding and accountability. Fully
+autonomous development remains largely aspirational; most organisations
+currently use conversational assistance and task-based agents.</p>
+<p>This course addresses working within Levels 1 and 4, using Microsoft
+Visual Studio Code (VSCode) and Copilot.</p>
 <div id="which-tools-are-most-commonly-used-by-researchers" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -2502,7 +2506,7 @@ code:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Describe the main packages used? e.g.</li>
@@ -2614,7 +2618,7 @@ come to this in the next episode.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For the question <code>How can I make this code more readable?</code>
 (your responses may differ!)</p>
@@ -2879,7 +2883,7 @@ think are:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Possible benefits:</p>
 <ul>
