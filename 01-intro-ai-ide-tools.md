@@ -438,15 +438,15 @@ There are two key quotas which are reset per month to be aware of (which we'll l
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Artificial intelligence is not as a single capability or system, but as a broad collection of techniques and approaches for solving different kinds of problems.
-- AI can be grouped into 3 broad categories: Rule-Based and Decision Systems, Predictive and Analytical Systems, and Generate Systems
-- GPT (Generative Pre-trained Transformer) is a type of large language model built on transformer neural networks, which use attention to process entire sequences and capture context, enabling coherent, context-aware text or code generation.
-- GPT generates content one token at a time, predicting each new token based on all previous tokens to produce fluent, contextually relevant, and novel outputs.
-- GPT models are trained in stages: collecting large text datasets, designing the neural network, pre-training on broad data, fine-tuning on task-specific datasets, and iteratively evaluating and improving performance.
-- ChatGPT is a user-friendly application built on GPT models, while GPT itself is also integrated into other tools like Microsoft Copilot, search engines, and coding environments.
-- Technical debt accumulates when skipping design phases for quick AI-generated solutions, requiring future maintenance effort to simplify and clarify code.
-- AI coding assistants are relatively new as a technology and subject to rapid change and advancement.
-- The Copilot free tier currently includes access to three AI models each with a different balance of speed and purpose.
-- The Copilot free tier currently allows 2000 completions and 50 premium requests per month.
+- AI coding tools are evolving rapidly and range from inline suggestions and chat to agentic workflows with varying levels of autonomy.
+- Generative AI systems are typically optimised for likelihood, not accuracy.
+- IDE coding assistants can help generate, explain, refactor, debug, document and test code.
+- AI-generated code can be plausible but confidentally incorrect, insecure or unsuitable for research
+- Researchers remain responsible for reviewing and validating outputs from generative AI.
+- Consider privacy, security, bias and vendor lock-in, and avoid accumulating technical debt through unreviewed quick fixes.
+- GitHub Copilot integrates into VSCode to provide suggestions and chat, using prompts and relevant context sent to cloud services.
+- Generative AI models each have different strengths and tradeoffs.
+- A model harness provides the surrounding context, tools, guardrails and feedback.
+- The Copilot free tier has a limited selection of models and monthly quotas of 2000 inline completions and 50 premium requests.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
