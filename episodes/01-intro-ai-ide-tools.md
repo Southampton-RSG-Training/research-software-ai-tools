@@ -147,33 +147,36 @@ It's particularly relevant to AI coding assistants, which at the time of writing
 
 1. **ChatGPT** – A conversational large language model by OpenAI that can generate code, explain programming concepts, assist with debugging, and support data analysis workflows.
 
-2. **GitHub Copilot** – AI-powered coding assistant integrated into code editors, suggesting code completions, functions, and boilerplate across multiple programming languages.
+1. **GitHub Copilot** – AI-powered coding assistant integrated into code editors, suggesting code completions, functions, and boilerplate across multiple programming languages.
 
-3. **Google Gemini** – Google’s AI platform for research and coding assistance, capable of generating code, providing explanations, and supporting data analysis and workflow tasks.
+1. **Google Gemini** – Google’s AI platform for research and coding assistance, capable of generating code, providing explanations, and supporting data analysis and workflow tasks.
 
-4. **Claude** – A conversational AI by Anthropic designed to assist with coding, writing, and research tasks, providing explanations, summaries, and code generation support.
+1. **Claude** – A conversational AI by Anthropic designed to assist with coding, writing, and research tasks, providing explanations, summaries, and code generation support.
 
-5. **Microsoft Copilot** – Integrated into Microsoft tools like Word, Excel, and Visual Studio, this AI assistant helps with code generation, data analysis, and workflow automation.
+1. **Microsoft Copilot** – Integrated into Microsoft tools like Word, Excel, and Visual Studio, this AI assistant helps with code generation, data analysis, and workflow automation.
 
 Within the course, we'll be using Copilot with a selection of its integrated AI models (ChatGPT and Claude) as the vehicles to illustrate the concepts and demonstrate how to use these tools.
 
 ### Levels of AI-Assisted Coding
 
-The [Oxford AI Competency Centre](https://oerc.ox.ac.uk/ai-centre/ai-guides/getting-started-with-ai-for-coding) suggest thinking about AI-Assisted Coding as existing in four levels of differing complexity and capability:
+AI coding tools range from simple code completion to largely autonomous development.
+As autonomy increases, developers shift from writing code to supervising, validating and managing risk.
+Best practices are still emerging, making established software engineering principles essential.
 
-**Level 1: Code Snippets (Copy and Paste)**
-A Large Language Model inside a chatbot generates code that you copy and paste into files or environments you manage yourself. Examples: ChatGPT, Claude, Gemini, GitHub Copilot Chat
+1. **Inline assistance** - Suggests code as developers type, with each suggestion reviewed before acceptance.
 
-**Level 2: Canvas and Artifacts (Integrated Execution)** 
-LLM writes code inside a chatbot and immediately runs it within the chat interface, creating interactive applications you can use and modify in real-time. Examples: Google Gemini, Claude Artifacts, ChatGPT Canvas
+1. **Conversational assistance** - Answers questions, explains code, assists debugging and generates or refactors code through dialogue.
 
-**Level 3: Agentic App Builders (Full Application Development)**
-LLM-powered services that plan and execute the entire development process, from concept to deployed application, handling multiple files, frameworks, and deployment automatically. Examples: Lovable, Bolt, v0 by Vercel, Google AI Studio
+1. **Agentic coding** - Plans and executes development tasks, modifying files and running commands under developer supervision.
 
-**Level 4: Agentic IDEs (Professional Development)**
-AI-powered development environments that assist with complex, multi-file projects, handling entire codebases, version control, and sophisticated development workflows. Examples: Cursor, GitHub Copilot, Claude Code, Google Colab
+1. **Role-based agentic workflows** - Multiple specialised agents collaborate on development, testing, documentation and review, with oversight at key stages.
 
-This intermediate course addresses working within Level 4,
+1. **Dark Factory** - Largely autonomous software development, from requirements to maintenance, with minimal human intervention.
+
+Higher autonomy offers greater productivity but increases risks around correctness, security, understanding and accountability.
+Fully autonomous development remains largely aspirational; most organisations currently use conversational assistance and task-based agents.
+
+This course addresses working within Levels 1 and 4,
 using Microsoft Visual Studio Code (VSCode) and Copilot.
 
 ::::::::::::::::::::::::::::::::::::: callout
