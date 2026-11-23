@@ -11,9 +11,9 @@ exercises: 5
 - How can an AI coding assistant help development within an IDE?
 - What are the mechanisms by which IDE AI assistants provide help?
 - How should I sensibly and responsibly include AI coding assistants in my development workflow?
-- What are the limitations of a free Copilot account?
 - What is GitHub Copilot?
 - Which AI models are available within Copilot?
+- What are the limitations of a free Copilot account?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
