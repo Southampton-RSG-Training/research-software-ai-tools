@@ -17,7 +17,7 @@ exercises: 0
 ::::::::::::::::::::::::::::::::::::: objectives
 
 - Describe the general layout of the VSCode interface
-- Download or clone an existing remote GitHub repository
+- Check out an existing remote GitHub repository
 - Open a code folder in VSCode using the explorer feature
 - Install and configure an extension to VSCode that helps with Python code development
 - Use syntax highlighting to identify code styling issues and common coding mistakes
@@ -93,62 +93,57 @@ Here are a few widely used IDEs across different languages and fields:
 ## An Example Project
 
 For this lesson we'll be using some example data held in a repository on GitHub,
-which we'll clone onto our machines using the Bash shell.
-So firstly open a Bash shell (via Git Bash in Windows or Terminal on a Mac).
-Then, on the command line, navigate to where you'd like the example code to reside,
-and use Git to clone it.
-For example, to clone the repository in our home directory,
-and change our directory to the repository contents:
-
-```bash
-cd
-git clone https://github.com/Southampton-RSG-Training/ai-tools-example.git
-cd ai-tools-example
-```
+which we'll check out onto our machines using VSCode.
+The repository is available at `https://github.com/Southampton-RSG-Training/ai-tools-example.git`.
 
 
 ## Getting Started with VSCode
 
-Let's start by running VSCode now on our machines, so run it now.
+Let's start by running VSCode now on our machines.
 How you run VSCode will differ depending on which operating system you have installed.
 
 The first thing you'll likely see is a welcome-style page with links to features for opening files, and creating or opening a project.
 You may find it asks you which kind of theme you'd like - you can select from either a dark or light theme.
 
-### Opening our Example Code Folder in VSCode
+### Checking out our Example Code in VSCode
 
-Now we need to load the code into VSCode to see it.
-You can do this in a couple of ways, either:
+To download a copy of the example project, we can use VSCode's built-in Git support:
 
-1. Select the `Source control` icon from the middle of the icons on the left navigation bar. You should see an `Open Folder` option, so select that.
-1. Select the `File` option from the top menu bar, and select `Open Folder...`.
+1. On the VSCode welcome page, select `Clone Git Repository`.
+   Alternatively, select the `Source Control` icon on the left represented by three small circles connected by lines.
+1. Enter `https://github.com/Southampton-RSG-Training/ai-tools-example.git`
+   as the repository URL into the text box at the top of VSCode, and then select `Clone from URL`.
+1. Use the file browser to choose a convenient location to store the project,
+   and select `Select as Repository Destination`.
+1. When VSCode asks whether you would like to open the cloned repository,
+   select `Open`.
 
-In either case, you should then be able to use the file browser to locate the directory with the repository you cloned, and then select `Open`.
-Note that we're looking for the *folder* that contains the files, not a specific file.
+You may be presented with a window asking whether you trust the authors of the code.
+In general, it's a good idea to be at least a little wary, since you're obtaining code from the internet,
+so be sure to check your sources!
+Be careful here - I found on Windows the "Trust" option appears on the left,
+whilst on Mac, it appears on the right!
+In this case, feel free to trust the repository.
+You'll then see the explorer present you with some files in a small window (or pane) on the left that you can use to navigate.
 
 ::::::::::::::::::::::::::::::::: callout
 
-## What about using Git Version Control?
+## Opening a Project that is already on your Computer
 
-If your system has the Git version control system installed, you may see a `Clone Repository` option here too.
-If you are familiar with Git and wish to use this option instead,
-select it and enter the repository's location as `https://github.com/Southampton-RSG-Training/ai-tools-example.git`.
-Then use the file browser that is presented to find a convenient location to store the cloned code and click on `Select as Repository Destination`,
-then select `Open` when ‘Would you like to open the cloned repository?' popup appears.
+If you already have a project on your computer, VSCode can open its folder directly.
+Select the `Explorer` icon from the left navigation bar, then select `Open Folder`.
+Alternatively, select `File` from the top menu bar, and select `Open Folder...`.
+Use the file browser to locate the project directory and select `Open`.
+Note that we are looking for the *folder* that contains the project files,
+not a specific file.
 
 :::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Checkpoint: who's been able to download the code and open it within VSCode?
+## Checkpoint: who has been able to check out the code and open it within VSCode?
 
-::::::::::::::::::::::::::::::::::::::::: 
-
-You may be presented with a window asking whether you trust the authors of this code.
-In general, it's a good idea to be at least a little wary, since you're obtaining code from the internet, so be sure to check your sources!
-Be careful here - I found on Windows the "Trust" option appears on the left, whilst on Mac, it appears on the right!
-In this case, feel free to trust the repository!
-You'll then see the explorer present you with some files in a small window (or pane) on the left you can use to navigate and find files.
+:::::::::::::::::::::::::::::::::::::::::
 
 
 ### Navigating Around VSCode
@@ -365,7 +360,7 @@ For future reference, you can also change the interpreter by selecting this labe
 
 ::::::::::::::::::::::::::::::::::::::::: 
 
-So far within VSCode we have downloaded some code from a repository and opened a folder.
+So far within VSCode we have checked out some code from a repository and opened a folder.
 Whenever we open a folder in VSCode, this is referred to as a "Workspace" - essentially, a collection of a project's files and directories.
 So within this workspace, you'll see the following:
 
