@@ -3390,10 +3390,11 @@ knows who is making the commit.</p>
 <p>Let’s assume we want to rename the <code>axes</code> variables to
 have the prefix <code>subplot</code> instead, e.g. instead of
 <code>axes1</code>, we’d have <code>subplot1</code>.</p>
-<p>Using the <code>Local</code> harness, have Copilot agent mode rename
-all of these variables by selecting the appropriate code in the editor
-and entering the request in the chat window, then verify and accept the
-changes if you agree with them. Does the code still run correctly?</p>
+<p>Using the <code>Local</code> harness and selecting
+<code>Agent</code>, have Copilot agent mode rename all of these
+variables by selecting the appropriate code in the editor and entering
+the request in the chat window, then verify and accept the changes if
+you agree with them. Does the code still run correctly?</p>
 <p>Note: after selecting the code you want to change, you can also
 request edits by typing <code>Ctrl</code> + <code>I</code> (Linux) or
 <code>Cmd Key/Windows Key</code> + <code>I</code> (Mac/Windows) to have
@@ -3412,7 +3413,7 @@ sometimes more convenient if it’s a small request.</p>
 <ol style="list-style-type: decimal">
 <li>
 <p>Select the code from the first <code>axes1</code> definition to
-the last use of <code>subplot3</code>, e.g.</p>
+the last use of <code>axes3</code>, e.g.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -3582,9 +3583,11 @@ didn’t like this particular style, we might use Edit mode on this
 segment to simplify it</li>
 </ul>
 <p>Note that it differs substantially from the version shown from a
-similar question made in Ask mode earlier, and whilst it is more
-modular, it’s now 127 lines of code where before it was 32 lines - we
-might consider this to be quite an over-engineered overkill.</p>
+similar question made in Ask mode earlier. This is partly because it is
+now following the instructions in <code>copilot-instructions.md</code>.
+Also note that whilst it is more modular, it’s now 127 lines of code
+where before it was 32 lines - we might consider this to be quite an
+over-engineered overkill.</p>
 <p>It has also introduced additional complexity, using a loop and a
 <code>zip</code> function to set the labels and generate plots for each
 graph. This is a common risk with using AI tools, where the level of
@@ -3613,13 +3616,14 @@ undo these changes, e.g. either by selecting <code>Edit</code> and
 able to edit a previous prompt in the chat window, perhaps adding more
 specifics for what we want.</p>
 
-<div id="a-larger-refactor" class="callout challenge">
+
+<div id="optional-a-larger-refactor" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="a-larger-refactor" class="callout-inner">
-<h3 class="callout-title">A Larger Refactor!</h3>
+<div id="optional-a-larger-refactor" class="callout-inner">
+<h3 class="callout-title">(Optional) A Larger Refactor!</h3>
 <div class="callout-content">
 <p>10 mins.</p>
 <p>Perhaps the suggestions look generally quite good, but maybe it isn’t
@@ -3660,13 +3664,13 @@ this code was reduced to the simpler:</p>
 </div>
 </div>
 
-<div id="a-clever-refactor" class="callout challenge">
+<div id="optional-a-clever-refactor" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="a-clever-refactor" class="callout-inner">
-<h3 class="callout-title">A “Clever” Refactor!</h3>
+<div id="optional-a-clever-refactor" class="callout-inner">
+<h3 class="callout-title">(Optional) A “Clever” Refactor!</h3>
 <div class="callout-content">
 <p>10 mins.</p>
 <p>Let’s assume that we want to expand this codebase further. Perhaps we
@@ -3678,9 +3682,8 @@ data analysis library) will be a much better fit for this work.</p>
 Copilot to refactor your code to use Pandas instead of NumPy:</p>
 <p>Part 1:</p>
 <ol style="list-style-type: decimal">
-<li>Install Pandas into your virtual environment,
-e.g. <code>python -m pip install pandas</code>
-</li>
+<li>Install Pandas into your virtual environment, e.g. enter
+<code>python -m pip install pandas</code> into your terminal</li>
 <li>Construct and enter a suitable prompt</li>
 <li>Review and accept the changes</li>
 <li>What do you need to do to be able to re-run the code?</li>
@@ -3803,13 +3806,13 @@ and should be avoided.</p>
 </div>
 </div>
 </div>
-<div id="another-plot-please" class="callout challenge">
+<div id="optional-another-plot-please" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <span class="callout-header">Challenge</span>
-<div id="another-plot-please" class="callout-inner">
-<h3 class="callout-title">Another Plot Please</h3>
+<div id="optional-another-plot-please" class="callout-inner">
+<h3 class="callout-title">(Optional) Another Plot Please</h3>
 <div class="callout-content">
 <p>5 mins.</p>
 <p>Use agent mode to add the generation of a fourth plot to the code,
@@ -4153,7 +4156,7 @@ skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 
 </div>
@@ -4252,7 +4255,7 @@ them? Tailor the code-review skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 
 </div>
