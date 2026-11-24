@@ -248,9 +248,23 @@ $
 
 ## On macOS, I see a `%` in the Prompt Instead
 
-This means you're running Z Shell (`zsh`) instead of Bash.
-To run Bash, select the dropdown icon, a downwards arrow next to `+`,
-and select `Bash` to run a Bash terminal instead.
+This means you're running Z Shell (`zsh`) instead of Bash,
+and you'll need to change the default terminal type to Bash.
+
+1. Select `Code` from the VSCode menu, then `Preferences` and then `Settings`.
+1. Type `terminal.integrated.defaultProfile.osx` in the search bar.
+1. In the setting that appears, select `bash` from the dropdown.
+1. Open a new terminal by selecting `Terminal` from the VSCode menu, then `New Terminal`.
+
+If you are presented with a Bash terminal that looks something like the following, you're ready:
+
+```bash
+machine-name:~ username $ 
+```
+
+Alternatively, a quick way to run Bash is to select the dropdown icon, a downwards arrow next to `+`,
+and select `bash` to run a Bash terminal instead,
+although you'll need to remember this each time you open a terminal.
 
 :::::::::::::::::::::::::::::::::::::::::
 
@@ -270,7 +284,12 @@ If you are presented with a Git Bash terminal that looks something like the foll
 
 ```bash
 user@hostname MINGW64 ~
+$ 
 ```
+
+Alternatively, a quick way to run Git Bash is to select the dropdown icon, a downwards arrow next to `+`,
+and select `Git Bash` to run a Git Bash terminal,
+although you'll need to remember this each time you open a terminal.
 
 If you can't get this to work, you can use the Windows Terminal instead.
 See the `Windows Git Bash: use the Windows Terminal (Command Prompt) Instead` callout below for instructions,
