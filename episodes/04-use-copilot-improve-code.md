@@ -157,9 +157,6 @@ it suggests variants of that for the other calls to `plot`, e.g.
 
 :::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::: solution
-:::::::::::::::::::::::::::::::::::
-
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Agent Mode: Small Changes
