@@ -223,12 +223,36 @@ Once complete, you should see a couple of "Welcome" windows introducing you to t
 If you use Jupyter notebooks, which is a way of writing Python programs that you can run line by line from within an editor as you write the program, you may find this useful.
 
 
-## Testing our Machine's Python
+## Testing our Machine's Bash and Python
 
-Before we do anything else, let's test our Python installation.
-Within VSCode, select `Terminal` and then `New Terminal`.
+Before we do anything else, let's test our Bash shell and Python installation
+by running a terminal from within VSCode.
 
-You should see a Bash prompt.
+Within VSCode, select `Terminal` from its menu at the top and then `New Terminal`.
+
+You should see a Bash prompt that has a `$` somewhere in the prompt,
+e.g. on Windows Git Bash (although yours will differ):
+
+```bash
+User@MyMachine MINGW64 ~/ai-tools-example (main)
+$ 
+```
+
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Checkpoint: who sees a Bash `$` prompt?
+
+::::::::::::::::::::::::::::::::::::::::: 
+
+::::::::::::::::::::::::::::::::: callout
+
+## On macOS, I see a `%` in the Prompt Instead
+
+This means you're running Z Shell (`zsh`) instead of Bash.
+To run Bash, select the dropdown icon, a downwards arrow next to `+`,
+and select `Bash` to run a Bash terminal instead.
+
+:::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::: callout
 
@@ -248,6 +272,10 @@ If you are presented with a Git Bash terminal that looks something like the foll
 user@hostname MINGW64 ~
 ```
 
+If you can't get this to work, you can use the Windows Terminal instead.
+See the `Windows Git Bash: use the Windows Terminal (Command Prompt) Instead` callout below for instructions,
+then continue the lesson from here.
+
 :::::::::::::::::::::::::::::::::::::::::
 
 Next, run the following which should return the version of Python on our machine:
@@ -260,12 +288,18 @@ python --version
 
 ## Windows Git Bash: Being Redirected to the Microsoft Store?
 
-WWindows includes fake `python.exe` shortcuts that redirect to the Microsoft Store
+Windows includes fake `python.exe` shortcuts that redirect to the Microsoft Store
 which block Git Bash from finding your real installation.
 
 1. Open the Windows Start menu and search for `Manage app execution aliases`.
 2. Toggle Off both `App Installer (python.exe)` and `App Installer (python3.exe)`.
 3. Restart Git Bash and try running `python --version` again.
+
+If you can't get this to work, you can use the Windows Terminal instead.
+See the `Windows Git Bash: Python Command Not Found?` callout below.
+
+If you can't get this to work, you can use the Windows Terminal instead.
+See the `Windows Git Bash: use the Windows Terminal (Command Prompt) Instead` callout below for instructions.
 
 :::::::::::::::::::::::::::::::::::::::::
 
@@ -284,13 +318,8 @@ Windows doesn't know where Python is located.
 There are some helpful instructions on the [Real Python](https://realpython.com/add-python-to-path/) site,
 for Windows, Linux and macOS.
 
-A quicker alternative is to use the Windows Terminal,
-which is the native Windows command line utility.
-You can run it by entering `cmd` in the Windows search box and pressing `Enter`.
-Although it has a different syntax for its in-built commands,
-for the purposes of this training it should be sufficient.
-However you may need to swap Bash commands for their [Windows Terminal equivalents](https://linuxbasecamp.com/command-translator
-(the Linux commands are on the right, and Windows equivalents are on the left).
+If you can't get this to work, you can use the Windows Terminal instead.
+See the `Windows Git Bash: use the Windows Terminal (Command Prompt) Instead` callout below for instructions.
 
 :::::::::::::::::::::::::::::::::::::::::
 
@@ -311,6 +340,25 @@ source ~/.bashrc
 This adds an `alias` to the Bash start-up script (which runs whenever a Git Bash session is started),
 that ensures that `winpty` will always run Python when `python` is entered,
 removing the freezing problem.
+
+If you can't get this to work, you can use the Windows Terminal instead.
+See the `Windows Git Bash: use the Windows Terminal (Command Prompt) Instead` callout below for instructions.
+
+:::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::: callout
+
+## Windows Git Bash: use the Windows Terminal (Command Prompt) Instead
+
+A quicker alternative is to use the Windows Terminal,
+also known as the Command Prompt,
+which is the native Windows command line utility.
+
+Select the dropdown icon (a pointing down arrow) beside the terminal `+` icon and select `Command Prompt` to use this type of command line instead.
+Although it has a different syntax for its in-built commands,
+for the purposes of this training it should be sufficient.
+However you may need to swap Bash commands for their [Windows Terminal equivalents](https://linuxbasecamp.com/command-translator
+(the Linux commands are on the right, and Windows equivalents are on the left).
 
 :::::::::::::::::::::::::::::::::::::::::
 
