@@ -718,7 +718,7 @@ The pop-up window is known as the "Console" or "Terminal",
 and essentially is a terminal, or command prompt, where the program is run.
 You'll notice that the directory where the console runs is the current VSCode project's workspace location,
 and that we can also type in commands here too.
-For example in Windows, you could type `dir`, on Mac or Linux you could type `ls` - to get a listing of files, for example.
+For example in Windows Terminal/Command Prompt, you can type `dir`, on Bash you can type `ls` - to get a listing of files, for example.
 
 We can also close this terminal/console at any time by selecting the `x` icon on the right,
 and start a new one by selecting `Terminal` from the menu and selecting `New Terminal`.
