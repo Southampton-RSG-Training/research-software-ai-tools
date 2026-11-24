@@ -506,9 +506,11 @@ VSCode has a sophisticated method to access it's inner functionality known as th
 1. A list of available Python installations should appear. Look for and select the one that says `./venv/bin/python` (our virtual environment). You may find it at the bottom of the list.
 
 Once selected, the default Python interpreter for VSCode will be configured,
-as depicted in the bottom right of the status bar.
+as depicted in the bottom right of the status bar when you open a Python file,
+e.g. `inflammation-plot.py` from the File Explorer on the left.
 
-For future reference, you can also change the interpreter by selecting this label.
+For future reference, you can also change the interpreter by selecting this label,
+but you'll need a Python file open in the editor to see it.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
