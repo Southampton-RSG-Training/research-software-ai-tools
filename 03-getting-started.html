@@ -337,7 +337,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Getting Started with using Copilot within VSCode</h1>
-        <p>Last updated on 2026-11-23 |
+        <p>Last updated on 2026-11-24 |
 
         <a href="https://github.com/carpentries/workbench-template-md/edit/main/episodes/03-getting-started.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -390,11 +390,10 @@ installed by default for us, so let’s take a quick look at it now:</p>
 <ol style="list-style-type: decimal"><li>Firstly, select the extensions icon, then type in “Copilot” into the
 search box at the top, and it’ll give you a list of all Copilot-related
 extensions.</li>
-<li>Select the one which says <code>GitHub Copilot</code> from GitHub,
-which is the official Copilot extension. You may also see the
-<code>GitHub Copilot Chat</code> extension, which is deprecated and we
-don’t need to worry about. Note the <code>Built-in</code> text next to
-the extension title, meaning it’s already installed for use.</li>
+<li>Select the one which says <code>GitHub Copilot Chat</code> from
+GitHub, which is the official Copilot extension. Note the
+<code>Built-in</code> text next to the extension title, meaning it’s
+already installed for use.</li>
 <li>If you find it isn’t installed (perhaps because you’re using an
 older version of VSCode), select <code>Install</code>
 </li>
@@ -525,50 +524,52 @@ patient</li>
 <p>Let’s move over to using the VSCode chat pane on the right. You’ll
 notice at the bottom there’s a “Chat with Copilot” box, with a number of
 selectable dropdown options below it.</p>
-<p>You can hover over each one to discover what it is. Let’s look at the
+<figure><img src="fig/copilot-chat.png" alt="Screenshot of Copilot Chat pane" class="figure mx-auto d-block"><div class="figcaption">Screenshot of Copilot Chat pane</div>
+</figure><p>You can hover over each one to discover what it is. Let’s look at the
 bottom row of options first.</p>
 <p><code>Set Session Target</code> gives you options that differ in how
 requests will run, how they access workspace tools, and the level of
 autonomy they have:</p>
 <ul><li>
-<code>Local harness</code> - runs within VSCode Extension Host on
-local machine, closely integrates your active workspace with VSCode
-extensions and capabilities. Note that despite the <code>local</code>
-designation, the AI model still runs within the GitHub cloud
-environment.</li>
+<code>Copilot</code> - runs in an isolated Agent Host on your
+machine, or within the cloud. Built for longer running, coordination
+heavy work potentially across projects, and supports autonomous
+workflows that run in the background.</li>
 <li>
-<code>GitHub Copilot harness</code> - runs in an isolated Agent Host
-on your machine, or within the cloud. Built for longer running,
-coordination heavy work potentially across projects, and supports
-autonomous workflows that run in the background.</li>
-</ul><p>The next dropdown on the bottom row allows you to set permissions for
-what Copilot can do and can’t do, from <code>Default permissions</code>
+<code>Local</code> - runs within VSCode Extension Host on local
+machine, closely integrates your active workspace with VSCode extensions
+and capabilities. Note that despite the <code>local</code> designation,
+the AI model still runs within the GitHub cloud environment.</li>
+</ul><p>We’ll be using a <code>Local</code> harness for this course, so
+select this now.</p>
+<p>The next dropdown on the bottom row allows you to set permissions for
+what Copilot can do and can’t do from <code>Default permissions</code>
 (where it asks you by default) to <code>Autopilot</code> (where it goes
 ahead and runs everything without asking). Ensure
 <code>Default permissions</code> is set.</p>
 <p>Just above this is another row of options. From the left to the
 right:</p>
-<ul><li><p><code>+</code> / <code>Add Context</code> - choose files to add
-specific context for requests, to limit the scope of what you want the
-AI to look at</p></li>
-<li>
-<p><code>Set Agent</code> - an agent selection dropdown, which
-allows you to set the mode of operation with Copilot. With the
-<code>Local</code> harness, each of these modes provides an increasing
-degree of autonomy for Copilot to interact with your code:</p>
 <ul><li>
-<code>Ask</code> - designed for learning and orienting yourself with
-existing code without changing it, and asking general questions.</li>
+<code>+</code> / <code>Add Context</code> - choose files to add
+specific context for requests, to limit the scope of what you want the
+AI to look at</li>
 <li>
-<code>Plan</code> - lets you specify a high-level prompt to allow
-Copilot at a high level of autonomy to plan changes in steps, select
-files, and run tools or terminal commands, iterating on code edits until
-it is complete.</li>
+<code>Set Agent</code> - an agent selection dropdown, which allows
+you to set the mode of operation with Copilot.</li>
+</ul><p>With the <code>Local</code> harness, each of these modes provides an
+increasing degree of autonomy for Copilot to interact with your
+code:</p>
+<ul><li>
+<code>Ask</code> - ask questions about existing code (or anything
+else) without changing the code.</li>
 <li>
-<code>Agent</code> (at the top) - proposes concrete code changes for
-your approval based on your instructions. It’s useful when you already
-understand a codebase that you want to change.</li>
-</ul></li>
+<code>Plan</code> - helps you plan high-level changes in steps,
+refining a plan until you’re ready to implement it.</li>
+<li>
+<code>Agent</code> - ask for a change and it will pursue this
+automatically, asking for clarifications and approvals when needed. It’s
+useful when you already understand a codebase that you want to
+change.</li>
 </ul><p>Note that for the <code>Copilot</code> harness the <code>Plan</code>
 option doesn’t appear.</p>
 <ul><li>
@@ -593,24 +594,25 @@ dropdown, since we don’t want Copilot to make any changes.</li>
 Explorer. You’ll notice this appears as selectable “context” at the top
 of the chat box.</li>
 <li>Select the <code>+</code> button to add it to the chat context - it
-should change to an <code>X</code> symbol. Essentially, this is what
-we’re asking questions about.</li>
+should change to an <code>x</code> symbol. Essentially, this sets the
+scope for what we’re asking questions about.</li>
 <li>In the chat window ask the very high level question:
 <code>What does this code do?</code>, and press enter.</li>
 </ol><p>You’ll find the response looks something like the following:</p>
-<pre><code>The script finds every data/inflammation-*.csv file, sorts the filenames, and processes each one.
+<pre><code>The script creates and saves one statistics figure for every inflammation CSV file.
 
-For each file, it loads the CSV as a NumPy array and creates a figure with three plots. Each plot shows a statistic for every column (typically a time point), calculated across all rows (typically patients):
+- `glob.glob(...)` finds matching CSV files.
+- `filenames.sort()` processes them alphabetically.
+- `np.loadtxt(...)` loads each file into a NumPy array, with commas as separators.
+- `data.mean(axis=0)`, `data.max(axis=0)`, and `data.min(axis=0)` calculate average, maximum, and minimum values across patients for each time point.
+- It creates three side-by-side plots and adds labels.
+- `fig.savefig(filename + '.png')` saves each figure beside its CSV, such as `inflammation-01.csv.png`.
 
-- Average inflammation
-- Maximum inflammation
-- Minimum inflammation
-
-It saves the figure next to the CSV, with .png appended to the filename, such as inflammation-01.csv.png. It prints each filename as it processes it; it does not display the plots interactively.</code></pre>
-<p>Note that if you hover over the response, it mentions the model used.
-In this case, <code>GPT-6 Luna</code>. Given this is automatically
-selected based on a number of factors, you may find the model selected
-for your request was different.</p>
+Finally, `plt.show()` is not called, so it runs without opening plot windows.</code></pre>
+<p>Note that if you hover over the response, it mentions the model used,
+e.g. <code>GPT-6 Luna</code> or <code>MAI Code 2 Flash</code>. Given
+this is automatically selected based on a number of factors, you may
+find the model selected for your request was different.</p>
 <div id="why-arent-i-seeing-the-same-response" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -668,10 +670,13 @@ the File Explorer and select <code>+</code> in the chat window.</p>
 followed by the context item you want to add, such as a file, folder,
 tools, code elements (such as variables, functions or classes), tools,
 amongst others. Then press <code>Tab</code> to confirm. For example, we
-could type <code>#attachment:inflammation-plot.py</code> to ensure only
-responses relevant to that specific file will be generated. Helpfully,
-it autocompletes this if you start typing <code>inflammation</code>. In
-this way, we could add multiple files as context if we wanted.</p>
+could type <code>#inflammation-plot.py</code> to ensure only responses
+relevant to that specific file will be generated. Helpfully, it
+autocompletes this if you start typing <code>inflammation</code> (adding
+<code>#file:inflammation-plot.py</code>), and then you press enter to
+confirm.</p>
+<p>In either case, we could add multiple files as context if we
+wanted.</p>
 <p>Another thing to remember is how the context of each chat informs the
 flow of questions. Copilot chat uses the history of a chat thread to get
 context about your request. To ensure you only provide the context you
@@ -722,7 +727,7 @@ code:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>Describe the main packages used? e.g.</li>
 </ol><div class="codewrapper">
@@ -822,7 +827,7 @@ come to this in the next episode.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>For the question <code>How can I make this code more readable?</code>
 (your responses may differ!)</p>
@@ -917,39 +922,53 @@ repository doesn’t use</li>
 <h3 id="create-an-instructions-file">Create an Instructions File<a class="anchor" aria-label="anchor" href="#create-an-instructions-file"></a></h3>
 <p>In general, it’s a good idea to start with a minimal ruleset and
 build it from there. So let’s create a short instructions file now.</p>
-<p>In VSCode terminal (or open a new one via <code>Terminal</code> -&gt;
-<code>New Terminal</code>), let’s create a blank file then edit it in
-the editor:</p>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="fu">mkdir</span> .github</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a><span class="fu">touch</span> .github/copilot-instructions.md</span></code></pre>
+<ol style="list-style-type: decimal"><li>Hover over the <code>ai-tools-example</code> directory in the File
+Explorer, and select the <code>New Folder...</code> icon</li>
+<li>Enter <code>.github</code> in the text box that appears and press
+<code>Enter</code>
+</li>
+<li>Right click the new <code>.github</code> directory and select
+<code>New File...</code> in the menu that appears</li>
+<li>Enter <code>copilot-instructions.md</code> in the text box that
+appears and press <code>Enter</code>
+</li>
+</ol><div id="ive-entered-the-wrong-filefolder-name" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="ive-entered-the-wrong-filefolder-name" class="callout-inner">
+<h3 class="callout-title">I’ve Entered the Wrong File/Folder Name!</h3>
+<div class="callout-content">
+<p>You can correct a mistyped file or folder name by right clicking on
+it and selecting <code>Rename...</code> in the menu</p>
+</div>
+</div>
 </div>
 <p>Open the file in the editor by navigating to it in the File Explorer,
 then add the following content:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="fu">## General</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a><span class="ss">- </span>ALWAYS include comments on design decisions</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1" aria-label="code-block-8-4"></a><span class="ss">- </span>ALWAYS include a docstring for functions</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1" aria-label="code-block-8-5"></a><span class="ss">- </span>ALWAYS include type hints</span>
-<span id="cb8-6"><a href="#cb8-6" tabindex="-1" aria-label="code-block-8-6"></a><span class="ss">- </span>Write clear and concise comments when needed</span>
-<span id="cb8-7"><a href="#cb8-7" tabindex="-1" aria-label="code-block-8-7"></a><span class="ss">- </span>Ensure functions have descriptive names</span>
-<span id="cb8-8"><a href="#cb8-8" tabindex="-1" aria-label="code-block-8-8"></a><span class="ss">- </span>Break down complex functions into smaller, more manageable functions</span>
-<span id="cb8-9"><a href="#cb8-9" tabindex="-1" aria-label="code-block-8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10" tabindex="-1" aria-label="code-block-8-10"></a><span class="fu">## Code style and formatting</span></span>
-<span id="cb8-11"><a href="#cb8-11" tabindex="-1" aria-label="code-block-8-11"></a></span>
-<span id="cb8-12"><a href="#cb8-12" tabindex="-1" aria-label="code-block-8-12"></a><span class="ss">- </span>Follow PEP 8 style guide</span>
-<span id="cb8-13"><a href="#cb8-13" tabindex="-1" aria-label="code-block-8-13"></a><span class="ss">- </span>Maintain 4 spaces for each level of indentation</span>
-<span id="cb8-14"><a href="#cb8-14" tabindex="-1" aria-label="code-block-8-14"></a><span class="ss">- </span>Add function and class docstrings in the reStructuredText format</span>
-<span id="cb8-15"><a href="#cb8-15" tabindex="-1" aria-label="code-block-8-15"></a></span>
-<span id="cb8-16"><a href="#cb8-16" tabindex="-1" aria-label="code-block-8-16"></a><span class="fu">## Project structure</span></span>
-<span id="cb8-17"><a href="#cb8-17" tabindex="-1" aria-label="code-block-8-17"></a></span>
-<span id="cb8-18"><a href="#cb8-18" tabindex="-1" aria-label="code-block-8-18"></a><span class="ss">- </span><span class="in">`data/`</span> - contains inflammation CSV files</span>
-<span id="cb8-19"><a href="#cb8-19" tabindex="-1" aria-label="code-block-8-19"></a><span class="ss">- </span><span class="in">`inflammation-plot.py`</span> - the main code entrypoint</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="fu">## General</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a><span class="ss">- </span>ALWAYS include comments on design decisions</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1" aria-label="code-block-7-4"></a><span class="ss">- </span>ALWAYS include a docstring for functions</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1" aria-label="code-block-7-5"></a><span class="ss">- </span>ALWAYS include type hints</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1" aria-label="code-block-7-6"></a><span class="ss">- </span>Write clear and concise comments when needed</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1" aria-label="code-block-7-7"></a><span class="ss">- </span>Ensure functions have descriptive names</span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1" aria-label="code-block-7-8"></a><span class="ss">- </span>Break down complex functions into smaller, more manageable functions</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1" aria-label="code-block-7-9"></a></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1" aria-label="code-block-7-10"></a><span class="fu">## Code style and formatting</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1" aria-label="code-block-7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1" aria-label="code-block-7-12"></a><span class="ss">- </span>Follow PEP 8 style guide</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1" aria-label="code-block-7-13"></a><span class="ss">- </span>Maintain 4 spaces for each level of indentation</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1" aria-label="code-block-7-14"></a><span class="ss">- </span>Add function and class docstrings in the reStructuredText format</span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1" aria-label="code-block-7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1" aria-label="code-block-7-16"></a><span class="fu">## Project structure</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1" aria-label="code-block-7-17"></a></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1" aria-label="code-block-7-18"></a><span class="ss">- </span><span class="in">`data/`</span> - contains inflammation CSV files</span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1" aria-label="code-block-7-19"></a><span class="ss">- </span><span class="in">`inflammation-plot.py`</span> - the main code entrypoint</span></code></pre>
 </div>
 <p>Then save the file (<code>File</code> -&gt; <code>Save</code>).</p>
 <p>This is only a minimal example. You can find guidance on how to write
@@ -1000,44 +1019,6 @@ and these instructions may be pushed out of the context if the context
 gets too large. But in any case, we’re essentially documenting the
 coding standards for our project, which is established good software
 development practice.</p>
-</div>
-<div class="section level3">
-<h3 id="specifying-privacy-per-file-type">Specifying Privacy per File Type<a class="anchor" aria-label="anchor" href="#specifying-privacy-per-file-type"></a></h3>
-<p>In VS Code, GitHub Copilot gives developers some mechanisms to
-control the level of privacy. This should be considered important where
-our code uses sensitive or otherwise confidential data, or potentially
-valuable IP-related code, such as algorithms.</p>
-<p>At a high level, Copilot works by sending small, relevant snippets of
-your open code (plus surrounding context) to the Copilot service to
-generate suggestions. You don’t explicitly “upload a project”, but you
-do control which files Copilot is allowed to see and draw context
-from.</p>
-<p>The most practical control is scoping Copilot by file, folder, or
-workspace. In VS Code you can disable Copilot entirely, or selectively
-turn it off for particular file types (for example, configuration files,
-data files, or notebooks).</p>
-<p>For example, we edit our VSCode settings to ignore csv files by:</p>
-<ol style="list-style-type: decimal"><li><p>Using <code>Ctrl + Shift + P</code> or
-<code>Cmd/Windows Key + Shift + P</code> to open the Command
-Palette</p></li>
-<li><p>Entering and selecting
-<code>Preferences: Open User Settings (JSON)</code></p></li>
-<li>
-<p>In the <code>settings.json</code> file that appears, add the
-following and save the file:</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="at">   </span><span class="fu">"github.copilot.enable"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a><span class="at">      </span><span class="fu">"*"</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="kw">,</span></span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a><span class="at">      </span><span class="fu">"csv"</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a><span class="at">   </span><span class="kw">}</span></span></code></pre>
-</div>
-</li>
-</ol><p>This will have the effect of potentially including all file types in
-context by default, but not CSV files, although importantly, this also
-means it won’t benefit from examining these files. Note we could also
-set this per workspace instead if wanted.</p>
 
 <p>If you wanted a stricter “default deny” approach instead, you could
 specify <code>false</code> for <code>*</code> and enable each filetype
@@ -1068,7 +1049,7 @@ think are:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Possible benefits:</p>
 <ul><li>Accelerates coding by generating boilerplate, scaffolding, and
@@ -1236,7 +1217,7 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-md/03-getting-started.html",
   "identifier": "https://carpentries.github.io/workbench-template-md/03-getting-started.html",
   "dateCreated": "2026-01-13",
-  "dateModified": "2026-11-23",
+  "dateModified": "2026-11-24",
   "datePublished": "2026-11-24"
 }
 
