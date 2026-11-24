@@ -1544,10 +1544,29 @@ the prompt, e.g. on Windows Git Bash (although yours will differ):</p>
 <h3 class="callout-title">On macOS, I see a <code>%</code> in the Prompt
 Instead</h3>
 <div class="callout-content">
-<p>This means you’re running Z Shell (<code>zsh</code>) instead of Bash.
-To run Bash, select the dropdown icon, a downwards arrow next to
-<code>+</code>, and select <code>Bash</code> to run a Bash terminal
-instead.</p>
+<p>This means you’re running Z Shell (<code>zsh</code>) instead of Bash,
+and you’ll need to change the default terminal type to Bash.</p>
+<ol style="list-style-type: decimal">
+<li>Select <code>Code</code> from the VSCode menu, then
+<code>Preferences</code> and then <code>Settings</code>.</li>
+<li>Type <code>terminal.integrated.defaultProfile.osx</code> in the
+search bar.</li>
+<li>In the setting that appears, select <code>bash</code> from the
+dropdown.</li>
+<li>Open a new terminal by selecting <code>Terminal</code> from the
+VSCode menu, then <code>New Terminal</code>.</li>
+</ol>
+<p>If you are presented with a Bash terminal that looks something like
+the following, you’re ready:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">machine-name:~</span> username $ </span></code></pre>
+</div>
+<p>Alternatively, a quick way to run Bash is to select the dropdown
+icon, a downwards arrow next to <code>+</code>, and select
+<code>bash</code> to run a Bash terminal instead, although you’ll need
+to remember this each time you open a terminal.</p>
 </div>
 </div>
 </div>
@@ -1575,11 +1594,16 @@ VSCode menu, then <code>New Terminal</code>.</li>
 </ol>
 <p>If you are presented with a Git Bash terminal that looks something
 like the following, you’re ready:</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="ex">user@hostname</span> MINGW64 ~</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="ex">user@hostname</span> MINGW64 ~</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1" aria-label="code-block-4-2"></a><span class="ex">$</span> </span></code></pre>
 </div>
+<p>Alternatively, a quick way to run Git Bash is to select the dropdown
+icon, a downwards arrow next to <code>+</code>, and select
+<code>Git Bash</code> to run a Git Bash terminal, although you’ll need
+to remember this each time you open a terminal.</p>
 <p>If you can’t get this to work, you can use the Windows Terminal
 instead. See the
 <code>Windows Git Bash: use the Windows Terminal (Command Prompt) Instead</code>
@@ -1589,10 +1613,10 @@ callout below for instructions, then continue the lesson from here.</p>
 </div>
 <p>Next, run the following which should return the version of Python on
 our machine:</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="ex">python</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">python</span> <span class="at">--version</span></span></code></pre>
 </div>
 <div id="windows-git-bash-being-redirected-to-the-microsoft-store" class="callout">
 <div class="callout-square">
@@ -1666,11 +1690,11 @@ Git Bash to freeze. As users on <a href="https://stackoverflow.com/questions/325
 Overflow</a> point out, you can prevent this hang by wrapping the
 command with <code>winpty</code>. Run this in Git Bash to set it up
 permanently:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="bu">echo</span> <span class="st">"alias python='winpty python.exe'"</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1" aria-label="code-block-6-2"></a><span class="bu">source</span> ~/.bashrc</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="bu">echo</span> <span class="st">"alias python='winpty python.exe'"</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a><span class="bu">source</span> ~/.bashrc</span></code></pre>
 </div>
 <p>This adds an <code>alias</code> to the Bash start-up script (which
 runs whenever a Git Bash session is started), that ensures that
@@ -1748,10 +1772,10 @@ are similar tools for available for Ruby, Java and JavaScript.</li>
 <h3 id="setting-up-a-virtual-environment">Setting up a Virtual Environment<a class="anchor" aria-label="anchor" href="#setting-up-a-virtual-environment"></a>
 </h3>
 <p>Let’s now create a Python virtual environment and make use of it.</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span></code></pre>
 </div>
 <p>Here, we’re using the built-on Python <code>venv</code> module -
 short for virtual environment - to create a virtual environment
@@ -1761,12 +1785,12 @@ convention, as is creating it within the repository root directory. This
 makes sure the virtual environment is closely associated with this
 project, and not easily confused with another.</p>
 <p>Once created, we can <em>activate</em> it so it’s the one in use:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1" aria-label="code-block-8-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1" aria-label="code-block-8-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
 </div>
 <p>You should notice the prompt changes to reflect that the virtual
 environment is active, which is a handy reminder. For example:</p>
@@ -1778,10 +1802,10 @@ environment is active, which is a handy reminder. For example:</p>
 
 <p>Now it’s created, let’s take a look at what’s in this virtual
 environment at this point.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">python</span> <span class="at">-m</span> pip list</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="ex">python</span> <span class="at">-m</span> pip list</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1802,10 +1826,10 @@ access to any globally installed Python packages.</p>
 </h3>
 <p>Now we have our virtual environment, we can install NumPy and
 Matplotlib to it:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install numpy matplotlib</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install numpy matplotlib</span></code></pre>
 </div>
 <p>If we do <code>python -m pip list</code> now, we can see these
 packages, and their dependencies, installed within the virtual
@@ -1813,12 +1837,12 @@ environment we have activated.</p>
 <p>If we want to deactivate this environment, and return to the global
 Python package context, we can use <code>deactivate</code>. To
 reactivate it again, it’s the same as before:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1" aria-label="code-block-13-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="ex">[Linux]</span> source venv/bin/activate</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a><span class="ex">[Mac]</span> source venv/bin/activate</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a><span class="ex">[Windows]</span> source venv/Scripts/activate</span></code></pre>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="setting-up-python-extensions">Setting up Python extensions<a class="anchor" aria-label="anchor" href="#setting-up-python-extensions"></a>
@@ -1871,39 +1895,39 @@ earlier.</p>
 at our example code. Select the <code>inflammation-plot.py</code> file
 in the explorer window, which will bring up the contents of the file in
 the code editor.</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="im">import</span> glob</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a></span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1" aria-label="code-block-14-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1" aria-label="code-block-14-4"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb14-5"><a href="#cb14-5" tabindex="-1" aria-label="code-block-14-5"></a></span>
-<span id="cb14-6"><a href="#cb14-6" tabindex="-1" aria-label="code-block-14-6"></a>filenames <span class="op">=</span> glob.glob(<span class="st">'data/inflammation-*.csv'</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" tabindex="-1" aria-label="code-block-14-7"></a>filenames.sort()</span>
-<span id="cb14-8"><a href="#cb14-8" tabindex="-1" aria-label="code-block-14-8"></a></span>
-<span id="cb14-9"><a href="#cb14-9" tabindex="-1" aria-label="code-block-14-9"></a><span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
-<span id="cb14-10"><a href="#cb14-10" tabindex="-1" aria-label="code-block-14-10"></a>    <span class="bu">print</span>(filename)</span>
-<span id="cb14-11"><a href="#cb14-11" tabindex="-1" aria-label="code-block-14-11"></a></span>
-<span id="cb14-12"><a href="#cb14-12" tabindex="-1" aria-label="code-block-14-12"></a>    data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span>filename, delimiter<span class="op">=</span><span class="st">','</span>)</span>
-<span id="cb14-13"><a href="#cb14-13" tabindex="-1" aria-label="code-block-14-13"></a></span>
-<span id="cb14-14"><a href="#cb14-14" tabindex="-1" aria-label="code-block-14-14"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">3.0</span>))</span>
-<span id="cb14-15"><a href="#cb14-15" tabindex="-1" aria-label="code-block-14-15"></a></span>
-<span id="cb14-16"><a href="#cb14-16" tabindex="-1" aria-label="code-block-14-16"></a>    axes1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb14-17"><a href="#cb14-17" tabindex="-1" aria-label="code-block-14-17"></a>    axes2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
-<span id="cb14-18"><a href="#cb14-18" tabindex="-1" aria-label="code-block-14-18"></a>    axes3 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb14-19"><a href="#cb14-19" tabindex="-1" aria-label="code-block-14-19"></a></span>
-<span id="cb14-20"><a href="#cb14-20" tabindex="-1" aria-label="code-block-14-20"></a>    axes1.set_ylabel(<span class="st">'average'</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" tabindex="-1" aria-label="code-block-14-21"></a>    axes1.plot(data.mean(axis<span class="op">=</span><span class="dv">0</span>))</span>
-<span id="cb14-22"><a href="#cb14-22" tabindex="-1" aria-label="code-block-14-22"></a></span>
-<span id="cb14-23"><a href="#cb14-23" tabindex="-1" aria-label="code-block-14-23"></a>    axes2.set_ylabel(<span class="st">'max'</span>)</span>
-<span id="cb14-24"><a href="#cb14-24" tabindex="-1" aria-label="code-block-14-24"></a>    axes2.plot(data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
-<span id="cb14-25"><a href="#cb14-25" tabindex="-1" aria-label="code-block-14-25"></a></span>
-<span id="cb14-26"><a href="#cb14-26" tabindex="-1" aria-label="code-block-14-26"></a>    axes3.set_ylabel(<span class="st">'min'</span>)</span>
-<span id="cb14-27"><a href="#cb14-27" tabindex="-1" aria-label="code-block-14-27"></a>    axes3.plot(data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
-<span id="cb14-28"><a href="#cb14-28" tabindex="-1" aria-label="code-block-14-28"></a></span>
-<span id="cb14-29"><a href="#cb14-29" tabindex="-1" aria-label="code-block-14-29"></a>    fig.tight_layout()</span>
-<span id="cb14-30"><a href="#cb14-30" tabindex="-1" aria-label="code-block-14-30"></a>    fig.savefig(filename <span class="op">+</span> <span class="st">'.png'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="im">import</span> glob</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1" aria-label="code-block-15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1" aria-label="code-block-15-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1" aria-label="code-block-15-4"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1" aria-label="code-block-15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1" aria-label="code-block-15-6"></a>filenames <span class="op">=</span> glob.glob(<span class="st">'data/inflammation-*.csv'</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1" aria-label="code-block-15-7"></a>filenames.sort()</span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1" aria-label="code-block-15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1" aria-label="code-block-15-9"></a><span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1" aria-label="code-block-15-10"></a>    <span class="bu">print</span>(filename)</span>
+<span id="cb15-11"><a href="#cb15-11" tabindex="-1" aria-label="code-block-15-11"></a></span>
+<span id="cb15-12"><a href="#cb15-12" tabindex="-1" aria-label="code-block-15-12"></a>    data <span class="op">=</span> np.loadtxt(fname<span class="op">=</span>filename, delimiter<span class="op">=</span><span class="st">','</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" tabindex="-1" aria-label="code-block-15-13"></a></span>
+<span id="cb15-14"><a href="#cb15-14" tabindex="-1" aria-label="code-block-15-14"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="fl">10.0</span>, <span class="fl">3.0</span>))</span>
+<span id="cb15-15"><a href="#cb15-15" tabindex="-1" aria-label="code-block-15-15"></a></span>
+<span id="cb15-16"><a href="#cb15-16" tabindex="-1" aria-label="code-block-15-16"></a>    axes1 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" tabindex="-1" aria-label="code-block-15-17"></a>    axes2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" tabindex="-1" aria-label="code-block-15-18"></a>    axes3 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb15-19"><a href="#cb15-19" tabindex="-1" aria-label="code-block-15-19"></a></span>
+<span id="cb15-20"><a href="#cb15-20" tabindex="-1" aria-label="code-block-15-20"></a>    axes1.set_ylabel(<span class="st">'average'</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" tabindex="-1" aria-label="code-block-15-21"></a>    axes1.plot(data.mean(axis<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb15-22"><a href="#cb15-22" tabindex="-1" aria-label="code-block-15-22"></a></span>
+<span id="cb15-23"><a href="#cb15-23" tabindex="-1" aria-label="code-block-15-23"></a>    axes2.set_ylabel(<span class="st">'max'</span>)</span>
+<span id="cb15-24"><a href="#cb15-24" tabindex="-1" aria-label="code-block-15-24"></a>    axes2.plot(data.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb15-25"><a href="#cb15-25" tabindex="-1" aria-label="code-block-15-25"></a></span>
+<span id="cb15-26"><a href="#cb15-26" tabindex="-1" aria-label="code-block-15-26"></a>    axes3.set_ylabel(<span class="st">'min'</span>)</span>
+<span id="cb15-27"><a href="#cb15-27" tabindex="-1" aria-label="code-block-15-27"></a>    axes3.plot(data.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb15-28"><a href="#cb15-28" tabindex="-1" aria-label="code-block-15-28"></a></span>
+<span id="cb15-29"><a href="#cb15-29" tabindex="-1" aria-label="code-block-15-29"></a>    fig.tight_layout()</span>
+<span id="cb15-30"><a href="#cb15-30" tabindex="-1" aria-label="code-block-15-30"></a>    fig.savefig(filename <span class="op">+</span> <span class="st">'.png'</span>)</span></code></pre>
 </div>
 <p>We’ll be using this code example throughout the session. Note that as
 an example, the code is deliberately written to have flaws. Things like
@@ -3184,7 +3208,7 @@ section as you see fit, perhaps to fit your coding style.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>For example:</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -3241,7 +3265,7 @@ variables</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>For example:</li>
@@ -3273,7 +3297,7 @@ for the other calls to <code>plot</code>, e.g.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 
 </div>
@@ -3392,7 +3416,7 @@ sometimes more convenient if it’s a small request.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -3620,7 +3644,7 @@ changes as you see fit to improve this codebase.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>e.g. deciding to remove the loop and use of <code>zip</code> in the
 <code>create_statistics_plot()</code> function for simplicity, by
@@ -3687,7 +3711,7 @@ changes?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>Part 1:</p>
 <p>After installing Pandas into the virtual environment, e.g.</p>
@@ -3776,7 +3800,7 @@ changes?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <p>Part 2:</p>
 <p>If you don’t already know Pandas, there is a considerable risk with
@@ -3809,7 +3833,7 @@ message.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <p>Prompt:
 <code>Add a fourth axes plot for standard deviation</code></p>
@@ -3898,7 +3922,7 @@ our data?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
 <div class="accordion-body">
 <p>Some suggestions:</p>
 <ul>
@@ -4138,7 +4162,7 @@ skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 
 </div>
@@ -4237,7 +4261,7 @@ them? Tailor the code-review skills file to include this criteria.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 
 </div>
