@@ -252,7 +252,8 @@ Then select `Commit` again.
 Let's assume we want to rename the `axes` variables to have the prefix `subplot` instead,
 e.g. instead of `axes1`, we'd have `subplot1`.
 
-Using the `Local` harness, have Copilot agent mode rename all of these variables by selecting the appropriate code in the editor and entering the request in the chat window,
+Using the `Local` harness and selecting `Agent`,
+have Copilot agent mode rename all of these variables by selecting the appropriate code in the editor and entering the request in the chat window,
 then verify and accept the changes if you agree with them.
 Does the code still run correctly?
 
@@ -262,7 +263,7 @@ which is quicker and sometimes more convenient if it's a small request.
 
 :::::::::::::::::::::::::: solution
 
-1. Select the code from the first `axes1` definition to the last use of `subplot3`, e.g.
+1. Select the code from the first `axes1` definition to the last use of `axes3`, e.g.
 
    ```python
        axes1 = fig.add_subplot(1, 3, 1)
@@ -403,8 +404,9 @@ So in this instance, we can see that there are a whole swathe of changes:
 - The subplots are generated within a loop using `zip()` to provide corresponding pairs of array elements into the loop.
 If we didn't like this particular style, we might use Edit mode on this segment to simplify it
 
-Note that it differs substantially from the version shown from a similar question made in Ask mode earlier,
-and whilst it is more modular,
+Note that it differs substantially from the version shown from a similar question made in Ask mode earlier.
+This is partly because it is now following the instructions in `copilot-instructions.md`.
+Also note that whilst it is more modular,
 it's now 127 lines of code where before it was 32 lines - 
 we might consider this to be quite an over-engineered overkill.
 
@@ -436,9 +438,15 @@ perhaps adding more specifics for what we want.
 
 ::::::::::::::::::::::::::::::::::::::::: 
 
+::::::::::::::::::::::::::::::::::::::::: instructor
+
+## If time allows, either do the following three challenges, or do 'A "Clever" Refactor!' as an instructor demonstration
+
+::::::::::::::::::::::::::::::::::::::::: 
+
 :::::::::::::::::::::::::::::::::::::: challenge
 
-## A Larger Refactor!
+## (Optional) A Larger Refactor!
 
 10 mins.
 
@@ -483,7 +491,7 @@ Were you able to achieve something that you regard as well written code that you
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
-## A "Clever" Refactor!
+## (Optional) A "Clever" Refactor!
 
 10 mins.
 
@@ -497,7 +505,7 @@ ask Copilot to refactor your code to use Pandas instead of NumPy:
 
 Part 1:
 
-1. Install Pandas into your virtual environment, e.g. `python -m pip install pandas`
+1. Install Pandas into your virtual environment, e.g. enter `python -m pip install pandas` into your terminal
 1. Construct and enter a suitable prompt
 1. Review and accept the changes
 1. What do you need to do to be able to re-run the code?
@@ -610,7 +618,7 @@ and should be avoided.
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
-## Another Plot Please
+## (Optional) Another Plot Please
 
 5 mins.
 
