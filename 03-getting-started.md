@@ -33,7 +33,7 @@ The extension we need for GitHub Copilot is actually already installed by defaul
 so let's take a quick look at it now:
 
 1. Firstly, select the extensions icon, then type in "Copilot" into the search box at the top, and it'll give you a list of all Copilot-related extensions.
-1. Select the one which says `GitHub Copilot` from GitHub, which is the official Copilot extension. You may also see the `GitHub Copilot Chat` extension, which is deprecated and we don't need to worry about. Note the `Built-in` text next to the extension title, meaning it's already installed for use.
+1. Select the one which says `GitHub Copilot Chat` from GitHub, which is the official Copilot extension. Note the `Built-in` text next to the extension title, meaning it's already installed for use.
 1. If you find it isn't installed (perhaps because you're using an older version of VSCode), select `Install`
 
 So it's installed, but we need to associate it with our GitHub account by signing in.
@@ -148,15 +148,19 @@ Let's move over to using the VSCode chat pane on the right.
 You'll notice at the bottom there's a "Chat with Copilot" box,
 with a number of selectable dropdown options below it.
 
+![Screenshot of Copilot Chat pane](fig/copilot-chat.png)
+
 You can hover over each one to discover what it is.
 Let's look at the bottom row of options first.
 
 `Set Session Target` gives you options that differ in how requests will run, how they access workspace tools, and the level of autonomy they have:
 
-- `Local harness` - runs within VSCode Extension Host on local machine, closely integrates your active workspace with VSCode extensions and capabilities. Note that despite the `local` designation, the AI model still runs within the GitHub cloud environment.
-- `GitHub Copilot harness` - runs in an isolated Agent Host on your machine, or within the cloud. Built for longer running, coordination heavy work potentially across projects, and supports autonomous workflows that run in the background.
+- `Copilot` - runs in an isolated Agent Host on your machine, or within the cloud. Built for longer running, coordination heavy work potentially across projects, and supports autonomous workflows that run in the background.
+- `Local` - runs within VSCode Extension Host on local machine, closely integrates your active workspace with VSCode extensions and capabilities. Note that despite the `local` designation, the AI model still runs within the GitHub cloud environment.
 
-The next dropdown on the bottom row allows you to set permissions for what Copilot can do and can't do, from `Default permissions` (where it asks you by default) to `Autopilot` (where it goes ahead and runs everything without asking).
+We'll be using a `Local` harness for this course, so select this now.
+
+The next dropdown on the bottom row allows you to set permissions for what Copilot can do and can't do from `Default permissions` (where it asks you by default) to `Autopilot` (where it goes ahead and runs everything without asking).
 Ensure `Default permissions` is set.
 
 Just above this is another row of options.
@@ -164,11 +168,12 @@ From the left to the right:
 
 - `+` / `Add Context` - choose files to add specific context for requests, to limit the scope of what you want the AI to look at
 - `Set Agent` - an agent selection dropdown, which allows you to set the mode of operation with Copilot.
+
 With the `Local` harness, each of these modes provides an increasing degree of autonomy for Copilot to interact with your code:
 
-  - `Ask` - designed for learning and orienting yourself with existing code without changing it, and asking general questions.
-  - `Plan` - lets you specify a high-level prompt to allow Copilot at a high level of autonomy to plan changes in steps, select files, and run tools or terminal commands, iterating on code edits until it is complete.
-  - `Agent` (at the top) - proposes concrete code changes for your approval based on your instructions. It’s useful when you already understand a codebase that you want to change.
+  - `Ask` - ask questions about existing code (or anything else) without changing the code.
+  - `Plan` - helps you plan high-level changes in steps, refining a plan until you're ready to implement it.
+  - `Agent` - ask for a change and it will pursue this automatically, asking for clarifications and approvals when needed. It’s useful when you already understand a codebase that you want to change.
 
 Note that for the `Copilot` harness the `Plan` option doesn't appear.
 
@@ -185,25 +190,26 @@ Let's now use Copilot to help us understand this codebase.
 1. Select the `Ask` option in the `Set Agent` dropdown, since we don't want Copilot to make any changes.
 1. Select the `inflammation-plot.py` file in the File Explorer.
 You'll notice this appears as selectable "context" at the top of the chat box.
-1. Select the `+` button to add it to the chat context - it should change to an `X` symbol. Essentially, this is what we're asking questions about.
+1. Select the `+` button to add it to the chat context - it should change to an `x` symbol. Essentially, this sets the scope for what we're asking questions about.
 1. In the chat window ask the very high level question: `What does this code do?`, and press enter.
 
 You'll find the response looks something like the following:
 
 ```
-The script finds every data/inflammation-*.csv file, sorts the filenames, and processes each one.
+The script creates and saves one statistics figure for every inflammation CSV file.
 
-For each file, it loads the CSV as a NumPy array and creates a figure with three plots. Each plot shows a statistic for every column (typically a time point), calculated across all rows (typically patients):
+- `glob.glob(...)` finds matching CSV files.
+- `filenames.sort()` processes them alphabetically.
+- `np.loadtxt(...)` loads each file into a NumPy array, with commas as separators.
+- `data.mean(axis=0)`, `data.max(axis=0)`, and `data.min(axis=0)` calculate average, maximum, and minimum values across patients for each time point.
+- It creates three side-by-side plots and adds labels.
+- `fig.savefig(filename + '.png')` saves each figure beside its CSV, such as `inflammation-01.csv.png`.
 
-- Average inflammation
-- Maximum inflammation
-- Minimum inflammation
-
-It saves the figure next to the CSV, with .png appended to the filename, such as inflammation-01.csv.png. It prints each filename as it processes it; it does not display the plots interactively.
+Finally, `plt.show()` is not called, so it runs without opening plot windows.
 ```
 
-Note that if you hover over the response, it mentions the model used.
-In this case, `GPT-6 Luna`.
+Note that if you hover over the response, it mentions the model used,
+e.g. `GPT-6 Luna` or `MAI Code 2 Flash`.
 Given this is automatically selected based on a number of factors,
 you may find the model selected for your request was different.
 
@@ -248,9 +254,11 @@ As we've seen, we can do this if we select a file in the File Explorer and selec
 Another way add context to a chat prompt you can type `#` followed by the context item you want to add,
 such as a file, folder, tools, code elements (such as variables, functions or classes), tools, amongst others.
 Then press `Tab` to confirm.
-For example, we could type `#attachment:inflammation-plot.py` to ensure only responses relevant to that specific file will be generated.
-Helpfully, it autocompletes this if you start typing `inflammation`.
-In this way, we could add multiple files as context if we wanted.
+For example, we could type `#inflammation-plot.py` to ensure only responses relevant to that specific file will be generated.
+Helpfully, it autocompletes this if you start typing `inflammation` (adding `#file:inflammation-plot.py`),
+and then you press enter to confirm.
+
+In either case, we could add multiple files as context if we wanted.
 
 Another thing to remember is how the context of each chat informs the flow of questions.
 Copilot chat uses the history of a chat thread to get context about your request.
@@ -479,13 +487,19 @@ without instructions Copilot may suggest to:
 In general, it's a good idea to start with a minimal ruleset and build it from there.
 So let's create a short instructions file now.
 
-In VSCode terminal (or open a new one via `Terminal` -> `New Terminal`),
-let's create a blank file then edit it in the editor:
+1. Hover over the `ai-tools-example` directory in the File Explorer,
+   and select the `New Folder...` icon
+1. Enter `.github` in the text box that appears and press `Enter`
+1. Right click the new `.github` directory and select `New File...` in the menu that appears
+1. Enter `copilot-instructions.md` in the text box that appears and press `Enter`
 
-```bash
-mkdir .github
-touch .github/copilot-instructions.md
-```
+::::::::::::::::::::::::::::::::: callout
+
+## I've Entered the Wrong File/Folder Name!
+
+You can correct a mistyped file or folder name by right clicking on it and selecting `Rename...` in the menu
+
+:::::::::::::::::::::::::::::::::::::::::
 
 Open the file in the editor by navigating to it in the File Explorer,
 then add the following content:
@@ -560,36 +574,6 @@ although note that this is not guaranteed,
 since LLMs (particularly on the free tier) have a limited contextual memory and these instructions may be pushed out of the context if the context gets too large.
 But in any case, we're essentially documenting the coding standards for our project,
 which is established good software development practice.
-
-
-### Specifying Privacy per File Type
-
-In VS Code, GitHub Copilot gives developers some mechanisms to control the level of privacy.
-This should be considered important where our code uses sensitive or otherwise confidential data,
-or potentially valuable IP-related code, such as algorithms.
-
-At a high level, Copilot works by sending small, relevant snippets of your open code (plus surrounding context) to the Copilot service to generate suggestions.
-You don’t explicitly "upload a project", but you do control which files Copilot is allowed to see and draw context from.
-
-The most practical control is scoping Copilot by file, folder, or workspace.
-In VS Code you can disable Copilot entirely, or selectively turn it off for particular file types (for example, configuration files, data files, or notebooks).
-
-For example, we edit our VSCode settings to ignore csv files by:
-
-1. Using `Ctrl + Shift + P` or `Cmd/Windows Key + Shift + P` to open the Command Palette
-1. Entering and selecting `Preferences: Open User Settings (JSON)`
-1. In the `settings.json` file that appears, add the following and save the file:
-
-   ```yaml
-      "github.copilot.enable": {
-         "*": true,
-         "csv": false
-      }
-   ```
-
-This will have the effect of potentially including all file types in context by default,
-but not CSV files, although importantly, this also means it won't benefit from examining these files.
-Note we could also set this per workspace instead if wanted.
 
 ::::::::::::::::::::::::::::::::::::::::: instructor
 
