@@ -157,9 +157,6 @@ it suggests variants of that for the other calls to `plot`, e.g.
 
 :::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::: solution
-:::::::::::::::::::::::::::::::::::
-
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Agent Mode: Small Changes
@@ -167,7 +164,7 @@ it suggests variants of that for the other calls to `plot`, e.g.
 Agent mode differs from inline suggestions by offering the ability to enact changes step-by-step directly on your approval.
 Unlike inline suggestions which appear as you type, this mode allows you to request broader changes across multiple lines or functions,
 so it's ideal for repetive things like small-scale refactoring of code logic or renaming variables.
-It represents a middle ground in terms of autonomy — more direct than inline suggestions but less autonomous than Plan mode.
+It represents a middle ground in terms of autonomy - more direct than inline suggestions but less autonomous than Plan mode.
 
 To get started with using Copilot to make a small edit, you highlight the code you want to modify before requesting the change you want.
 
@@ -226,6 +223,25 @@ Also worth noting is that if we wanted to reference a repository issue number in
 we should remember to add that as well.
 
 Once we're happy with it, we can then select `Commit` to commit our changes to our local repository.
+
+::::::::::::::::::::::::::::::::: callout
+
+## Error: `Make sure you configure your user.name and user.email in git."
+
+If you see this error, you need to identify yourself to Git so it knows who is making the commit.
+
+Select cancel, then in a terminal enter the following:
+
+```bash
+git config user.name "Your Name"
+git config user.email "youraddress@email.com"
+```
+
+This will set your identity for this repository.
+
+Then select `Commit` again.
+
+:::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::: challenge
 
