@@ -677,7 +677,6 @@ the date of which is also displayed.
 - To write a good chat response, be specific and add as much context as possible.
 - Add context to a prompt by including `#` followed by the context, e.g. `#inflammation-plot.py` or `#codebase'`.
 - Personalise Copilot's context by creating an `.github/.copilot-instructions.md` file.
-- Explicitly deny (or allow) Copilot to use specific file types by editing or adding `github.copilot.enable` in `settings.json`.
 - Due to the way LLMs work, there is no "rationale" behind Copilot's responses.
 - Check Copilot's usage for inline suggestions and chat messages within your current tier by selecting it's icon in the status bar.
 
